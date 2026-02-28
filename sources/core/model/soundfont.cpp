@@ -141,7 +141,7 @@ int Soundfont::addSample()
 
 Smpl * Soundfont::getSample(int index)
 {
-    if (index < _smpl.indexCount())
+    if (index >= 0 && index < _smpl.indexCount())
         return _smpl.atIndex(index);
     return nullptr;
 }
@@ -183,7 +183,7 @@ int Soundfont::addInstrument()
 
 InstPrst * Soundfont::getInstrument(int index)
 {
-    if (index < _inst.indexCount())
+    if (index >= 0 && index < _inst.indexCount())
         return _inst.atIndex(index);
     return nullptr;
 }
@@ -231,7 +231,7 @@ int Soundfont::addPreset()
 
 InstPrst * Soundfont::getPreset(int index)
 {
-    if (index < _prst.indexCount())
+    if (index >= 0 && index < _prst.indexCount())
         return _prst.atIndex(index);
     return nullptr;
 }
