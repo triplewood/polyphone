@@ -91,7 +91,11 @@ void Options::processType1(QString arg)
     switch (arg[1].toLatin1())
     {
     case '0':
+#ifdef POLYPHONE_NO_GUI
+        _error = true;
+#else
         _mode = MODE_GUI;
+#endif
         break;
     case '1':
         _mode = MODE_CONVERSION_TO_SF2;
@@ -121,7 +125,11 @@ void Options::processType1(QString arg)
         _mode = MODE_RESET_CONFIG;
         break;
     case 's':
+#ifdef POLYPHONE_NO_GUI
+        _error = true;
+#else
         _mode = MODE_SYNTHESIZER;
+#endif
         break;
     default:
         _error = true;

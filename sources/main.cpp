@@ -23,10 +23,14 @@
 ***************************************************************************/
 
 #include <QFileInfo>
-#include <QStyleFactory>
 #include <QItemSelection>
 #include <QDir>
 #include <QScreen>
+#include <QCoreApplication>
+#ifndef POLYPHONE_NO_GUI
+#include <QApplication>
+#include <QStyleFactory>
+#endif
 #include "soundfontmanager.h"
 #include "inputfactory.h"
 #include "abstractinputparser.h"
@@ -34,8 +38,10 @@
 #include "abstractoutput.h"
 #include "options.h"
 #include "contextmanager.h"
+#ifndef POLYPHONE_NO_GUI
 #include "qtsingleapplication.h"
 #include "mainwindow.h"
+#endif
 #include "translationmanager.h"
 #include "modulatordata.h"
 #include "fastmaths.h"
@@ -53,6 +59,7 @@ void writeLine(QString line)
     out << line << Qt::endl;
 }
 
+#ifndef POLYPHONE_NO_GUI
 int launchApplication(QtSingleApplication * app, Options &options)
 {
     // Prepare arrays
@@ -92,6 +99,7 @@ int launchApplication(QtSingleApplication * app, Options &options)
 
     return app->exec();
 }
+#endif
 
 /// Error codes
 /// 1: input file does not exist, or output file already exists
@@ -187,10 +195,50 @@ int resetConfig(Options &options)
 int displayHelp(Options &options)
 {
     Q_UNUSED(options)
-#ifdef _WIN32
-    writeLine("See 'https://www.polyphone.io/documentation/manual/annexes/command-line' for more information");
-#else
-    writeLine("Write 'man polyphone' to show usage");
+    QString exe = QFileInfo(QCoreApplication::arguments().value(0)).fileName();
+    if (exe.isEmpty())
+        exe = "polyphone";
+
+    writeLine("Polyphone command line usage:");
+    writeLine("  " + exe + " [FILE1] [FILE2] ...");
+#ifndef POLYPHONE_NO_GUI
+    writeLine("  " + exe + " -0 [-i INPUT_FILE]");
+#endif
+    writeLine("  " + exe + " -1 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME]");
+    writeLine("  " + exe + " -2 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME] [-c QUALITY]");
+    writeLine("  " + exe + " -3 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME] [-c SFZ_OPTIONS]");
+#ifndef POLYPHONE_NO_GUI
+    writeLine("  " + exe + " -s -i INPUT_FILE [-c SYNTH_OPTIONS]");
+#endif
+    writeLine("  " + exe + " -r");
+    writeLine("  " + exe + " -h");
+    writeLine("");
+    writeLine("Options:");
+    writeLine("  -i INPUT_FILE      Input file (sf2, sf3, sfz, sfArk, organ)");
+    writeLine("  -d OUTPUT_DIR      Output directory (default: input file directory)");
+    writeLine("  -o OUTPUT_NAME     Output base name (default: input file base name)");
+    writeLine("  -c CONFIG          Extra mode-specific config:");
+    writeLine("                     sf3 quality: 0 (low), 1 (medium), 2 (high)");
+    writeLine("                     sfz options: presetPrefix|oneDirPerBank|gmSort (e.g. 0|1|1)");
+#ifndef POLYPHONE_NO_GUI
+    writeLine("                     synth options: midiChannel|multiPreset|toggleByLowKeys");
+#endif
+    writeLine("  -1                 Convert input to .sf2");
+    writeLine("  -2                 Convert input to .sf3");
+    writeLine("  -3                 Convert input to .sfz");
+#ifndef POLYPHONE_NO_GUI
+    writeLine("  -0                 Open GUI mode");
+    writeLine("  -s                 Open synthesizer mode");
+#endif
+    writeLine("  -r                 Reset Polyphone configuration");
+    writeLine("  -h                 Show this help");
+    writeLine("");
+    writeLine("Examples:");
+    writeLine("  " + exe + " -1 -i file.sfArk");
+    writeLine("  " + exe + " -2 -i file.sf2 -c 2");
+    writeLine("  " + exe + " -3 -i file.sf3 -c 0|1|1");
+#ifndef POLYPHONE_NO_GUI
+    writeLine("  " + exe + " -s -i file.sf2 -c all|off|toggle");
 #endif
     return 0;
 }
@@ -264,27 +312,38 @@ int main(int argc, char *argv[])
     //return testSynth();
 
 #ifdef Q_OS_LINUX
+#ifndef POLYPHONE_NO_GUI
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
+#endif
 #endif
 
 #if QT_VERSION < 0x060000
+#ifndef POLYPHONE_NO_GUI
     // Dpi scaling
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     qputenv("QT_ENABLE_HIGHDPI_SCALING", "1");
 #endif
+#endif
+#ifndef POLYPHONE_NO_GUI
     QtSingleApplication app("polyphone", argc, argv);
-    QApplication::setApplicationName("Polyphone");
-    QApplication::setOrganizationName("polyphone");
+#else
+    QCoreApplication app(argc, argv);
+#endif
+    QCoreApplication::setApplicationName("Polyphone");
+    QCoreApplication::setOrganizationName("polyphone");
+#ifndef POLYPHONE_NO_GUI
 #ifdef _WIN32
     QFont f = app.font(); // Global font size so that it scales
     f.setPointSize(9);
     app.setFont(f);
+#endif
 #endif
 
     Options options(argc, argv);
     int valRet = 0;
 
     // Possibly launch the application
+#ifndef POLYPHONE_NO_GUI
     if (!options.error() && !options.help() && (options.mode() == Options::MODE_GUI || options.mode() == Options::MODE_SYNTHESIZER))
     {
         QSettings settings;
@@ -297,6 +356,7 @@ int main(int argc, char *argv[])
         // Or launch the application as a unique instance
         return launchApplication(&app, options);
     }
+#endif
 
     // Otherwise, console mode
 #ifdef _WIN32

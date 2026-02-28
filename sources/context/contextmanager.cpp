@@ -57,9 +57,13 @@ RecentFileManager * ContextManager::recentFile()
 
 ThemeManager * ContextManager::theme()
 {
+#ifdef POLYPHONE_NO_GUI
+    return nullptr;
+#else
     if (s_instance == nullptr)
         s_instance = new ContextManager();
     return s_instance->_theme;
+#endif
 }
 
 TranslationManager * ContextManager::translation()
@@ -103,8 +107,10 @@ ContextManager::ContextManager(bool withAudioAndMidi) :
     // 1. Access to the configuration
     _configuration = new ConfManager();
 
+#ifndef POLYPHONE_NO_GUI
     // 2. Themes
     _theme = new ThemeManager(_configuration);
+#endif
 
     // 3. Recent files
     _recentFile = new RecentFileManager(_configuration);
@@ -139,7 +145,9 @@ ContextManager::~ContextManager()
     delete _translation;
     delete _keyName;
     delete _recentFile;
+#ifndef POLYPHONE_NO_GUI
     delete _theme;
+#endif
     delete _configuration;
 }
 
