@@ -24,6 +24,7 @@
 
 #include "sfzparameter.h"
 #include "contextmanager.h"
+#include <QDir>
 
 QString SfzParameter::DEFAULT_PATH = "";
 
@@ -37,10 +38,8 @@ SfzParameter::SfzParameter(QString opcode, QString valeur) :
     if (opcode == "sample")
     {
         _opcode = op_sample;
-        _strValue = valeur.replace("\\", "/");
-        if (!_strValue.isEmpty() && _strValue[0] == '/')
-            _strValue = _strValue.right(_strValue.size() - 1);
-        if (!DEFAULT_PATH.isEmpty())
+        _strValue = valeur.trimmed().replace("\"", "").replace("'", "").replace("\\", "/");
+        if (!DEFAULT_PATH.isEmpty() && !QDir::isAbsolutePath(_strValue))
             _strValue = DEFAULT_PATH + "/" + _strValue;
     }
     else if (opcode == "key")

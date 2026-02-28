@@ -24,6 +24,18 @@
 
 #include "sfzparameterregion.h"
 #include "soundfontmanager.h"
+#include <QDir>
+
+namespace
+{
+QString resolveSamplePath(const QString &pathSfz, const QString &samplePath)
+{
+    QString cleanPath = samplePath.trimmed().replace("\"", "").replace("'", "");
+    if (QDir::isAbsolutePath(cleanPath))
+        return QDir::cleanPath(cleanPath);
+    return QDir::cleanPath(pathSfz + "/" + cleanPath);
+}
+}
 
 QList<int> SfzParameterRegion::getSampleIndex(SoundfontManager *sf2, EltID idElt, QString pathSfz) const
 {
@@ -38,11 +50,11 @@ QList<int> SfzParameterRegion::getSampleIndex(SoundfontManager *sf2, EltID idElt
         return sampleIndex;
 
     // Build the file path
-    QString filePath =  _listeParam.at(indexOpSample).getStringValue();
-    QString fileName = pathSfz + "/" + filePath;
+    QString filePath = _listeParam.at(indexOpSample).getStringValue();
+    QString fileName = resolveSamplePath(pathSfz, filePath);
     if (!QFile(fileName).exists())
     {
-        QStringList list = getFullPath(pathSfz, filePath.split("/", Qt::SkipEmptyParts));
+        QStringList list = getFullPath(pathSfz, filePath.replace("\\", "/").split("/", Qt::SkipEmptyParts));
         if (!list.isEmpty())
             fileName = list.first();
         else
@@ -183,7 +195,7 @@ void SfzParameterRegion::adjustCorrection(QString path, int defaultCorrection)
     if (!sample.isEmpty())
     {
         Sound son;
-        son.setFileName(path + "/" + sample);
+        son.setFileName(resolveSamplePath(path, sample));
         int correctionSample = son.getInt32(champ_chPitchCorrection);
         if (correctionSample != 0)
             adjustCorrection(correctionSample, defaultCorrection);
@@ -196,7 +208,7 @@ bool SfzParameterRegion::sampleValid(QString path)
     if (this->isDefined(SfzParameter::op_sample))
     {
         QString sample = getStrValue(SfzParameter::op_sample);
-        bRet = QFile(path + "/" + sample).exists();
+        bRet = QFile(resolveSamplePath(path, sample)).exists();
     }
     return bRet;
 }

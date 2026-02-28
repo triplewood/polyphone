@@ -24,6 +24,7 @@
 
 #include "inputparsersfz.h"
 #include "soundfontmanager.h"
+#include <QDir>
 #include <QRegularExpression>
 
 InputParserSfz::InputParserSfz() : AbstractInputParser() {}
@@ -207,9 +208,7 @@ QString InputParserSfz::getFilePathFromInclude(QString str)
 
     // Make an absolute path
     str = str.replace("\\", "/");
-    if (str[0] == '/')
-        str = _rootDir + str;
-    else
+    if (!QDir::isAbsolutePath(str))
         str = _rootDir + "/" + str;
 
     return str;
