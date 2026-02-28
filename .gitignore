@@ -11,3 +11,14 @@
 /sources/build
 .DS_Store
 sources/.qtcreator/polyphone.pro.user
+
+# Qt/qmake build artifacts in sources/
+/sources/*.o
+/sources/moc_*.cpp
+/sources/moc_*.o
+/sources/ui_*.h
+/sources/qrc_*.cpp
+/sources/qrc_*.o
+/sources/.qm/
+/sources/moc_predefs.h
+/sources/qmake_qmake_qm_files.qrc
