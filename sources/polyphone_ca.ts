@@ -839,157 +839,197 @@
 <context>
     <name>ConfigSectionInterface</name>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="25"/>
+        <location filename="context/interface/configsectioninterface.ui" line="556"/>
         <source>This modification will be applied during the next start of the software.</source>
         <translation>Aquesta modificació s&apos;aplicarà en el següent inici del programari.</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="35"/>
+        <location filename="context/interface/configsectioninterface.ui" line="134"/>
         <source>Decorations</source>
         <translation>Decorats</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="42"/>
+        <location filename="context/interface/configsectioninterface.ui" line="106"/>
         <source>Unique instance</source>
         <translation>Instància única</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="49"/>
+        <location filename="context/interface/configsectioninterface.ui" line="120"/>
         <source>Sort divisions</source>
         <translation>Ordre de les divisions</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="83"/>
-        <location filename="context/interface/configsectioninterface.ui" line="445"/>
+        <location filename="context/interface/configsectioninterface.ui" line="203"/>
+        <location filename="context/interface/configsectioninterface.ui" line="592"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="156"/>
+        <location filename="context/interface/configsectioninterface.ui" line="276"/>
         <source>Window</source>
         <translation>Finestra</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="255"/>
+        <location filename="context/interface/configsectioninterface.ui" line="375"/>
         <source>Button</source>
         <translation>Botó</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="273"/>
+        <location filename="context/interface/configsectioninterface.ui" line="393"/>
         <source>Background</source>
         <translation>Fons</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="316"/>
+        <location filename="context/interface/configsectioninterface.ui" line="436"/>
         <source>Selection</source>
         <translation>Selecció</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="389"/>
+        <location filename="context/interface/configsectioninterface.ui" line="509"/>
         <source>List and table</source>
         <translation>Llista i taula</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="457"/>
+        <location filename="context/interface/configsectioninterface.ui" line="45"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="464"/>
+        <location filename="context/interface/configsectioninterface.ui" line="580"/>
         <source>Colors</source>
         <translation>Colors</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="476"/>
+        <location filename="context/interface/configsectioninterface.ui" line="83"/>
         <source>Behaviour</source>
         <translation>Comportament</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="490"/>
+        <location filename="context/interface/configsectioninterface.ui" line="20"/>
         <source>Style</source>
         <translation>Estil</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="503"/>
+        <location filename="context/interface/configsectioninterface.ui" line="33"/>
         <source>Key names</source>
         <translation>Nom de les notes</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="510"/>
+        <location filename="context/interface/configsectioninterface.ui" line="113"/>
         <source>Language</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="540"/>
+        <location filename="context/interface/configsectioninterface.ui" line="148"/>
         <source>Middle C → 60, then 61</source>
         <translation>Do central → 60, després 61</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="545"/>
+        <location filename="context/interface/configsectioninterface.ui" line="153"/>
         <source>Middle C → C3, then C♯3</source>
         <translation>Do central → Do3, després Do♯3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="550"/>
+        <location filename="context/interface/configsectioninterface.ui" line="158"/>
         <source>Middle C → C3, then D♭3</source>
         <translation>Do central → Do3, després Re♭3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="555"/>
+        <location filename="context/interface/configsectioninterface.ui" line="163"/>
         <source>Middle C → C4, then C♯4</source>
         <translation>Do central → Do4, després Do♯4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="560"/>
+        <location filename="context/interface/configsectioninterface.ui" line="168"/>
         <source>Middle C → C4, then D♭4</source>
         <translation>Do central → Do4, després Re♭4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="565"/>
+        <location filename="context/interface/configsectioninterface.ui" line="173"/>
         <source>Middle C → C5, then C♯5</source>
         <translation>Do central → Do5, després Do♯5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="570"/>
+        <location filename="context/interface/configsectioninterface.ui" line="178"/>
         <source>Middle C → C5, then D♭5</source>
         <translation>Do central → Do5, després Re♭5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="585"/>
+        <location filename="context/interface/configsectioninterface.ui" line="566"/>
+        <source>Startup view</source>
+        <translation>Vista d&apos;inici</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="613"/>
         <source>by key range</source>
         <translation>per rang de notes</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="590"/>
+        <location filename="context/interface/configsectioninterface.ui" line="618"/>
         <source>by velocity range</source>
         <translation>per rang de velocitat</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="595"/>
+        <location filename="context/interface/configsectioninterface.ui" line="623"/>
         <source>in alphabetical order</source>
         <translation>en ordre alfabètic</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="600"/>
+        <location filename="context/interface/configsectioninterface.ui" line="628"/>
         <source>none</source>
         <comment>speaking of the &quot;sort divisions&quot;</comment>
         <translation>cap</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="615"/>
+        <location filename="context/interface/configsectioninterface.ui" line="637"/>
+        <source>general information</source>
+        <translation>informació general</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="642"/>
+        <source>sample list</source>
+        <translation>llista de mostres</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="647"/>
+        <source>first sample</source>
+        <translation>primera mostra</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="652"/>
+        <source>instrument list</source>
+        <translation>llista d&apos;instruments</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="657"/>
+        <source>first instrument</source>
+        <translation>primer instrument</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="662"/>
+        <source>preset list</source>
+        <translation>llista de presets</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="667"/>
+        <source>first preset</source>
+        <translation>primer preset</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="71"/>
         <source>Window borders</source>
         <translation>Vores de la finestra</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.cpp" line="201"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="213"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="225"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="237"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="249"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="261"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="273"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="285"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="297"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="206"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="218"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="230"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="242"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="254"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="266"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="278"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="290"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="302"/>
         <source>Select a color</source>
         <translation>Seleccioneu un color</translation>
     </message>
@@ -1284,8 +1324,8 @@ en línia</translation>
     <name>ConversionSfz</name>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="56"/>
-        <source>Cannot create directory &quot;%1&quot;</source>
-        <translation>No es pot crear el directory &quot;%1&quot;</translation>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>no es pot crear el directory &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="241"/>
@@ -2893,34 +2933,42 @@ modulador per defecte.</translation>
     </message>
 </context>
 <context>
+    <name>OutputCsv</name>
+    <message>
+        <location filename="core/output/csv/outputcsv.cpp" line="52"/>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>no es pot crear el directory &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
     <name>OutputNotSupported</name>
     <message>
         <location filename="core/output/not_supported/outputnotsupported.cpp" line="39"/>
-        <source>This file format is not supported.</source>
-        <translation>Aquest format de fitxer no està permès.</translation>
+        <source>this file format is not supported</source>
+        <translation>aquest format de fitxer no està permès</translation>
     </message>
 </context>
 <context>
     <name>OutputSf</name>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="62"/>
-        <source>Please close file before overriding it.</source>
-        <translation>Si us plau, tanqueu el fitxer abans de sobreescriure&apos;l.</translation>
+        <source>please close the file before overriding it</source>
+        <translation>si us plau, tanqueu el fitxer abans de sobreescriure&apos;l</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="91"/>
-        <source>Couldn&apos;t delete file &quot;%1&quot;.</source>
-        <translation>No s&apos;ha pogut eliminar el fitxer &quot;%1&quot;.</translation>
+        <source>cannot delete file &quot;%1&quot;</source>
+        <translation>no s&apos;ha pogut eliminar el fitxer &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="101"/>
-        <source>Couldn&apos;t rename file &quot;%1&quot;.</source>
-        <translation>No s&apos;ha pogut canviar el nom al fitxer &quot;%1&quot;.</translation>
+        <source>cannot rename file &quot;%1&quot;</source>
+        <translation>no s&apos;ha pogut canviar el nom al fitxer &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="148"/>
-        <source>Cannot create file &quot;%1&quot;</source>
-        <translation>No es pot crear el fitxer &quot;%1&quot;</translation>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>no es pot crear el fitxer &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -3835,7 +3883,7 @@ Ambdues divisions han de compartir la mateixa nota i rang de velocitat.</transla
         <location filename="core/input/grandorgue/grandorguerank.cpp" line="142"/>
         <location filename="core/input/grandorgue/grandorguestop.cpp" line="141"/>
         <location filename="core/input/grandorgue/grandorgueswitch.cpp" line="73"/>
-        <location filename="core/output/outputfactory.cpp" line="102"/>
+        <location filename="core/output/outputfactory.cpp" line="108"/>
         <source>untitled</source>
         <translation>sense títol</translation>
     </message>
@@ -3850,7 +3898,7 @@ Ambdues divisions han de compartir la mateixa nota i rang de velocitat.</transla
         <translation>Tot</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf2 files</source>
         <translation>Fitxers sf2</translation>
     </message>
@@ -3885,17 +3933,17 @@ Ambdues divisions han de compartir la mateixa nota i rang de velocitat.</transla
         <translation>Presets</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="118"/>
+        <location filename="core/output/outputfactory.cpp" line="124"/>
         <source>Save a soundfont</source>
         <translation>Desa el soundfont</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf3 files</source>
         <translation>Fitxers sf3</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="146"/>
+        <location filename="core/output/outputfactory.cpp" line="152"/>
         <location filename="core/sample/sampleloader.cpp" line="60"/>
         <source>Warning</source>
         <translation>Atenció</translation>
@@ -4046,6 +4094,83 @@ Ambdues divisions han de compartir la mateixa nota i rang de velocitat.</transla
         <location filename="context/tuningprogrammanager.cpp" line="121"/>
         <source>Tuning program %1:%2</source>
         <translation>Programa d&apos;afinació %1:%2</translation>
+    </message>
+    <message>
+        <location filename="core/output/csv/abstractcsvfile.cpp" line="57"/>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>no es pot crear el fitxer &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="107"/>
+        <source>The file &quot;%1&quot; does not exist.</source>
+        <translation>El fitxer &quot;%1&quot; no existeix.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="115"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>El directori &quot;%1&quot; no existeix.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="120"/>
+        <source>The file &quot;%1&quot; already exists.</source>
+        <translation>El fitxer &quot;%1&quot; ja existeix.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="125"/>
+        <source>Loading file &quot;%1&quot;...</source>
+        <translation>S&apos;està carregant el fitxer &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="130"/>
+        <source>Couldn&apos;t load file &quot;%1&quot;: %2.</source>
+        <translation>No s&apos;ha pogut carregar el fitxer &quot;%1&quot;: %2.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="136"/>
+        <source>File successfully loaded!</source>
+        <translation>Fitxer carregat correctament!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="143"/>
+        <location filename="main.cpp" line="147"/>
+        <source>Writing file &quot;%1&quot;...</source>
+        <translation>S&apos;està escrivint el fitxer &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="153"/>
+        <location filename="main.cpp" line="157"/>
+        <source>Writing files in directory &quot;%1&quot;...</source>
+        <translation>S&apos;estan escrivint fitxers al directori &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="160"/>
+        <source>Unknown mode &quot;%1&quot;.</source>
+        <translation>Mode desconegut &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="168"/>
+        <source>An error occurred: %1.</source>
+        <translation>S&apos;ha produït un error: %1.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="173"/>
+        <source>File successfully converted!</source>
+        <translation>Fitxer convertit correctament!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="186"/>
+        <source>Previous configuration is now cleared.</source>
+        <translation>La configuració prèvia s&apos;ha esborrat.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="195"/>
+        <source>See &quot;%1&quot; for more information.</source>
+        <translation>Consulteu &quot;%1&quot; per a més informació.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="197"/>
+        <source>Write &quot;%1&quot; to show usage.</source>
+        <translation>Escriviu &quot;%1&quot; per mostrar l&apos;ús.</translation>
     </message>
 </context>
 <context>
@@ -6566,12 +6691,12 @@ Altres editors de soundfont poden mostrar altres unitats.</translation>
 <context>
     <name>ToolSoundfontExport</name>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="151"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="154"/>
         <source>Merge soudfonts:</source>
         <translation>Fusiona els soundfonts:</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="246"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="250"/>
         <source>Export successful!</source>
         <translation>L&apos;exportació ha finalitzat amb èxit!</translation>
     </message>
@@ -6599,62 +6724,67 @@ Altres editors de soundfont poden mostrar altres unitats.</translation>
         <translation>Desselecciona tot</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="99"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="97"/>
         <source>Destination</source>
         <translation>Destí</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="152"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="135"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="113"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Classificació General MIDI</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="106"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="142"/>
         <source>one directory per bank</source>
         <translation>un directori per cada banc</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="120"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="104"/>
         <source>preset number as prefix</source>
         <translation>número de preset com a prefix</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="134"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="153"/>
         <source>High</source>
         <translation>Alt</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="139"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="158"/>
         <source>Medium</source>
         <translation>Mitjà</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="144"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="163"/>
         <source>Low</source>
         <translation>Baix</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="159"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="171"/>
         <source>one file per preset</source>
         <translation>un fitxer per cada preset</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="61"/>
         <source>Quality</source>
         <translation>Qualitat</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="177"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="178"/>
+        <source>raw values</source>
+        <translation>valors en brut</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
         <translation>&amp;Exporta</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Cancel·la</translation>
     </message>
@@ -6664,35 +6794,35 @@ Altres editors de soundfont poden mostrar altres unitats.</translation>
         <translation>Sense títol</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="150"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="152"/>
         <source>Select the destination directory</source>
         <translation>Seleccioneu el directori de destí</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>Warning</source>
         <translation>Atenció</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>El directori no és vàlid.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
         <source>At least one preset must be selected.</source>
         <translation>Almenys heu de seleccionar un preset.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
         <source>The maximal number of soundfont to export is 127.</source>
         <translation>El nombre màxim de soundfonts per exportar és de 127.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>In the case where several soundfonts are exported, the maximal number of presets per soundfonts is 127.</source>
         <translation>En cas d&apos;exportar diversos soundfonts, el nombre màxim de presets per soundfont és de 127.</translation>
     </message>

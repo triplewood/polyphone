@@ -842,157 +842,197 @@
 <context>
     <name>ConfigSectionInterface</name>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="503"/>
+        <location filename="context/interface/configsectioninterface.ui" line="33"/>
         <source>Key names</source>
         <translation>Названия клавиш</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="510"/>
+        <location filename="context/interface/configsectioninterface.ui" line="113"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="585"/>
+        <location filename="context/interface/configsectioninterface.ui" line="566"/>
+        <source>Startup view</source>
+        <translation>Вид при запуске</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="613"/>
         <source>by key range</source>
         <translation>по диапазону клавиш</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="590"/>
+        <location filename="context/interface/configsectioninterface.ui" line="618"/>
         <source>by velocity range</source>
         <translation>по диапазону силы нажатия</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="595"/>
+        <location filename="context/interface/configsectioninterface.ui" line="623"/>
         <source>in alphabetical order</source>
         <translation>в алфавитном порядке</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="600"/>
+        <location filename="context/interface/configsectioninterface.ui" line="628"/>
         <source>none</source>
         <comment>speaking of the &quot;sort divisions&quot;</comment>
         <translation>без сортировки</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="540"/>
+        <location filename="context/interface/configsectioninterface.ui" line="637"/>
+        <source>general information</source>
+        <translation>общая информация</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="642"/>
+        <source>sample list</source>
+        <translation>список семплов</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="647"/>
+        <source>first sample</source>
+        <translation>первый семпл</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="652"/>
+        <source>instrument list</source>
+        <translation>список инструментов</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="657"/>
+        <source>first instrument</source>
+        <translation>первый инструмент</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="662"/>
+        <source>preset list</source>
+        <translation>список пресетов</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="667"/>
+        <source>first preset</source>
+        <translation>первый пресет</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="148"/>
         <source>Middle C → 60, then 61</source>
         <translation>Среднее C → 60, затем 61</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="545"/>
+        <location filename="context/interface/configsectioninterface.ui" line="153"/>
         <source>Middle C → C3, then C♯3</source>
         <translation>Среднее C → C3, затем C♯3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="550"/>
+        <location filename="context/interface/configsectioninterface.ui" line="158"/>
         <source>Middle C → C3, then D♭3</source>
         <translation>Среднее C → C3, затем D♭3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="555"/>
+        <location filename="context/interface/configsectioninterface.ui" line="163"/>
         <source>Middle C → C4, then C♯4</source>
         <translation>Среднее C → C4, затем C♯4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="560"/>
+        <location filename="context/interface/configsectioninterface.ui" line="168"/>
         <source>Middle C → C4, then D♭4</source>
         <translation>Среднее C → C4, затем D♭4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="565"/>
+        <location filename="context/interface/configsectioninterface.ui" line="173"/>
         <source>Middle C → C5, then C♯5</source>
         <translation>Среднее C → C5,затем C♯5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="570"/>
+        <location filename="context/interface/configsectioninterface.ui" line="178"/>
         <source>Middle C → C5, then D♭5</source>
         <translation>Среднее C → C5, затем D♭5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="615"/>
+        <location filename="context/interface/configsectioninterface.ui" line="71"/>
         <source>Window borders</source>
         <translation>Границы окна</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="476"/>
+        <location filename="context/interface/configsectioninterface.ui" line="83"/>
         <source>Behaviour</source>
         <translation>Поведение</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="49"/>
+        <location filename="context/interface/configsectioninterface.ui" line="120"/>
         <source>Sort divisions</source>
         <translation>Сортировка разделов</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="35"/>
+        <location filename="context/interface/configsectioninterface.ui" line="134"/>
         <source>Decorations</source>
         <translation>Украшения</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="42"/>
+        <location filename="context/interface/configsectioninterface.ui" line="106"/>
         <source>Unique instance</source>
         <translation>Один экземпляр</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="457"/>
+        <location filename="context/interface/configsectioninterface.ui" line="45"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="464"/>
+        <location filename="context/interface/configsectioninterface.ui" line="580"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="83"/>
-        <location filename="context/interface/configsectioninterface.ui" line="445"/>
+        <location filename="context/interface/configsectioninterface.ui" line="203"/>
+        <location filename="context/interface/configsectioninterface.ui" line="592"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="156"/>
+        <location filename="context/interface/configsectioninterface.ui" line="276"/>
         <source>Window</source>
         <translation>Окно</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="255"/>
+        <location filename="context/interface/configsectioninterface.ui" line="375"/>
         <source>Button</source>
         <translation>Кнопка</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="273"/>
+        <location filename="context/interface/configsectioninterface.ui" line="393"/>
         <source>Background</source>
         <translation>Фон</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="316"/>
+        <location filename="context/interface/configsectioninterface.ui" line="436"/>
         <source>Selection</source>
         <translation>Выделение</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="389"/>
+        <location filename="context/interface/configsectioninterface.ui" line="509"/>
         <source>List and table</source>
         <translation>Список, таблица</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="490"/>
+        <location filename="context/interface/configsectioninterface.ui" line="20"/>
         <source>Style</source>
         <translation>Стиль</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="25"/>
+        <location filename="context/interface/configsectioninterface.ui" line="556"/>
         <source>This modification will be applied during the next start of the software.</source>
         <translation>Эти изменения вступят в силу при следующем запуске приложения.</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.cpp" line="201"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="213"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="225"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="237"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="249"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="261"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="273"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="285"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="297"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="206"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="218"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="230"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="242"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="254"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="266"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="278"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="290"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="302"/>
         <source>Select a color</source>
         <translation>Выбор цвета</translation>
     </message>
@@ -1288,8 +1328,8 @@ repository</source>
     <name>ConversionSfz</name>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="56"/>
-        <source>Cannot create directory &quot;%1&quot;</source>
-        <translation>Не удалось создать каталог «%1»</translation>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>не удалось создать каталог «%1»</translation>
     </message>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="241"/>
@@ -2917,34 +2957,42 @@ default mod.</source>
     </message>
 </context>
 <context>
+    <name>OutputCsv</name>
+    <message>
+        <location filename="core/output/csv/outputcsv.cpp" line="52"/>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>не удалось создать каталог «%1»</translation>
+    </message>
+</context>
+<context>
     <name>OutputNotSupported</name>
     <message>
         <location filename="core/output/not_supported/outputnotsupported.cpp" line="39"/>
-        <source>This file format is not supported.</source>
-        <translation>Формат этого файла не поддерживается.</translation>
+        <source>this file format is not supported</source>
+        <translation>формат этого файла не поддерживается</translation>
     </message>
 </context>
 <context>
     <name>OutputSf</name>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="62"/>
-        <source>Please close file before overriding it.</source>
-        <translation>Закройте файл перед его перезаписью.</translation>
+        <source>please close the file before overriding it</source>
+        <translation>закройте файл перед его перезаписью</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="91"/>
-        <source>Couldn&apos;t delete file &quot;%1&quot;.</source>
-        <translation>Не удалось удалить файл «%1».</translation>
+        <source>cannot delete file &quot;%1&quot;</source>
+        <translation>не удалось удалить файл «%1»</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="101"/>
-        <source>Couldn&apos;t rename file &quot;%1&quot;.</source>
-        <translation>Не удалось переименовать файл «%1».</translation>
+        <source>cannot rename file &quot;%1&quot;</source>
+        <translation>не удалось переименовать файл «%1»</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="148"/>
-        <source>Cannot create file &quot;%1&quot;</source>
-        <translation>Не удалось создать файл «%1»</translation>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>не удалось создать файл «%1»</translation>
     </message>
 </context>
 <context>
@@ -3885,27 +3933,27 @@ Warning: quality will be reduced and the loop may be altered</source>
         <location filename="core/input/grandorgue/grandorguerank.cpp" line="142"/>
         <location filename="core/input/grandorgue/grandorguestop.cpp" line="141"/>
         <location filename="core/input/grandorgue/grandorgueswitch.cpp" line="73"/>
-        <location filename="core/output/outputfactory.cpp" line="102"/>
+        <location filename="core/output/outputfactory.cpp" line="108"/>
         <source>untitled</source>
         <translation>без заголовка</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="118"/>
+        <location filename="core/output/outputfactory.cpp" line="124"/>
         <source>Save a soundfont</source>
         <translation>Сохранить SoundFont</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf2 files</source>
         <translation>Файлы sf2</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf3 files</source>
         <translation>Файлы sf3</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="146"/>
+        <location filename="core/output/outputfactory.cpp" line="152"/>
         <location filename="core/sample/sampleloader.cpp" line="60"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
@@ -4088,6 +4136,84 @@ Both divisions must share the same note and velocity ranges.</source>
         <location filename="context/tuningprogrammanager.cpp" line="121"/>
         <source>Tuning program %1:%2</source>
         <translation>Программа настройки %1:%2</translation>
+    </message>
+    <message>
+        <location filename="core/output/csv/abstractcsvfile.cpp" line="57"/>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>не удалось создать файл «%1»</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="107"/>
+        <source>The file &quot;%1&quot; does not exist.</source>
+        <translation>Файл «%1» не существует.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="115"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>Каталог «%1» не существует.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="120"/>
+        <source>The file &quot;%1&quot; already exists.</source>
+        <translation>Файл «%1» уже существует.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="125"/>
+        <source>Loading file &quot;%1&quot;...</source>
+        <translation>Загрузка файла «%1»...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="130"/>
+        <source>Couldn&apos;t load file &quot;%1&quot;: %2.</source>
+        <oldsource>Couldn&apos;t load &quot;%1&quot;: %2.</oldsource>
+        <translation>Не удалось загрузить файл «%1»: %2.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="136"/>
+        <source>File successfully loaded!</source>
+        <translation>Файл успешно загружен!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="143"/>
+        <location filename="main.cpp" line="147"/>
+        <source>Writing file &quot;%1&quot;...</source>
+        <translation>Запись файла «%1»...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="153"/>
+        <location filename="main.cpp" line="157"/>
+        <source>Writing files in directory &quot;%1&quot;...</source>
+        <translation>Запись файлов в каталог «%1»...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="160"/>
+        <source>Unknown mode &quot;%1&quot;.</source>
+        <translation>Неизвестный режим «%1».</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="168"/>
+        <source>An error occurred: %1.</source>
+        <translation>Произошла ошибка: %1.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="173"/>
+        <source>File successfully converted!</source>
+        <translation>Файл успешно преобразован!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="186"/>
+        <source>Previous configuration is now cleared.</source>
+        <translation>Предыдущая конфигурация очищена.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="195"/>
+        <source>See &quot;%1&quot; for more information.</source>
+        <translation>См. «%1» для получения дополнительной информации.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="197"/>
+        <source>Write &quot;%1&quot; to show usage.</source>
+        <translation>Введите «%1», чтобы показать использование.</translation>
     </message>
 </context>
 <context>
@@ -6706,12 +6832,12 @@ Other soundfont editors might display other units.</source>
 <context>
     <name>ToolSoundfontExport</name>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="151"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="154"/>
         <source>Merge soudfonts:</source>
         <translation>Объединить SoundFont:</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="246"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="250"/>
         <source>Export successful!</source>
         <translation>Экспорт успешно завершен!</translation>
     </message>
@@ -6739,62 +6865,67 @@ Other soundfont editors might display other units.</source>
         <translation>Снять выделение со всего</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="99"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="97"/>
         <source>Destination</source>
         <translation>Назначение</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="152"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="135"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="113"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Классификация General MIDI</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="106"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="142"/>
         <source>one directory per bank</source>
         <translation>одна директория на банк</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="120"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="104"/>
         <source>preset number as prefix</source>
         <translation>номер пресета в качестве префикса</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="134"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="153"/>
         <source>High</source>
         <translation>Высокое</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="139"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="158"/>
         <source>Medium</source>
         <translation>Среднее</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="144"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="163"/>
         <source>Low</source>
         <translation>Низкое</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="159"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="171"/>
         <source>one file per preset</source>
         <translation>один файл на пресет</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="61"/>
         <source>Quality</source>
         <translation>Качество</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="177"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="178"/>
+        <source>raw values</source>
+        <translation>сырые значения</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
         <translation>&amp;Экспорт</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
         <translation>О&amp;тменить</translation>
     </message>
@@ -6804,35 +6935,35 @@ Other soundfont editors might display other units.</source>
         <translation>Без названия</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="150"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="152"/>
         <source>Select the destination directory</source>
         <translation>Выберите папку назначения</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>Неверный каталог.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
         <source>At least one preset must be selected.</source>
         <translation>Необходимо выбрать хотя бы один пресет.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
         <source>The maximal number of soundfont to export is 127.</source>
         <translation>Максимальное количество SoundFont для экспорта — 127.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>In the case where several soundfonts are exported, the maximal number of presets per soundfonts is 127.</source>
         <translation>В случае экспорта нескольких SoundFont максимальное количество пресетов на SoundFont составляет 127.</translation>
     </message>

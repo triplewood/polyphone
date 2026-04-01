@@ -847,157 +847,197 @@
 <context>
     <name>ConfigSectionInterface</name>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="510"/>
+        <location filename="context/interface/configsectioninterface.ui" line="113"/>
         <source>Language</source>
         <translation>Jazyk</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="503"/>
+        <location filename="context/interface/configsectioninterface.ui" line="33"/>
         <source>Key names</source>
         <translation>Názvy not</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="540"/>
+        <location filename="context/interface/configsectioninterface.ui" line="148"/>
         <source>Middle C → 60, then 61</source>
         <translation>Jednočárkované C (C1) → 60, pak 61</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="545"/>
+        <location filename="context/interface/configsectioninterface.ui" line="153"/>
         <source>Middle C → C3, then C♯3</source>
         <translation>Jednočárkované C (C1) → C3, pak C♯3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="550"/>
+        <location filename="context/interface/configsectioninterface.ui" line="158"/>
         <source>Middle C → C3, then D♭3</source>
         <translation>Jednočárkované C (C1) → C3, pak D♭3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="555"/>
+        <location filename="context/interface/configsectioninterface.ui" line="163"/>
         <source>Middle C → C4, then C♯4</source>
         <translation>Jednočárkované C (C1) C → C4, pak C♯4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="560"/>
+        <location filename="context/interface/configsectioninterface.ui" line="168"/>
         <source>Middle C → C4, then D♭4</source>
         <translation>Jednočárkované C (C1) → C4, pak D♭4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="565"/>
+        <location filename="context/interface/configsectioninterface.ui" line="173"/>
         <source>Middle C → C5, then C♯5</source>
         <translation>Jednočárkované C (C1) → C5, pak C♯5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="570"/>
+        <location filename="context/interface/configsectioninterface.ui" line="178"/>
         <source>Middle C → C5, then D♭5</source>
         <translation>Jednočárkované C (C1) → C5, pak D♭5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="615"/>
+        <location filename="context/interface/configsectioninterface.ui" line="637"/>
+        <source>general information</source>
+        <translation>obecné informace</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="642"/>
+        <source>sample list</source>
+        <translation>seznam vzorků</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="647"/>
+        <source>first sample</source>
+        <translation>první vzorek</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="652"/>
+        <source>instrument list</source>
+        <translation>seznam nástrojů</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="657"/>
+        <source>first instrument</source>
+        <translation>první nástroj</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="662"/>
+        <source>preset list</source>
+        <translation>seznam přednastavení</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="667"/>
+        <source>first preset</source>
+        <translation>první přednastavení</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="71"/>
         <source>Window borders</source>
         <translation>Okraje okna</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="476"/>
+        <location filename="context/interface/configsectioninterface.ui" line="83"/>
         <source>Behaviour</source>
         <translation>Chování</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="49"/>
+        <location filename="context/interface/configsectioninterface.ui" line="120"/>
         <source>Sort divisions</source>
         <translation>Třídit úseky</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="585"/>
+        <location filename="context/interface/configsectioninterface.ui" line="566"/>
+        <source>Startup view</source>
+        <translation>Pohled při spuštění</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="613"/>
         <source>by key range</source>
         <translation>Podle rozsahu not</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="590"/>
+        <location filename="context/interface/configsectioninterface.ui" line="618"/>
         <source>by velocity range</source>
         <translation>Podle rozsahu dynamiky</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="595"/>
+        <location filename="context/interface/configsectioninterface.ui" line="623"/>
         <source>in alphabetical order</source>
         <translation>abecedně</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="600"/>
+        <location filename="context/interface/configsectioninterface.ui" line="628"/>
         <source>none</source>
         <comment>speaking of the &quot;sort divisions&quot;</comment>
         <translation>žádné</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="35"/>
+        <location filename="context/interface/configsectioninterface.ui" line="134"/>
         <source>Decorations</source>
         <translation>Ozdoby</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="42"/>
+        <location filename="context/interface/configsectioninterface.ui" line="106"/>
         <source>Unique instance</source>
         <translation>Jediná instance</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="457"/>
+        <location filename="context/interface/configsectioninterface.ui" line="45"/>
         <source>Theme</source>
         <translation>Vzhled</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="464"/>
+        <location filename="context/interface/configsectioninterface.ui" line="580"/>
         <source>Colors</source>
         <translation>Barvy</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="316"/>
+        <location filename="context/interface/configsectioninterface.ui" line="436"/>
         <source>Selection</source>
         <translation>Výběr</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="83"/>
-        <location filename="context/interface/configsectioninterface.ui" line="445"/>
+        <location filename="context/interface/configsectioninterface.ui" line="203"/>
+        <location filename="context/interface/configsectioninterface.ui" line="592"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="156"/>
+        <location filename="context/interface/configsectioninterface.ui" line="276"/>
         <source>Window</source>
         <translation>Okno</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="273"/>
+        <location filename="context/interface/configsectioninterface.ui" line="393"/>
         <source>Background</source>
         <translation>Pozadí</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="255"/>
+        <location filename="context/interface/configsectioninterface.ui" line="375"/>
         <source>Button</source>
         <translation>Tlačítko</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="389"/>
+        <location filename="context/interface/configsectioninterface.ui" line="509"/>
         <source>List and table</source>
         <translation>Seznam a tabulka</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="490"/>
+        <location filename="context/interface/configsectioninterface.ui" line="20"/>
         <source>Style</source>
         <translation>Styl</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="25"/>
+        <location filename="context/interface/configsectioninterface.ui" line="556"/>
         <source>This modification will be applied during the next start of the software.</source>
         <translation>Tato změna se projeví při příštím spuštění programu.</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.cpp" line="201"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="213"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="225"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="237"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="249"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="261"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="273"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="285"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="297"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="206"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="218"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="230"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="242"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="254"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="266"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="278"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="290"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="302"/>
         <source>Select a color</source>
         <translation>Vyberte barvu</translation>
     </message>
@@ -1294,8 +1334,8 @@ repository</source>
     <name>ConversionSfz</name>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="56"/>
-        <source>Cannot create directory &quot;%1&quot;</source>
-        <translation>Nelze vytvořit adresář &quot;%1&quot;</translation>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>nelze vytvořit adresář &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="241"/>
@@ -2671,13 +2711,6 @@ repository</source>
         <translation>Domovská obrazovka</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="106"/>
-        <source></source>
-        <extracomment>prefixed with 2 spaces for each line</extracomment>
-        <translation>  Nová
-  zvuková banka</translation>
-    </message>
-    <message>
         <location filename="mainwindow/mainwindow.ui" line="121"/>
         <source>  New
   soundfont</source>
@@ -2919,34 +2952,42 @@ výchozího mod.</translation>
     </message>
 </context>
 <context>
+    <name>OutputCsv</name>
+    <message>
+        <location filename="core/output/csv/outputcsv.cpp" line="52"/>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>nelze vytvořit adresář &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
     <name>OutputNotSupported</name>
     <message>
         <location filename="core/output/not_supported/outputnotsupported.cpp" line="39"/>
-        <source>This file format is not supported.</source>
-        <translation>Tento formát souboru není podporován.</translation>
+        <source>this file format is not supported</source>
+        <translation>tento formát souboru není podporován</translation>
     </message>
 </context>
 <context>
     <name>OutputSf</name>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="62"/>
-        <source>Please close file before overriding it.</source>
-        <translation>Před přepsáním soubor zavřete.</translation>
+        <source>please close the file before overriding it</source>
+        <translation>před přepsáním soubor zavřete</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="91"/>
-        <source>Couldn&apos;t delete file &quot;%1&quot;.</source>
-        <translation>Nelze odstranit soubor &quot;%1&quot;.</translation>
+        <source>cannot delete file &quot;%1&quot;</source>
+        <translation>nelze odstranit soubor &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="101"/>
-        <source>Couldn&apos;t rename file &quot;%1&quot;.</source>
-        <translation>Nelze přejmenovat soubor &quot;%1&quot;.</translation>
+        <source>cannot rename file &quot;%1&quot;</source>
+        <translation>nelze přejmenovat soubor &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="148"/>
-        <source>Cannot create file &quot;%1&quot;</source>
-        <translation>Nelze vytvořit soubor &quot;%1&quot;</translation>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>nelze vytvořit soubor &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -3739,22 +3780,22 @@ Upozornění: kvalita bude snížena a smyčka může být změněna</translatio
 <context>
     <name>QObject</name>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="118"/>
+        <location filename="core/output/outputfactory.cpp" line="124"/>
         <source>Save a soundfont</source>
         <translation>Uložit zvukovou banku</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf2 files</source>
         <translation>Soubory .sf2</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf3 files</source>
         <translation>Soubory .sf3</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="146"/>
+        <location filename="core/output/outputfactory.cpp" line="152"/>
         <location filename="core/sample/sampleloader.cpp" line="60"/>
         <source>Warning</source>
         <translation>Pozor</translation>
@@ -3849,7 +3890,7 @@ Upozornění: kvalita bude snížena a smyčka může být změněna</translatio
         <location filename="core/input/grandorgue/grandorguerank.cpp" line="142"/>
         <location filename="core/input/grandorgue/grandorguestop.cpp" line="141"/>
         <location filename="core/input/grandorgue/grandorgueswitch.cpp" line="73"/>
-        <location filename="core/output/outputfactory.cpp" line="102"/>
+        <location filename="core/output/outputfactory.cpp" line="108"/>
         <source>untitled</source>
         <translation>Bez názvu</translation>
     </message>
@@ -4091,6 +4132,84 @@ Obě divize musí sdílet stejné rozsahy not a dynamiky.</translation>
         <location filename="context/tuningprogrammanager.cpp" line="121"/>
         <source>Tuning program %1:%2</source>
         <translation>Program ladění %1:%2</translation>
+    </message>
+    <message>
+        <location filename="core/output/csv/abstractcsvfile.cpp" line="57"/>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>nelze vytvořit soubor &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="107"/>
+        <source>The file &quot;%1&quot; does not exist.</source>
+        <translation>Soubor &quot;%1&quot; neexistuje.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="115"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>Adresář &quot;%1&quot; neexistuje.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="120"/>
+        <source>The file &quot;%1&quot; already exists.</source>
+        <translation>Soubor &quot;%1&quot; již existuje.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="125"/>
+        <source>Loading file &quot;%1&quot;...</source>
+        <translation>Načítá se soubor &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="130"/>
+        <source>Couldn&apos;t load file &quot;%1&quot;: %2.</source>
+        <oldsource>Couldn&apos;t load &quot;%1&quot;: %2.</oldsource>
+        <translation>Nepodařilo se načíst soubor &quot;%1&quot;: %2.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="136"/>
+        <source>File successfully loaded!</source>
+        <translation>Soubor úspěšně načten!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="143"/>
+        <location filename="main.cpp" line="147"/>
+        <source>Writing file &quot;%1&quot;...</source>
+        <translation>Zapisuje se soubor &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="153"/>
+        <location filename="main.cpp" line="157"/>
+        <source>Writing files in directory &quot;%1&quot;...</source>
+        <translation>Zapisují se soubory do adresáře &quot;%1&quot;...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="160"/>
+        <source>Unknown mode &quot;%1&quot;.</source>
+        <translation>Neznámý režim &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="168"/>
+        <source>An error occurred: %1.</source>
+        <translation>Došlo k chybě: %1.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="173"/>
+        <source>File successfully converted!</source>
+        <translation>Soubor úspěšně převeden!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="186"/>
+        <source>Previous configuration is now cleared.</source>
+        <translation>Předchozí konfigurace je nyní vymazána.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="195"/>
+        <source>See &quot;%1&quot; for more information.</source>
+        <translation>Pro více informací viz &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="197"/>
+        <source>Write &quot;%1&quot; to show usage.</source>
+        <translation>Napište &quot;%1&quot; pro zobrazení použití.</translation>
     </message>
 </context>
 <context>
@@ -6630,12 +6749,12 @@ Jiné editory soundfontů mohou zobrazovat jiné jednotky.</translation>
 <context>
     <name>ToolSoundfontExport</name>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="151"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="154"/>
         <source>Merge soudfonts:</source>
         <translation>Sloučení zvukových bank:</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="246"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="250"/>
         <source>Export successful!</source>
         <translation>Vyvedení úspěšné!</translation>
     </message>
@@ -6663,63 +6782,68 @@ Jiné editory soundfontů mohou zobrazovat jiné jednotky.</translation>
         <translation>Zrušit výběr všeho</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="99"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="97"/>
         <source>Destination</source>
         <translation>Cíl</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="152"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="135"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="113"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Zařazení všeobecného MIDI</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="106"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="142"/>
         <source>one directory per bank</source>
         <translation>Jeden adresář na banku</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="120"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="104"/>
         <source>preset number as prefix</source>
         <translation>Číslo přednastavení jako předpona</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="134"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="153"/>
         <source>High</source>
         <translation>Vysoká</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="139"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="158"/>
         <source>Medium</source>
         <translation>Průměrná</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="144"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="163"/>
         <source>Low</source>
         <translation>Nízká</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="159"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="171"/>
         <source>one file per preset</source>
         <translation>jeden soubor na přednastavení</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="61"/>
         <source>Quality</source>
         <translation>Jakost</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="178"/>
+        <source>raw values</source>
+        <translation>nezpracované hodnoty</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
         <oldsource>Cancel</oldsource>
         <translation>&amp;Zrušit</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="177"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
         <oldsource>Export</oldsource>
         <translation>&amp;Vyvést</translation>
@@ -6730,35 +6854,35 @@ Jiné editory soundfontů mohou zobrazovat jiné jednotky.</translation>
         <translation>Bez názvu</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="150"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="152"/>
         <source>Select the destination directory</source>
         <translation>Vybrat cílový adresář</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>Warning</source>
         <translation>Pozor</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>Neplatný adresář.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
         <source>At least one preset must be selected.</source>
         <translation>Musí být vybráno alespoň jedno přednastavení.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
         <source>The maximal number of soundfont to export is 127.</source>
         <translation>Největší počet zvukových bank k vyvedení je 127.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>In the case where several soundfonts are exported, the maximal number of presets per soundfonts is 127.</source>
         <translation>V případě, kdy je vyváděno několik zvukových bank je největší počet přednastavení na zvukovou banku 127.</translation>
     </message>

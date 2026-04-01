@@ -52,13 +52,16 @@ QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
 CONFIG(debug, debug|release) {
     QMAKE_CXXFLAGS += -std=c++17
 } else {
-    QMAKE_CXXFLAGS += -std=c++17 -O3
+    QMAKE_CXXFLAGS += -std=c++17 -O3 -Wno-error=implicit-function-declaration
     #QMAKE_CXXFLAGS += -std=c++17 -O3 -mcpu=native -march=native
 }
 
 QT += core gui printsupport svg network #testlib
 TARGET = polyphone
 TEMPLATE = app
+
+# Ensure all include paths are present for CLI build
+INCLUDEPATH += editor/tools/merge_samples
 
 win32 {
     # Compiler must be MinGW for the option -ffloat-store, required by sfArk
@@ -585,7 +588,12 @@ SOURCES	+= main.cpp \
     core/input/sfark/sfarkextractor1.cpp \
     core/input/sfark/sfarkextractor2.cpp \
     core/output/sf/outputsf.cpp \
-    core/output/sf/sfindexconverter.cpp
+    core/output/sf/sfindexconverter.cpp \
+    core/output/csv/outputcsv.cpp \
+    core/output/csv/abstractcsvfile.cpp \
+    core/output/csv/csvfileinstprst.cpp \
+    core/output/csv/csvfilesamples.cpp \
+    editor/widgets/styledlineeditwithcalendar.cpp
 
 HEADERS += \
     context/imidilistener.h \
@@ -970,7 +978,12 @@ HEADERS += \
     core/input/sfark/sfarkextractor2.h \
     core/input/sfark/abstractextractor.h \
     core/output/sf/outputsf.h \
-    core/output/sf/sfindexconverter.h
+    core/output/sf/sfindexconverter.h \
+    core/output/csv/outputcsv.h \
+    core/output/csv/abstractcsvfile.h \
+    core/output/csv/csvfileinstprst.h \
+    core/output/csv/csvfilesamples.h \
+    editor/widgets/styledlineeditwithcalendar.h
 
 FORMS += \
     dialogs/dialog_list.ui \

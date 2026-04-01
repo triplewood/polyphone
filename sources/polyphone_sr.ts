@@ -847,157 +847,197 @@
 <context>
     <name>ConfigSectionInterface</name>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="510"/>
+        <location filename="context/interface/configsectioninterface.ui" line="113"/>
         <source>Language</source>
         <translation>Језик</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="503"/>
+        <location filename="context/interface/configsectioninterface.ui" line="33"/>
         <source>Key names</source>
         <translation>Називи нота</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="540"/>
+        <location filename="context/interface/configsectioninterface.ui" line="148"/>
         <source>Middle C → 60, then 61</source>
         <translation>Основна »До« → 60, затим 61</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="545"/>
+        <location filename="context/interface/configsectioninterface.ui" line="153"/>
         <source>Middle C → C3, then C♯3</source>
         <translation>Основна »До« → C3, затим C♯3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="550"/>
+        <location filename="context/interface/configsectioninterface.ui" line="158"/>
         <source>Middle C → C3, then D♭3</source>
         <translation>Основна »До« → C3, затим D♭3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="555"/>
+        <location filename="context/interface/configsectioninterface.ui" line="163"/>
         <source>Middle C → C4, then C♯4</source>
         <translation>Основна »До« → C4, затим C♯4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="560"/>
+        <location filename="context/interface/configsectioninterface.ui" line="168"/>
         <source>Middle C → C4, then D♭4</source>
         <translation>Основна »До« → C4, затим D♭4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="565"/>
+        <location filename="context/interface/configsectioninterface.ui" line="173"/>
         <source>Middle C → C5, then C♯5</source>
         <translation>Основна »До« → C5, затим C♯5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="570"/>
+        <location filename="context/interface/configsectioninterface.ui" line="178"/>
         <source>Middle C → C5, then D♭5</source>
         <translation>Основна »До« → C5, затим D♭5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="615"/>
+        <location filename="context/interface/configsectioninterface.ui" line="637"/>
+        <source>general information</source>
+        <translation>опште информације</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="642"/>
+        <source>sample list</source>
+        <translation>листа узорака</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="647"/>
+        <source>first sample</source>
+        <translation>први узорак</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="652"/>
+        <source>instrument list</source>
+        <translation>листа инструмената</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="657"/>
+        <source>first instrument</source>
+        <translation>први инструмент</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="662"/>
+        <source>preset list</source>
+        <translation>листа поставки</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="667"/>
+        <source>first preset</source>
+        <translation>прва поставка</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="71"/>
         <source>Window borders</source>
         <translation>Ивице прозора</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="476"/>
+        <location filename="context/interface/configsectioninterface.ui" line="83"/>
         <source>Behaviour</source>
         <translation>Понашање</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="49"/>
+        <location filename="context/interface/configsectioninterface.ui" line="120"/>
         <source>Sort divisions</source>
         <translation>Сортирај поделе</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="585"/>
+        <location filename="context/interface/configsectioninterface.ui" line="566"/>
+        <source>Startup view</source>
+        <translation>Почетни приказ</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="613"/>
         <source>by key range</source>
         <translation>по опсегу нота</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="590"/>
+        <location filename="context/interface/configsectioninterface.ui" line="618"/>
         <source>by velocity range</source>
         <translation>по опсегу јачине удара</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="595"/>
+        <location filename="context/interface/configsectioninterface.ui" line="623"/>
         <source>in alphabetical order</source>
         <translation>по азбучном реду</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="600"/>
+        <location filename="context/interface/configsectioninterface.ui" line="628"/>
         <source>none</source>
         <comment>speaking of the &quot;sort divisions&quot;</comment>
         <translation>ниједан</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="35"/>
+        <location filename="context/interface/configsectioninterface.ui" line="134"/>
         <source>Decorations</source>
         <translation>Декорације</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="42"/>
+        <location filename="context/interface/configsectioninterface.ui" line="106"/>
         <source>Unique instance</source>
         <translation>Јединствена инстанца</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="457"/>
+        <location filename="context/interface/configsectioninterface.ui" line="45"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="464"/>
+        <location filename="context/interface/configsectioninterface.ui" line="580"/>
         <source>Colors</source>
         <translation>Боје</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="316"/>
+        <location filename="context/interface/configsectioninterface.ui" line="436"/>
         <source>Selection</source>
         <translation>Избор</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="83"/>
-        <location filename="context/interface/configsectioninterface.ui" line="445"/>
+        <location filename="context/interface/configsectioninterface.ui" line="203"/>
+        <location filename="context/interface/configsectioninterface.ui" line="592"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="156"/>
+        <location filename="context/interface/configsectioninterface.ui" line="276"/>
         <source>Window</source>
         <translation>Прозор</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="273"/>
+        <location filename="context/interface/configsectioninterface.ui" line="393"/>
         <source>Background</source>
         <translation>Позадина</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="255"/>
+        <location filename="context/interface/configsectioninterface.ui" line="375"/>
         <source>Button</source>
         <translation>Дугме</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="389"/>
+        <location filename="context/interface/configsectioninterface.ui" line="509"/>
         <source>List and table</source>
         <translation>Списак и табела</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="490"/>
+        <location filename="context/interface/configsectioninterface.ui" line="20"/>
         <source>Style</source>
         <translation>Стил</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="25"/>
+        <location filename="context/interface/configsectioninterface.ui" line="556"/>
         <source>This modification will be applied during the next start of the software.</source>
         <translation>Ова измена биће примењена по поновном покретању програма.</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.cpp" line="201"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="213"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="225"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="237"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="249"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="261"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="273"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="285"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="297"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="206"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="218"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="230"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="242"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="254"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="266"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="278"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="290"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="302"/>
         <source>Select a color</source>
         <translation>Изабери боју</translation>
     </message>
@@ -1294,8 +1334,8 @@ repository</source>
     <name>ConversionSfz</name>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="56"/>
-        <source>Cannot create directory &quot;%1&quot;</source>
-        <translation>Не могу да направим директоријум „%1”</translation>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>hе могу да направим директоријум „%1”</translation>
     </message>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="241"/>
@@ -2911,34 +2951,42 @@ default mod.</source>
     </message>
 </context>
 <context>
+    <name>OutputCsv</name>
+    <message>
+        <location filename="core/output/csv/outputcsv.cpp" line="52"/>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>не могу да направим директоријум „%1”</translation>
+    </message>
+</context>
+<context>
     <name>OutputNotSupported</name>
     <message>
         <location filename="core/output/not_supported/outputnotsupported.cpp" line="39"/>
-        <source>This file format is not supported.</source>
-        <translation>Овај формат датотеке није подржан.</translation>
+        <source>this file format is not supported</source>
+        <translation>oвај формат датотеке није подржан</translation>
     </message>
 </context>
 <context>
     <name>OutputSf</name>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="62"/>
-        <source>Please close file before overriding it.</source>
-        <translation>Молимо затворите датотеку пре него што је препишете.</translation>
+        <source>please close the file before overriding it</source>
+        <translation>mолимо затворите датотеку пре него што је препишете</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="91"/>
-        <source>Couldn&apos;t delete file &quot;%1&quot;.</source>
-        <translation>Не могу да обришем датотеку „%1”.</translation>
+        <source>cannot delete file &quot;%1&quot;</source>
+        <translation>не могу да обришем датотеку „%1”</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="101"/>
-        <source>Couldn&apos;t rename file &quot;%1&quot;.</source>
-        <translation>Не могу да преименујем датотеку „%1”.</translation>
+        <source>cannot rename file &quot;%1&quot;</source>
+        <translation>не могу да преименујем датотеку „%1”</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="148"/>
-        <source>Cannot create file &quot;%1&quot;</source>
-        <translation>Не могу да направим датотеку „%1”</translation>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>не могу да направим датотеку „%1”</translation>
     </message>
 </context>
 <context>
@@ -3745,22 +3793,22 @@ Warning: quality will be reduced and the loop may be altered</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="118"/>
+        <location filename="core/output/outputfactory.cpp" line="124"/>
         <source>Save a soundfont</source>
         <translation>Сачувај звукотеку</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf2 files</source>
         <translation>Sf2 датотеке</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf3 files</source>
         <translation>Sf3 датотеке</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="146"/>
+        <location filename="core/output/outputfactory.cpp" line="152"/>
         <location filename="core/sample/sampleloader.cpp" line="60"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
@@ -3855,7 +3903,7 @@ Warning: quality will be reduced and the loop may be altered</source>
         <location filename="core/input/grandorgue/grandorguerank.cpp" line="142"/>
         <location filename="core/input/grandorgue/grandorguestop.cpp" line="141"/>
         <location filename="core/input/grandorgue/grandorgueswitch.cpp" line="73"/>
-        <location filename="core/output/outputfactory.cpp" line="102"/>
+        <location filename="core/output/outputfactory.cpp" line="108"/>
         <source>untitled</source>
         <translation>без назива</translation>
     </message>
@@ -4097,6 +4145,84 @@ Both divisions must share the same note and velocity ranges.</source>
         <location filename="context/tuningprogrammanager.cpp" line="121"/>
         <source>Tuning program %1:%2</source>
         <translation>Програм за штимовање %1:%2</translation>
+    </message>
+    <message>
+        <location filename="core/output/csv/abstractcsvfile.cpp" line="57"/>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>не могу да направим датотеку „%1”</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="107"/>
+        <source>The file &quot;%1&quot; does not exist.</source>
+        <translation>Датотека „%1“ не постоји.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="115"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>Директоријум „%1“ не постоји.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="120"/>
+        <source>The file &quot;%1&quot; already exists.</source>
+        <translation>Датотека „%1“ већ постоји.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="125"/>
+        <source>Loading file &quot;%1&quot;...</source>
+        <translation>Учитавање датотеке „%1“...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="130"/>
+        <source>Couldn&apos;t load file &quot;%1&quot;: %2.</source>
+        <oldsource>Couldn&apos;t load &quot;%1&quot;: %2.</oldsource>
+        <translation>Није било могуће учитати датотеку „%1“: %2.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="136"/>
+        <source>File successfully loaded!</source>
+        <translation>Датотека успешно учитана!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="143"/>
+        <location filename="main.cpp" line="147"/>
+        <source>Writing file &quot;%1&quot;...</source>
+        <translation>Писање датотеке „%1“...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="153"/>
+        <location filename="main.cpp" line="157"/>
+        <source>Writing files in directory &quot;%1&quot;...</source>
+        <translation>Писање датотека у директоријум „%1“...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="160"/>
+        <source>Unknown mode &quot;%1&quot;.</source>
+        <translation>Непознати режим „%1“.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="168"/>
+        <source>An error occurred: %1.</source>
+        <translation>Дошло је до грешке: %1.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="173"/>
+        <source>File successfully converted!</source>
+        <translation>Датотека успешно конвертована!</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="186"/>
+        <source>Previous configuration is now cleared.</source>
+        <translation>Претходна конфигурација је сада обрисана.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="195"/>
+        <source>See &quot;%1&quot; for more information.</source>
+        <translation>Погледајте „%1“ за више информација.</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="197"/>
+        <source>Write &quot;%1&quot; to show usage.</source>
+        <translation>Напишите „%1“ да бисте приказали употребу.</translation>
     </message>
 </context>
 <context>
@@ -6634,12 +6760,12 @@ Other soundfont editors might display other units.</source>
 <context>
     <name>ToolSoundfontExport</name>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="151"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="154"/>
         <source>Merge soudfonts:</source>
         <translation>Споји звукотеке:</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="246"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="250"/>
         <source>Export successful!</source>
         <translation>Извоз успешан!</translation>
     </message>
@@ -6667,63 +6793,68 @@ Other soundfont editors might display other units.</source>
         <translation>Поништи избор свих</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="99"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="97"/>
         <source>Destination</source>
         <translation>Одредиште</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="152"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="135"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="113"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Општа MIDI класификација</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="106"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="142"/>
         <source>one directory per bank</source>
         <translation>један директоријум по банци</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="120"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="104"/>
         <source>preset number as prefix</source>
         <translation>број поставке као префикс</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="134"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="153"/>
         <source>High</source>
         <translation>Висок</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="139"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="158"/>
         <source>Medium</source>
         <translation>Средњи</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="144"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="163"/>
         <source>Low</source>
         <translation>Низак</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="159"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="171"/>
         <source>one file per preset</source>
         <translation>једна датотека по поставци</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="61"/>
         <source>Quality</source>
         <translation>Квалитет</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="178"/>
+        <source>raw values</source>
+        <translation>сирове вредности</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
         <oldsource>Cancel</oldsource>
         <translation>&amp;Поништи</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="177"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
         <oldsource>Export</oldsource>
         <translation>&amp;Извези</translation>
@@ -6734,35 +6865,35 @@ Other soundfont editors might display other units.</source>
         <translation>Без наслова</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="150"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="152"/>
         <source>Select the destination directory</source>
         <translation>Одаберите одредишни директоријум</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>Неважећи директоријум.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
         <source>At least one preset must be selected.</source>
         <translation>Мора бити изабрана барем једна поставка.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
         <source>The maximal number of soundfont to export is 127.</source>
         <translation>Максималан број звукотека за извоз је 127.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>In the case where several soundfonts are exported, the maximal number of presets per soundfonts is 127.</source>
         <translation>У случају извоза више звукотека, максималан број поставки по звукотеци је 127.</translation>
     </message>

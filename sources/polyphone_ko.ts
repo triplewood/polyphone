@@ -847,157 +847,197 @@
 <context>
     <name>ConfigSectionInterface</name>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="510"/>
+        <location filename="context/interface/configsectioninterface.ui" line="113"/>
         <source>Language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="503"/>
+        <location filename="context/interface/configsectioninterface.ui" line="33"/>
         <source>Key names</source>
         <translation>키 이름</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="540"/>
+        <location filename="context/interface/configsectioninterface.ui" line="148"/>
         <source>Middle C → 60, then 61</source>
         <translation>중간 C → 61 그다음 60</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="545"/>
+        <location filename="context/interface/configsectioninterface.ui" line="153"/>
         <source>Middle C → C3, then C♯3</source>
         <translation>중간 C → C3, 그다음 C#3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="550"/>
+        <location filename="context/interface/configsectioninterface.ui" line="158"/>
         <source>Middle C → C3, then D♭3</source>
         <translation>중간 C → C3, 그다음 D♭3</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="555"/>
+        <location filename="context/interface/configsectioninterface.ui" line="163"/>
         <source>Middle C → C4, then C♯4</source>
         <translation>중간 C → C4, 그다음 C#4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="560"/>
+        <location filename="context/interface/configsectioninterface.ui" line="168"/>
         <source>Middle C → C4, then D♭4</source>
         <translation>중간 C → C4, 그다음 D♭4</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="565"/>
+        <location filename="context/interface/configsectioninterface.ui" line="173"/>
         <source>Middle C → C5, then C♯5</source>
         <translation>중간 C → C5, 그다음 C♯5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="570"/>
+        <location filename="context/interface/configsectioninterface.ui" line="178"/>
         <source>Middle C → C5, then D♭5</source>
         <translation>중간 C → C5, 그다음 D♭5</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="615"/>
+        <location filename="context/interface/configsectioninterface.ui" line="637"/>
+        <source>general information</source>
+        <translation>일반 정보</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="642"/>
+        <source>sample list</source>
+        <translation>샘플 목록</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="647"/>
+        <source>first sample</source>
+        <translation>첫 번째 샘플</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="652"/>
+        <source>instrument list</source>
+        <translation>악기 목록</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="657"/>
+        <source>first instrument</source>
+        <translation>첫 번째 악기</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="662"/>
+        <source>preset list</source>
+        <translation>프리셋 목록</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="667"/>
+        <source>first preset</source>
+        <translation>첫 번째 프리셋</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="71"/>
         <source>Window borders</source>
         <translation>창 테두리</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="476"/>
+        <location filename="context/interface/configsectioninterface.ui" line="83"/>
         <source>Behaviour</source>
         <translation>동작</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="49"/>
+        <location filename="context/interface/configsectioninterface.ui" line="120"/>
         <source>Sort divisions</source>
         <translation>정렬 방법</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="585"/>
+        <location filename="context/interface/configsectioninterface.ui" line="566"/>
+        <source>Startup view</source>
+        <translation>시작 화면</translation>
+    </message>
+    <message>
+        <location filename="context/interface/configsectioninterface.ui" line="613"/>
         <source>by key range</source>
         <translation>키 범위대로</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="590"/>
+        <location filename="context/interface/configsectioninterface.ui" line="618"/>
         <source>by velocity range</source>
         <translation>벨로시티 범위대로</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="595"/>
+        <location filename="context/interface/configsectioninterface.ui" line="623"/>
         <source>in alphabetical order</source>
         <translation>철자 순서대로</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="600"/>
+        <location filename="context/interface/configsectioninterface.ui" line="628"/>
         <source>none</source>
         <comment>speaking of the &quot;sort divisions&quot;</comment>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="35"/>
+        <location filename="context/interface/configsectioninterface.ui" line="134"/>
         <source>Decorations</source>
         <translation>장식</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="42"/>
+        <location filename="context/interface/configsectioninterface.ui" line="106"/>
         <source>Unique instance</source>
         <translation>단일 인스턴스</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="457"/>
+        <location filename="context/interface/configsectioninterface.ui" line="45"/>
         <source>Theme</source>
         <translation>테마</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="464"/>
+        <location filename="context/interface/configsectioninterface.ui" line="580"/>
         <source>Colors</source>
         <translation>색상</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="316"/>
+        <location filename="context/interface/configsectioninterface.ui" line="436"/>
         <source>Selection</source>
         <translation>선택범위</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="83"/>
-        <location filename="context/interface/configsectioninterface.ui" line="445"/>
+        <location filename="context/interface/configsectioninterface.ui" line="203"/>
+        <location filename="context/interface/configsectioninterface.ui" line="592"/>
         <source>Text</source>
         <translation>글자</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="156"/>
+        <location filename="context/interface/configsectioninterface.ui" line="276"/>
         <source>Window</source>
         <translation>창</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="273"/>
+        <location filename="context/interface/configsectioninterface.ui" line="393"/>
         <source>Background</source>
         <translation>배경</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="255"/>
+        <location filename="context/interface/configsectioninterface.ui" line="375"/>
         <source>Button</source>
         <translation>버튼</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="389"/>
+        <location filename="context/interface/configsectioninterface.ui" line="509"/>
         <source>List and table</source>
         <translation>테이블 목록</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="490"/>
+        <location filename="context/interface/configsectioninterface.ui" line="20"/>
         <source>Style</source>
         <translation>스타일</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.ui" line="25"/>
+        <location filename="context/interface/configsectioninterface.ui" line="556"/>
         <source>This modification will be applied during the next start of the software.</source>
         <translation>이 변경사항은 다음 번에 소프트웨어를 시작하면 적용됩니다.</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectioninterface.cpp" line="201"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="213"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="225"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="237"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="249"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="261"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="273"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="285"/>
-        <location filename="context/interface/configsectioninterface.cpp" line="297"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="206"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="218"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="230"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="242"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="254"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="266"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="278"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="290"/>
+        <location filename="context/interface/configsectioninterface.cpp" line="302"/>
         <source>Select a color</source>
         <translation>색상 선택</translation>
     </message>
@@ -1294,8 +1334,8 @@ repository</source>
     <name>ConversionSfz</name>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="56"/>
-        <source>Cannot create directory &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; 디렉토리를 생성할 수 없습니다.</translation>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; 디렉토리를 생성할 수 없습니다</translation>
     </message>
     <message>
         <location filename="core/output/sfz/conversion_sfz.cpp" line="241"/>
@@ -2669,14 +2709,6 @@ repository</source>
         <translation>홈 화면</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="106"/>
-        <source></source>
-        <extracomment>prefixed with 2 spaces for each line</extracomment>
-        <translatorcomment>  New
-  soundfont</translatorcomment>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="mainwindow/mainwindow.ui" line="121"/>
         <source>  New
   soundfont</source>
@@ -2912,34 +2944,43 @@ default mod.</source>
     </message>
 </context>
 <context>
+    <name>OutputCsv</name>
+    <message>
+        <location filename="core/output/csv/outputcsv.cpp" line="52"/>
+        <source>cannot create directory &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; 디렉토리를 생성할 수 없습니다</translation>
+    </message>
+</context>
+<context>
     <name>OutputNotSupported</name>
     <message>
         <location filename="core/output/not_supported/outputnotsupported.cpp" line="39"/>
-        <source>This file format is not supported.</source>
-        <translation>이 파일 형식은 지원되지 않습니다.</translation>
+        <source>this file format is not supported</source>
+        <translation>이 파일 형식은 지원되지 않습니다</translation>
     </message>
 </context>
 <context>
     <name>OutputSf</name>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="62"/>
-        <source>Please close file before overriding it.</source>
-        <translation>덮어쓰기 전에 파일을 닫아주세요.</translation>
+        <source>please close the file before overriding it</source>
+        <translation>덮어쓰기 전에 파일을 닫아주세요</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="91"/>
-        <source>Couldn&apos;t delete file &quot;%1&quot;.</source>
-        <translation>&quot;%1&quot; 파일을 삭제할 수 없습니다.</translation>
+        <source>cannot delete file &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; 파일을 삭제할 수 없습니다</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="101"/>
-        <source>Couldn&apos;t rename file &quot;%1&quot;.</source>
-        <translation>&quot;%1&quot; 파일 이름을 변경할 수 없습니다.</translation>
+        <source>cannot rename file &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; 파일 이름을 변경할 수 없습니다</translation>
     </message>
     <message>
         <location filename="core/output/sf/outputsf.cpp" line="148"/>
-        <source>Cannot create file &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; 파일을 생성할 수 없습니다.</translation>
+        <source>cannot create file &quot;%1&quot;</source>
+        <oldsource>Cannot create file &quot;%1&quot;</oldsource>
+        <translation>&quot;%1&quot; 파일을 생성할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -3716,27 +3757,27 @@ Warning: quality will be reduced and the loop may be altered</source>
         <location filename="core/input/grandorgue/grandorguerank.cpp" line="142"/>
         <location filename="core/input/grandorgue/grandorguestop.cpp" line="141"/>
         <location filename="core/input/grandorgue/grandorgueswitch.cpp" line="73"/>
-        <location filename="core/output/outputfactory.cpp" line="102"/>
+        <location filename="core/output/outputfactory.cpp" line="108"/>
         <source>untitled</source>
         <translation>제목없음</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="118"/>
+        <location filename="core/output/outputfactory.cpp" line="124"/>
         <source>Save a soundfont</source>
         <translation>사운드폰트 저장</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf2 files</source>
         <translation>Sf2 파일</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="120"/>
+        <location filename="core/output/outputfactory.cpp" line="126"/>
         <source>Sf3 files</source>
         <translation>Sf3 파일</translation>
     </message>
     <message>
-        <location filename="core/output/outputfactory.cpp" line="146"/>
+        <location filename="core/output/outputfactory.cpp" line="152"/>
         <location filename="core/sample/sampleloader.cpp" line="60"/>
         <source>Warning</source>
         <translation>경고</translation>
@@ -4062,6 +4103,84 @@ Both divisions must share the same note and velocity ranges.</source>
         <location filename="context/tuningprogrammanager.cpp" line="121"/>
         <source>Tuning program %1:%2</source>
         <translation>튜닝 프로그램 %1:%2</translation>
+    </message>
+    <message>
+        <location filename="core/output/csv/abstractcsvfile.cpp" line="57"/>
+        <source>cannot create file &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; 파일을 생성할 수 없습니다</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="107"/>
+        <source>The file &quot;%1&quot; does not exist.</source>
+        <translation>ファイル「%1」は存在しません。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="115"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>ディレクトリ「%1」は存在しません。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="120"/>
+        <source>The file &quot;%1&quot; already exists.</source>
+        <translation>ファイル「%1」は既に存在します。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="125"/>
+        <source>Loading file &quot;%1&quot;...</source>
+        <translation>ファイル「%1」を読み込み中...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="130"/>
+        <source>Couldn&apos;t load file &quot;%1&quot;: %2.</source>
+        <oldsource>Couldn&apos;t load &quot;%1&quot;: %2.</oldsource>
+        <translation>ファイル「%1」を読み込めませんでした: %2。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="136"/>
+        <source>File successfully loaded!</source>
+        <translation>ファイルの読み込みに成功しました！</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="143"/>
+        <location filename="main.cpp" line="147"/>
+        <source>Writing file &quot;%1&quot;...</source>
+        <translation>ファイル「%1」を書き込み中...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="153"/>
+        <location filename="main.cpp" line="157"/>
+        <source>Writing files in directory &quot;%1&quot;...</source>
+        <translation>ディレクトリ「%1」にファイルを書き込み中...</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="160"/>
+        <source>Unknown mode &quot;%1&quot;.</source>
+        <translation>不明なモード「%1」。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="168"/>
+        <source>An error occurred: %1.</source>
+        <translation>エラーが発生しました: %1。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="173"/>
+        <source>File successfully converted!</source>
+        <translation>ファイルの変換に成功しました！</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="186"/>
+        <source>Previous configuration is now cleared.</source>
+        <translation>以前の設定は消去されました。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="195"/>
+        <source>See &quot;%1&quot; for more information.</source>
+        <translation>詳細については「%1」を参照してください。</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="197"/>
+        <source>Write &quot;%1&quot; to show usage.</source>
+        <translation>使用法を表示するには「%1」と入力してください。</translation>
     </message>
 </context>
 <context>
@@ -6592,12 +6711,12 @@ Other soundfont editors might display other units.</source>
 <context>
     <name>ToolSoundfontExport</name>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="151"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="154"/>
         <source>Merge soudfonts:</source>
         <translation>사운드폰트 통합:</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="246"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport.cpp" line="250"/>
         <source>Export successful!</source>
         <translation>내보내기를 완료했습니다!</translation>
     </message>
@@ -6625,63 +6744,68 @@ Other soundfont editors might display other units.</source>
         <translation>모두 선택해제</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="99"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="97"/>
         <source>Destination</source>
         <translation>경로</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="152"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="135"/>
         <source>Format</source>
         <translation>형식</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="113"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>제너럴 MIDI 분류</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="106"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="142"/>
         <source>one directory per bank</source>
         <translation>뱅크당 경로</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="120"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="104"/>
         <source>preset number as prefix</source>
         <translation>프리셋 번호를 접두사로</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="134"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="153"/>
         <source>High</source>
         <translation>높음</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="139"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="158"/>
         <source>Medium</source>
         <translation>보통</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="144"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="163"/>
         <source>Low</source>
         <translation>낮음</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="159"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="171"/>
         <source>one file per preset</source>
         <translation>프리셋당 한 개의 파일</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="61"/>
         <source>Quality</source>
         <translation>품질</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="178"/>
+        <source>raw values</source>
+        <translation>生のデータ</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
         <oldsource>Cancel</oldsource>
         <translation>취소(&amp;C)</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="177"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
         <oldsource>Export</oldsource>
         <translation>내보내기(&amp;E)</translation>
@@ -6692,35 +6816,35 @@ Other soundfont editors might display other units.</source>
         <translation>제목없음</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="150"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="152"/>
         <source>Select the destination directory</source>
         <translation>저장할 경로 선택</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="166"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>경로가 잘못됐습니다.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="195"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>
         <source>At least one preset must be selected.</source>
         <translation>하나 이상의 프리셋을 선택해야 합니다.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="201"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="203"/>
         <source>The maximal number of soundfont to export is 127.</source>
         <translation>내보낼 사운드 폰트의 최대 수는 127입니다.</translation>
     </message>
     <message>
-        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="210"/>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="212"/>
         <source>In the case where several soundfonts are exported, the maximal number of presets per soundfonts is 127.</source>
         <translation>여러 사운드폰트를 내보내는 경우 사운드폰트 당 최대 프리셋 수는 127입니다.</translation>
     </message>

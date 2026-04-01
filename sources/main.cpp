@@ -45,13 +45,11 @@
 #include "translationmanager.h"
 #include "modulatordata.h"
 #include "fastmaths.h"
-#include "voice.h"
-#include "tools/merge_samples/runnablemerger.h"
+#include "synth.h"
+#include "runnablemerger.h"
 
-
-#ifdef _WIN32
-#include "windows.h"
-#endif
+#include <iostream>
+#include <QTextStream>
 
 void writeLine(QString line)
 {
@@ -63,39 +61,21 @@ void writeLine(QString line)
 int launchApplication(QtSingleApplication * app, Options &options)
 {
     // Prepare arrays
-    SFModulator::prepareConversionTables();
-    FastMaths::initialize();
-    Voice::prepareTables();
-
-    // Application style
-    QSettings settings;
-    QString styleName = settings.value("display/style", "Fusion").toString();
-    if (styleName == "Windows Vista")
-        styleName = "windowsvista";
-    if (!QStyleFactory::keys().contains(styleName))
-        styleName = "Fusion";
-    QApplication::setStyle(QStyleFactory::create(styleName));
-
-    try {
-        app->setPalette(ContextManager::theme()->getPalette());
-    } catch (...) { /* bug with mac */ }
-
-    // Application language
-    ContextManager::translation()->translate();
-
-    // Additional type used in signals
-    qRegisterMetaType<EltID>();
-    qRegisterMetaType<QList<int> >();
-    qRegisterMetaType<QVector<int> >();
+    ModulatorData::init();
+    FastMaths::init();
 
     // Display the main window
-    MainWindow w(options.mode() == Options::MODE_SYNTHESIZER);
-    app->setActivationWindow(&w, true);
-    QObject::connect(app, SIGNAL(messageReceived(const QString&)), &w, SLOT(openFiles(const QString&)));
+    MainWindow w;
     w.show();
 
     // Open files passed as argument
-    w.openFiles(options.getInputFilesAsString());
+    QStringList inputFiles = options.getInputFiles();
+    foreach (QString file, inputFiles)
+        w.openFile(file);
+
+#ifdef Q_OS_MAC
+    QObject::connect(qApp, SIGNAL(openFile(QString)), &w, SLOT(openFile(QString)));
+#endif
 
     return app->exec();
 }
@@ -112,7 +92,7 @@ int convert(Options &options)
     QFileInfo inputFile(options.getInputFiles()[0]);
     if (!inputFile.exists())
     {
-        writeLine("The file " + inputFile.filePath() + " does not exist.");
+        qWarning() << "The file" << inputFile.filePath() << "does not exist.";
         return 1;
     }
 
@@ -120,48 +100,46 @@ int convert(Options &options)
     QFileInfo outputFile(options.getOutputFileFullPath());
     if (!QDir(options.getOutputDirectory()).exists())
     {
-        writeLine("The directory " + options.getOutputDirectory() + " does not exist.");
+        qWarning() << "The directory" << options.getOutputDirectory() << "does not exist.";
         return 1;
     }
     if (outputFile.exists() && options.mode() != Options::MODE_CONVERSION_TO_SFZ)
     {
-        writeLine("The file "  + outputFile.filePath() + " already exists.");
+        qWarning() << "The file" << outputFile.filePath() << "already exists.";
         return 1;
     }
 
     // Load input file
-    writeLine("Loading file " + inputFile.filePath() + "...");
+    qInfo() << "Loading file" << inputFile.filePath() << "...";
     AbstractInputParser * input = InputFactory::getInput(inputFile.filePath());
     input->process(false);
     if (!input->isSuccess())
     {
-        writeLine("Couldn't load " + inputFile.filePath() + ": " + input->getError());
+        qWarning() << "Couldn't load" << inputFile.filePath() + ":" << input->getError();
         delete input;
         return 1;
     }
     int sf2Index = input->getSf2Index();
     delete input;
-    writeLine("File loaded");
+    qInfo() << "File loaded";
 
     // Prepare the output with the respective options
     AbstractOutput * output = OutputFactory::getOutput(outputFile.filePath());
     switch (options.mode())
     {
     case Options::MODE_CONVERSION_TO_SF2:
-        writeLine("Saving file " + outputFile.filePath() + " ...");
         break;
     case Options::MODE_CONVERSION_TO_SF3:
         output->setOption("quality", options.sf3Quality());
-        writeLine("Saving file " + outputFile.filePath() + "...");
         break;
     case Options::MODE_CONVERSION_TO_SFZ: {
         output->setOption("prefix", options.sfzPresetPrefix());
         output->setOption("bankdir", options.sfzOneDirPerBank());
         output->setOption("gmsort", options.sfzGeneralMidi());
-        writeLine("Exporting in directory " + options.getOutputDirectory() + "...");
+        qInfo() << "Exporting in directory" << options.getOutputDirectory() << "...";
     } break;
     default:
-        writeLine("fail");
+        qWarning() << "fail";
         return 1;
     }
 
@@ -169,12 +147,12 @@ int convert(Options &options)
     output->process(sf2Index, false);
     if (!output->isSuccess())
     {
-        writeLine("Couldn't create " + outputFile.filePath() + ": " + output->getError());
+        qWarning() << "Couldn't create" << outputFile.filePath() + ":" << output->getError();
         delete output;
         return 1;
     }
     delete output;
-    writeLine("done");
+    qInfo() << "done";
 
     // Destroy a singleton that has been silently created
     SoundfontManager::kill();
@@ -187,7 +165,7 @@ int resetConfig(Options &options)
 
     QSettings settings;
     settings.clear();
-    writeLine("Previous configuration is now cleared.");
+    qInfo() << "Previous configuration is now cleared.";
 
     return 0;
 }
@@ -240,6 +218,12 @@ int displayHelp(Options &options)
 #ifndef POLYPHONE_NO_GUI
     writeLine("  " + exe + " -s -i file.sf2 -c all|off|toggle");
 #endif
+    writeLine("");
+#ifdef _WIN32
+    writeLine(QObject::tr("See \"%1\" for more information.").arg("https://www.polyphone.io/documentation/manual/annexes/command-line"));
+#else
+    writeLine(QObject::tr("Write \"%1\" to show usage.").arg("man polyphone"));
+#endif
     return 0;
 }
 
@@ -253,21 +237,22 @@ int testVoice()
     input->process(false);
     if (!input->isSuccess())
     {
-        writeLine("Couldn't load " + filePath + ": " + input->getError());
+        qWarning() << "Couldn't load" << filePath + ":" << input->getError();
         delete input;
         return 1;
     }
     int sf2Index = input->getSf2Index();
     delete input;
-    writeLine("File loaded");
 
-    // Launch a tool
+    // The first preset is used
+    EltID elementPrstID = EltID(elementPrst, sf2Index, 0);
+
     for (int key = 36; key <= 40; key++)
     {
         writeLine("Key: " + QString::number(key));
         RunnableMerger merger(
             nullptr,
-            EltID(elementPrst, sf2Index, 0),  // The first preset is used
+            elementPrstID,  // The first preset is used
             key, key,
             false, // No loop
             true, // Stereo enabled
@@ -293,13 +278,18 @@ int testSynth()
     synth->configure(ContextManager::configuration()->getSynthConfig());
     synth->setSampleRateAndBufferSize(sampleRate, bufferLength);
 
-    float * lBuffer = new float[bufferLength];
-    float * rBuffer = new float[bufferLength];
-    int iterationNumber = duration * sampleRate / bufferLength;
-    for (int i = 0; i < iterationNumber; i++)
-        synth->readData(lBuffer, rBuffer, bufferLength);
-    delete [] lBuffer;
-    delete [] rBuffer;
+    float* output = new float[bufferLength * 2];
+    for (int i = 0; i < duration * sampleRate / bufferLength; i++)
+    {
+        if (i == 0)
+            synth->processKey(0, 60, 100);
+        if (i == 10)
+            synth->processKey(0, 60, 0); // Note off is often velocity 0
+
+        synth->readData(&output[0], &output[bufferLength], bufferLength);
+    }
+
+    delete [] output;
     delete synth;
 
     return 0;
@@ -307,7 +297,6 @@ int testSynth()
 
 int main(int argc, char *argv[])
 {
-    // Uncomment for testing purposes
     //return testVoice();
     //return testSynth();
 
@@ -347,11 +336,12 @@ int main(int argc, char *argv[])
     if (!options.error() && !options.help() && (options.mode() == Options::MODE_GUI || options.mode() == Options::MODE_SYNTHESIZER))
     {
         QSettings settings;
-        bool uniqueInstance = settings.value("display/unique_instance", true).toBool();
-
-        // Return immediately if there is already an instance
-        if (uniqueInstance && app.sendMessage(options.getInputFilesAsString()))
+        if (app.sendMessage(options.getInputFiles().join("|")))
             return 0;
+
+        // Preparation
+        ModulatorData::init();
+        FastMaths::init();
 
         // Or launch the application as a unique instance
         return launchApplication(&app, options);
@@ -360,12 +350,12 @@ int main(int argc, char *argv[])
 
     // Otherwise, console mode
 #ifdef _WIN32
-    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+    if (AttachConsole(ATTACH_PARENT_PROCESS))
+    {
         freopen("CONOUT$", "w", stdout);
         freopen("CONOUT$", "w", stderr);
     }
 #endif
-    ContextManager::initializeNoAudioMidi();
 
     if (options.error() || options.help())
         valRet = displayHelp(options);

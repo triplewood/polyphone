@@ -41,8 +41,6 @@ PageSf2::PageSf2(QWidget * parent) :
     QColor highlightedHover = ContextManager::theme()->getColor(ThemeManager::HIGHLIGHTED_BACKGROUND, ThemeManager::HOVERED);
 
     // Style
-    connect(ui->lineEdit_date, SIGNAL(focussed(bool)), this, SLOT(dateFocussed(bool)), Qt::QueuedConnection);
-
     ui->frameSampleTitle->setStyleSheet("QFrame{border-radius: 2px;border:0;background-color:" + highlighted.name() + ";color:" + highlightedText.name() + "}");
     ui->frameInstrumentTitle->setStyleSheet("QFrame{border-radius: 2px;border:0;background-color:" + highlighted.name() + ";color:" + highlightedText.name() + "}");
     ui->framePresetTitle->setStyleSheet("QFrame{border-radius: 2px;border:0;background-color:" + highlighted.name() + ";color:" + highlightedText.name() + "}");
@@ -69,9 +67,6 @@ PageSf2::PageSf2(QWidget * parent) :
     ui->lineEdit_date->setValidator(new LatinValidator(ui->lineEdit_date));
     ui->lineEdit_product->setValidator(new LatinValidator(ui->lineEdit_product));
     ui->lineEdit_copyright->setValidator(new LatinValidator(ui->lineEdit_copyright));
-
-    // Button "set now" hidden by default
-    ui->pushButton_setNow->hide();
 }
 
 PageSf2::~PageSf2()
@@ -107,7 +102,7 @@ void PageSf2::updateInterface(QString editingSource)
     ui->lineEdit_name->setTextToElide(_sf2->getQstr(_currentID, champ_name));
     ui->lineEdit_copyright->setText(_sf2->getQstr(_currentID, champ_ICOP));
     ui->lineEdit_author->setTextToElide(_sf2->getQstr(_currentID, champ_IENG));
-    ui->lineEdit_date->setTextToElide(_sf2->getQstr(_currentID, champ_ICRD));
+    ui->lineEdit_date->setInitialText(_sf2->getQstr(_currentID, champ_ICRD));
     ui->lineEdit_product->setText(_sf2->getQstr(_currentID, champ_IPRD));
     ui->textEdit_Com->setPlainText(_sf2->getQstr(_currentID, champ_ICMT));
 }
@@ -156,10 +151,10 @@ void PageSf2::setDate()
     if (_preparingPage)
         return;
 
-    if (ui->lineEdit_date->text().compare(_sf2->getQstr(_currentID, champ_ICRD)) != 0)
+    if (ui->lineEdit_date->getInitialText().compare(_sf2->getQstr(_currentID, champ_ICRD)) != 0)
     {
         // Soundfont editing
-        _sf2->set(_currentID, champ_ICRD, ui->lineEdit_date->text());
+        _sf2->set(_currentID, champ_ICRD, ui->lineEdit_date->getInitialText());
         _sf2->endEditing(_editingSource);
     }
 }
@@ -193,13 +188,6 @@ void PageSf2::setCommentaire()
         _sf2->set(_currentID, champ_ICMT, ui->textEdit_Com->toPlainText());
         _sf2->endEditing(_editingSource);
     }
-}
-
-void PageSf2::on_pushButton_setNow_pressed()
-{
-    QString date = QDateTime::currentDateTime().toString("dddd d MMMM yyyy, hh:mm:ss");
-    ui->lineEdit_date->setTextToElide(date);
-    setDate();
 }
 
 void PageSf2::countElements()
@@ -367,12 +355,6 @@ void PageSf2::countElements(int &unusedSmpl, int &unusedInst, int &usedSmpl, int
     unusedInst = listInst.size();
     usedSmpl = listUsedSmpl.size() + listSmpl.size();
     usedInst = listUsedInst.size() + listInst.size();
-}
-
-void PageSf2::dateFocussed(bool hasFocus)
-{
-    QApplication::processEvents();
-    ui->pushButton_setNow->setVisible(hasFocus);
 }
 
 void PageSf2::on_pushViewSamples_clicked()
