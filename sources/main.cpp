@@ -125,11 +125,27 @@ int convert(Options &options)
 
     // Prepare the output with the respective options
     AbstractOutput * output = OutputFactory::getOutput(outputFile.filePath());
+    SoundfontManager * sm = SoundfontManager::getInstance();
+    EltID sf2Id(elementSf2, sf2Index);
+    AttributeValue value;
     switch (options.mode())
     {
     case Options::MODE_CONVERSION_TO_SF2:
+        // The soundfont version drives the output format: version 2.04 means no compression
+        if (sm->get(sf2Id, champ_IFIL).sfVerValue.wMajor >= 3)
+        {
+            value.sfVerValue.wMajor = 2;
+            value.sfVerValue.wMinor = 4;
+            sm->set(sf2Id, champ_IFIL, value);
+        }
         break;
     case Options::MODE_CONVERSION_TO_SF3:
+        // Compression requires soundfont version 3.00 and a 16-bit depth
+        value.sfVerValue.wMajor = 3;
+        value.sfVerValue.wMinor = 0;
+        sm->set(sf2Id, champ_IFIL, value);
+        value.wValue = 16;
+        sm->set(sf2Id, champ_wBpsSave, value);
         output->setOption("quality", options.sf3Quality());
         break;
     case Options::MODE_CONVERSION_TO_SFZ: {
