@@ -68,16 +68,16 @@ int launchApplication(QtSingleApplication * app, Options &options)
     Voice::prepareTables();
 
     // Display the main window
-    MainWindow w;
+    MainWindow w(options.mode() == Options::MODE_SYNTHESIZER);
     w.show();
 
     // Open files passed as argument
     QStringList inputFiles = options.getInputFiles();
     foreach (QString file, inputFiles)
-        w.openFile(file);
+        w.openFiles(file);
 
 #ifdef Q_OS_MAC
-    QObject::connect(qApp, SIGNAL(openFile(QString)), &w, SLOT(openFile(QString)));
+    QObject::connect(qApp, SIGNAL(openFile(QString)), &w, SLOT(openFiles(QString)));
 #endif
 
     return app->exec();

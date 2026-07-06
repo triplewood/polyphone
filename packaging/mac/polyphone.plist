@@ -144,7 +144,7 @@
     </dict>
   </array>
   <key>CFBundleExecutable</key>
-  <string>Polyphone</string>
+  <string>polyphone</string>
   <key>CFBundleIconFile</key>
   <string>polyphone.icns</string>
   <key>CFBundleIdentifier</key>

@@ -26,6 +26,7 @@
 #include "rtaudio/RtAudio.h"
 #include "confmanager.h"
 #include "soundfontmanager.h"
+#include <QDebug>
 
 #ifndef RT_AUDIO_5_2
 class RtAudioError {
@@ -345,21 +346,40 @@ void AudioDevice::openConnection(unsigned int deviceNumber, quint32 bufferSize, 
     RtAudio::StreamOptions options;
     options.flags = RTAUDIO_NONINTERLEAVED;
     options.streamName = "Polyphone";
+#ifdef RT_AUDIO_5_2
     try {
         _rtAudio->openStream(&outParam, nullptr, RTAUDIO_FLOAT32, sampleRate, &bufferSize, standardProcess, this, &options);
     } catch (RtAudioError &error) {
         closeConnections();
         return;
     }
+#else
+    RtAudioErrorType openResult = _rtAudio->openStream(&outParam, nullptr, RTAUDIO_FLOAT32, sampleRate, &bufferSize, standardProcess, this, &options);
+    if (openResult != RTAUDIO_NO_ERROR)
+    {
+        qWarning() << "Could not open audio stream:" << QString::fromStdString(_rtAudio->getErrorText());
+        closeConnections();
+        return;
+    }
+#endif
 
     // Configure the synth
     _synth->setSampleRateAndBufferSize(sampleRate, bufferSize);
 
+#ifdef RT_AUDIO_5_2
     try {
         _rtAudio->startStream();
     } catch (RtAudioError &error) {
         closeConnections();
     }
+#else
+    RtAudioErrorType startResult = _rtAudio->startStream();
+    if (startResult != RTAUDIO_NO_ERROR)
+    {
+        qWarning() << "Could not start audio stream:" << QString::fromStdString(_rtAudio->getErrorText());
+        closeConnections();
+    }
+#endif
 }
 
 void AudioDevice::closeConnections()

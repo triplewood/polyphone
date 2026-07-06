@@ -26,6 +26,8 @@ DEFINES += SOFT_VERSION=\\\"2.6.0\\\"
 DEFINES += IDENTIFIER=\\\"BETA\\\"
 DEFINES += CURRENT_YEAR=\\\"2025\\\"
 
+INCLUDEPATH += $$PWD/editor/tools/merge_samples
+
 # List to be completed if other translations are desired
 # Format: polyphone_XX.ts, XX being the language code
 TRANSLATIONS = polyphone_en.ts \
