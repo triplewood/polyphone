@@ -79,6 +79,8 @@ QDataStream & operator >> (QDataStream &in, Sf2SdtaPart &sdta)
         // Keep the position of "smpl" and skip the block
         sdta._startSmplOffset = 20;
         skipData(in, sdta._smplSize.value);
+        if (sdta._smplSize.value % 2)
+            skipData(in, 1); // RIFF chunks are padded to an even number of bytes
 
         // Block sm24?
         {
