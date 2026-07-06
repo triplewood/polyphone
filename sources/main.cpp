@@ -345,6 +345,16 @@ int main(int argc, char *argv[])
     //return testVoice();
     //return testSynth();
 
+    if (qEnvironmentVariableIsSet("POLYPHONE_SYNTH_SELFTEST"))
+    {
+        if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM"))
+            qputenv("QT_QPA_PLATFORM", "offscreen");
+        QApplication app(argc, argv);
+        QCoreApplication::setApplicationName("Polyphone");
+        QCoreApplication::setOrganizationName("polyphone");
+        return testSynth();
+    }
+
 #ifdef Q_OS_LINUX
 #ifndef POLYPHONE_NO_GUI
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
@@ -365,8 +375,6 @@ int main(int argc, char *argv[])
 #endif
     QCoreApplication::setApplicationName("Polyphone");
     QCoreApplication::setOrganizationName("polyphone");
-    if (qEnvironmentVariableIsSet("POLYPHONE_SYNTH_SELFTEST"))
-        return testSynth();
 #ifndef POLYPHONE_NO_GUI
 #ifdef _WIN32
     QFont f = app.font(); // Global font size so that it scales
