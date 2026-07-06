@@ -46,10 +46,12 @@
 #include "modulatordata.h"
 #include "fastmaths.h"
 #include "synth.h"
+#include "voice.h"
 #include "runnablemerger.h"
 
 #include <iostream>
 #include <QTextStream>
+#include <QDebug>
 
 void writeLine(QString line)
 {
@@ -61,8 +63,9 @@ void writeLine(QString line)
 int launchApplication(QtSingleApplication * app, Options &options)
 {
     // Prepare arrays
-    ModulatorData::init();
-    FastMaths::init();
+    SFModulator::prepareConversionTables();
+    FastMaths::initialize();
+    Voice::prepareTables();
 
     // Display the main window
     MainWindow w;
@@ -285,30 +288,56 @@ int testVoice()
 /// This test can be used for testing the synth parallel computing mechanisms
 int testSynth()
 {
+    SFModulator::prepareConversionTables();
+    FastMaths::initialize();
+    Voice::prepareTables();
+
     int bufferLength = 512;
     int sampleRate = 48000;
-    int duration = 400; // in seconds
+    int duration = 2; // in seconds
+    int sf2Index = -1;
 
     ContextManager::initializeNoAudioMidi();
+    QString filePath = qEnvironmentVariable("POLYPHONE_SYNTH_SELFTEST_FILE");
+    if (!filePath.isEmpty())
+    {
+        AbstractInputParser * input = InputFactory::getInput(filePath);
+        input->process(false);
+        if (!input->isSuccess())
+        {
+            qWarning() << "Synth selftest couldn't load" << filePath + ":" << input->getError();
+            delete input;
+            return 1;
+        }
+        sf2Index = input->getSf2Index();
+        delete input;
+    }
+
     Synth * synth = new Synth(SoundfontManager::getInstance()->getSoundfonts(), SoundfontManager::getInstance()->getMutex());
     synth->configure(ContextManager::configuration()->getSynthConfig());
     synth->setSampleRateAndBufferSize(sampleRate, bufferLength);
 
+    EltID presetId = EltID(elementPrst, sf2Index, 0);
     float* output = new float[bufferLength * 2];
+    float maxAbs = 0.f;
     for (int i = 0; i < duration * sampleRate / bufferLength; i++)
     {
         if (i == 0)
-            synth->processKey(0, 60, 100);
-        if (i == 10)
-            synth->processKey(0, 60, 0); // Note off is often velocity 0
+            synth->play(presetId, -1, 60, 100);
+        if (i == sampleRate / bufferLength / 2)
+            synth->play(presetId, -1, 60, 0); // Note off
 
         synth->readData(&output[0], &output[bufferLength], bufferLength);
+        for (int j = 0; j < bufferLength * 2; ++j)
+            maxAbs = qMax(maxAbs, qAbs(output[j]));
     }
+
+    qInfo() << "Synth selftest maxAbs" << maxAbs << "file" << filePath << "preset" << presetId.toString();
 
     delete [] output;
     delete synth;
 
-    return 0;
+    return maxAbs > 0.f ? 0 : 2;
 }
 
 int main(int argc, char *argv[])
@@ -336,6 +365,8 @@ int main(int argc, char *argv[])
 #endif
     QCoreApplication::setApplicationName("Polyphone");
     QCoreApplication::setOrganizationName("polyphone");
+    if (qEnvironmentVariableIsSet("POLYPHONE_SYNTH_SELFTEST"))
+        return testSynth();
 #ifndef POLYPHONE_NO_GUI
 #ifdef _WIN32
     QFont f = app.font(); // Global font size so that it scales
@@ -356,8 +387,9 @@ int main(int argc, char *argv[])
             return 0;
 
         // Preparation
-        ModulatorData::init();
-        FastMaths::init();
+        SFModulator::prepareConversionTables();
+        FastMaths::initialize();
+        Voice::prepareTables();
 
         // Or launch the application as a unique instance
         return launchApplication(&app, options);
