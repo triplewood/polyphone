@@ -15,10 +15,22 @@ Authoritative format and fixture specification:
 /Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/soundfont-compatibility-spec.md
 ```
 
+Developer checklist for SoundFont-impacting changes:
+
+```text
+/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/SOUNDFONT_COMPATIBILITY_CHECKLIST.md
+```
+
 EWI product/runtime policy:
 
 ```text
 /Users/gary/Work/Yasile/src/ewi-midi-synthesizer/package/ewi_midi_synthesizer/docs/design/SOUND_LIBRARY_COMPATIBILITY.md
+```
+
+Navigation summary for this fork:
+
+```text
+docs/ai/soundfont-cross-project-navigation.md
 ```
 
 This Polyphone document records only:
@@ -74,6 +86,13 @@ Local editor smoke with real sbkit candidate banks:
 ```bash
 cd /Users/gary/Work/Yasile/src/polyphone
 POLYPHONE_SMOKE_REAL_BANKS=1 bash scripts/smoke_sf3_flac.sh
+```
+
+Real-bank matrix gate owned by sbkit, with optional Polyphone and EWI evidence:
+
+```bash
+cd /Users/gary/Work/Yasile/src/dream_snddev
+tools/sbkit/smoke_real_bank_soundfont_matrix.sh
 ```
 
 Combined local integration gate across sbkit, Polyphone, and EWI:
@@ -166,3 +185,17 @@ Do not stage unless separately reviewed:
 - `CLAUDE.md`
 
 For sbkit and EWI stage boundaries, prefer the canonical docs in those repos.
+
+
+## Latest cross-project evidence on 2026-07-07
+
+- sbkit real-bank matrix smoke passed with `decision=ready_for_review`,
+  `banks=3`, `ready=3`, and `review_required=0`.
+- Default matrix banks all reported `static=pass`, `polyphone=pass`, and
+  `runtime_render=pass`.
+- EWI explicit-bank runtime harness rendered:
+  - `KA_Pipa_special_layers.flac.sf3`;
+  - `KA_ErHu_special_layers.flac.sf3`;
+  - `SaxCompilation/Tenor Sax 4.sf2`.
+- Polyphone `bash scripts/smoke_cross_project_soundfont.sh` passed for the
+  generated fixture chain.
