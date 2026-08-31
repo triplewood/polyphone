@@ -27,7 +27,9 @@
 #include "toolsoundfontexport_parameters.h"
 #include "contextmanager.h"
 #include "soundfontmanager.h"
+#include "utils.h"
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QMessageBox>
 #include <QRegularExpression>
 
@@ -52,8 +54,10 @@ void ToolSoundfontExport_gui::updateInterface(AbstractToolParameters * parameter
     ui->listPresets->clear();
     SoundfontManager * sm = SoundfontManager::getInstance();
     EltID idSf2(elementSf2);
+    QList<int> soundfontIndexes;
     foreach (int i, sm->getSiblings(idSf2))
     {
+        soundfontIndexes << i;
         EltID id(elementSf2, i);
         QString title = sm->getQstr(id, champ_name);
         if (title.isEmpty())
@@ -97,10 +101,23 @@ void ToolSoundfontExport_gui::updateInterface(AbstractToolParameters * parameter
     on_comboCodec_currentIndexChanged(exportCodec);
 
     ui->lineFolder->setText(params->getDirectory());
+    QString fileName = params->getFileName();
+    if (fileName.isEmpty() && soundfontIndexes.count() == 1)
+    {
+        EltID id(elementSf2, soundfontIndexes.first());
+        fileName = QFileInfo(sm->getQstr(id, champ_filenameInitial)).completeBaseName();
+        if (fileName.isEmpty())
+            fileName = sm->getQstr(id, champ_name);
+        fileName = Utils::removeForbiddenFilePathCharacters(fileName.trimmed());
+    }
+    if (fileName.isEmpty())
+        fileName = "export";
+    ui->lineFileName->setText(fileName);
     ui->checkBank->setChecked(params->getBankDirectory());
     ui->checkPreset->setChecked(params->getPresetPrefix());
     ui->checkGM->setChecked(params->getGmSort());
     ui->checkFilePreset->setChecked(params->getFilePreset());
+    on_checkFilePreset_toggled(ui->checkFilePreset->isChecked());
     ui->checkRawValues->setChecked(params->getCsvRaw());
 
     int exportQuality = params->getQuality();
@@ -115,6 +132,7 @@ void ToolSoundfontExport_gui::saveParameters(AbstractToolParameters * parameters
 
     // Save parameters
     params->setDirectory(ui->lineFolder->text());
+    params->setFileName(ui->lineFileName->text());
     params->setFormat(ui->comboFormat->currentIndex());
     params->setQuality(2 - ui->comboQuality->currentIndex());
     params->setCodec(ui->comboCodec->currentIndex());
@@ -176,6 +194,22 @@ void ToolSoundfontExport_gui::on_pushExport_clicked()
         return;
     }
 
+    // A custom name is used only when all selected presets share one output file.
+    if (!ui->checkFilePreset->isVisible() || !ui->checkFilePreset->isChecked())
+    {
+        QString fileName = Utils::removeForbiddenFilePathCharacters(ui->lineFileName->text().trimmed());
+        QString extension = ui->comboFormat->currentText();
+        if (fileName.endsWith(extension, Qt::CaseInsensitive))
+            fileName.chop(extension.length());
+        fileName = fileName.trimmed();
+        if (fileName.isEmpty())
+        {
+            QMessageBox::warning(this, tr("Warning"), tr("Invalid file name."));
+            return;
+        }
+        ui->lineFileName->setText(fileName);
+    }
+
     // Update the preset list by soundfont
     _presetList.clear();
     for (int i = 0; i < ui->listPresets->topLevelItemCount(); i++)
@@ -225,6 +259,8 @@ void ToolSoundfontExport_gui::on_pushExport_clicked()
 
 void ToolSoundfontExport_gui::on_comboFormat_currentIndexChanged(int index)
 {
+    ui->labelExtension->setText(ui->comboFormat->itemText(index));
+
     // Options for sf3
     ui->labelCodec->setVisible(index == 1);
     ui->comboCodec->setVisible(index == 1);
@@ -232,6 +268,7 @@ void ToolSoundfontExport_gui::on_comboFormat_currentIndexChanged(int index)
 
     // Options for sf2 and sf3
     ui->checkFilePreset->setVisible(index == 0 || index == 1);
+    on_checkFilePreset_toggled(ui->checkFilePreset->isChecked());
 
     // Options for sfz
     ui->checkBank->setVisible(index == 2);
@@ -250,4 +287,12 @@ void ToolSoundfontExport_gui::on_comboCodec_currentIndexChanged(int index)
     ui->labelQuality->setVisible(isSf3 && isVorbis);
     ui->comboQuality->setVisible(isSf3 && isVorbis);
     ui->comboQuality->setEnabled(isVorbis);
+}
+
+void ToolSoundfontExport_gui::on_checkFilePreset_toggled(bool checked)
+{
+    bool customNameEnabled = !ui->checkFilePreset->isVisible() || !checked;
+    ui->labelFileName->setEnabled(customNameEnabled);
+    ui->lineFileName->setEnabled(customNameEnabled);
+    ui->labelExtension->setEnabled(customNameEnabled);
 }

@@ -6777,6 +6777,11 @@ Other soundfont editors might display other units.</source>
         <translation>编码</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="206"/>
+        <source>File name</source>
+        <translation>文件名</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>通用MIDI分类</translation>
@@ -6855,6 +6860,11 @@ Other soundfont editors might display other units.</source>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="168"/>
         <source>Invalid directory.</source>
         <translation>无效目录。</translation>
+    </message>
+    <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="207"/>
+        <source>Invalid file name.</source>
+        <translation>文件名无效。</translation>
     </message>
     <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.cpp" line="197"/>

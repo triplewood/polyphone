@@ -28,6 +28,7 @@
 void ToolSoundfontExport_parameters::loadConfiguration()
 {
     _directory = ContextManager::recentFile()->getLastDirectory(RecentFileManager::FILE_TYPE_EXPORT);
+    _fileName.clear();
     _format = getToolValue("type", 0).toInt();
     _quality = getToolValue("quality", 1).toInt();
     _codec = getToolValue("codec", 0).toInt();

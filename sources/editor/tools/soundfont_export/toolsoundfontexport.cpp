@@ -31,6 +31,28 @@
 #include "abstractoutput.h"
 #include "utils.h"
 
+namespace
+{
+QString normalizeExportName(QString name, int format)
+{
+    name = Utils::removeForbiddenFilePathCharacters(name.trimmed());
+
+    QString extension;
+    switch (format)
+    {
+    case 0: extension = ".sf2"; break;
+    case 1: extension = ".sf3"; break;
+    case 2: extension = ".sfz"; break;
+    case 3: extension = ".csv"; break;
+    default: break;
+    }
+    if (!extension.isEmpty() && name.endsWith(extension, Qt::CaseInsensitive))
+        name.chop(extension.length());
+
+    return name.trimmed();
+}
+}
+
 ToolSoundfontExport::ToolSoundfontExport() : AbstractToolOneStep(new ToolSoundfontExport_parameters(), new ToolSoundfontExport_gui())
 {
 
@@ -55,7 +77,8 @@ void ToolSoundfontExport::process(SoundfontManager * sm, IdList ids, AbstractToo
     ToolSoundfontExport_parameters * params = (ToolSoundfontExport_parameters *)parameters;
     
     QMap<int, QList<int> > presets = params->getSelectedPresets();
-    if (params->getFilePreset())
+    bool oneFilePerPreset = params->getFilePreset() && params->getFormat() <= 1;
+    if (oneFilePerPreset)
     {
         // One file per preset
         foreach (int soundfontId, presets.keys())
@@ -81,7 +104,10 @@ void ToolSoundfontExport::process(SoundfontManager * sm, IdList ids, AbstractToo
     else
     {
         // Export all presets together
-        process(sm, getName(sm, presets.keys()), presets, parameters);
+        QString name = normalizeExportName(params->getFileName(), params->getFormat());
+        if (name.isEmpty())
+            name = getName(sm, presets.keys());
+        process(sm, name, presets, parameters);
     }
 }
 

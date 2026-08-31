@@ -40,6 +40,9 @@ public:
     QString getDirectory() { return _directory; }
     void setDirectory(QString directory) { _directory = directory; }
 
+    QString getFileName() { return _fileName; }
+    void setFileName(QString fileName) { _fileName = fileName; }
+
     int getFormat() { return _format; }
     void setFormat(int format) { _format = format; }
 
@@ -71,6 +74,7 @@ public:
 
 private:
     QString _directory;
+    QString _fileName;
     int _format;
     int _quality;
     int _codec;

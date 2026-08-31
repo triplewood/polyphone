@@ -53,6 +53,7 @@ private slots:
     void on_pushExport_clicked();
     void on_comboFormat_currentIndexChanged(int index);
     void on_comboCodec_currentIndexChanged(int index);
+    void on_checkFilePreset_toggled(bool checked);
 
 private:
     Ui::ToolSoundfontExport_gui *ui;
