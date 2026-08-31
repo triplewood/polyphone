@@ -6747,6 +6747,11 @@ D&apos;autres éditeurs de soundfonts pourraient utiliser d&apos;autres unités.
         <translation>Format</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Encodage</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>classement général MIDI</translation>

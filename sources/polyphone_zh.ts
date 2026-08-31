@@ -6772,6 +6772,11 @@ Other soundfont editors might display other units.</source>
         <translation>格式</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>编码</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>通用MIDI分类</translation>

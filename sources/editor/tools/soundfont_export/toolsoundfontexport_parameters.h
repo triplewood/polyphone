@@ -46,6 +46,10 @@ public:
     int getQuality() { return _quality; }
     void setQuality(int quality) { _quality = quality; }
 
+    // SF3 codec: 0 is Vorbis (the default), 1 is FLAC.
+    int getCodec() { return _codec; }
+    void setCodec(int codec) { _codec = codec; }
+
     bool getPresetPrefix() { return _presetPrefix; }
     void setPresetPrefix(bool presetPrefix) { _presetPrefix = presetPrefix; }
 
@@ -69,6 +73,7 @@ private:
     QString _directory;
     int _format;
     int _quality;
+    int _codec;
     bool _presetPrefix;
     bool _bankDirectory;
     bool _gmSort;

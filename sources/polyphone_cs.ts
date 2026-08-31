@@ -6792,6 +6792,11 @@ Jiné editory soundfontů mohou zobrazovat jiné jednotky.</translation>
         <translation>Formát</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Kódování</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Zařazení všeobecného MIDI</translation>

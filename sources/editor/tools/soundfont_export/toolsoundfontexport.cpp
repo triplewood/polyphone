@@ -103,8 +103,22 @@ void ToolSoundfontExport::process(SoundfontManager * sm, QString name, QMap<int,
         // Nothing special
         break;
     case 1: // sf3
-        output->setOption("quality", params->getQuality());
+    {
+        // The output codec is selected from the internal SoundFont version,
+        // not from the file extension. A newly merged soundfont defaults to
+        // SF2.04, so mark it as SF3 before writing the sample data.
+        AttributeValue value;
+        value.sfVerValue.wMajor = 3;
+        value.sfVerValue.wMinor = 0;
+        sm->set(idExport, champ_IFIL, value);
+        value.wValue = 16;
+        sm->set(idExport, champ_wBpsSave, value);
+
+        output->setOption("codec", params->getCodec() == 1 ? "flac" : "vorbis");
+        if (params->getCodec() != 1)
+            output->setOption("quality", params->getQuality());
         break;
+    }
     case 2: // sfz
         output->setOption("prefix", params->getPresetPrefix());
         output->setOption("bankdir", params->getBankDirectory());

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>306</width>
-    <height>397</height>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,7 +55,7 @@
      <property name="verticalSpacing">
       <number>5</number>
      </property>
-     <item row="2" column="0">
+     <item row="3" column="0">
       <widget class="QLabel" name="labelQuality">
        <property name="text">
         <string>Quality</string>
@@ -65,7 +65,7 @@
      <item row="0" column="1">
       <widget class="QLineEdit" name="lineFolder"/>
      </item>
-     <item row="5" column="1" colspan="2">
+     <item row="6" column="1" colspan="2">
       <widget class="QCheckBox" name="checkGM">
        <property name="text">
         <string>General MIDI classification</string>
@@ -98,7 +98,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1" colspan="2">
+     <item row="4" column="1" colspan="2">
       <widget class="QCheckBox" name="checkPreset">
        <property name="text">
         <string>preset number as prefix</string>
@@ -136,14 +136,14 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1" colspan="2">
+     <item row="5" column="1" colspan="2">
       <widget class="QCheckBox" name="checkBank">
        <property name="text">
         <string>one directory per bank</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1" colspan="2">
+     <item row="3" column="1" colspan="2">
       <widget class="QComboBox" name="comboQuality">
        <property name="currentIndex">
         <number>1</number>
@@ -165,21 +165,42 @@
        </item>
       </widget>
      </item>
-     <item row="6" column="1" colspan="2">
+     <item row="7" column="1" colspan="2">
       <widget class="QCheckBox" name="checkFilePreset">
        <property name="text">
         <string>one file per preset</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="1" colspan="2">
+     <item row="8" column="1" colspan="2">
       <widget class="QCheckBox" name="checkRawValues">
        <property name="text">
         <string>raw values</string>
        </property>
-      </widget>
-     </item>
-    </layout>
+     </widget>
+    </item>
+     <item row="2" column="0">
+     <widget class="QLabel" name="labelCodec">
+      <property name="text">
+       <string>Encoding</string>
+      </property>
+     </widget>
+    </item>
+     <item row="2" column="1" colspan="2">
+     <widget class="QComboBox" name="comboCodec">
+      <item>
+       <property name="text">
+        <string notr="true">Vorbis</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string notr="true">FLAC</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -220,6 +241,8 @@
   <tabstop>listPresets</tabstop>
   <tabstop>lineFolder</tabstop>
   <tabstop>comboFormat</tabstop>
+  <tabstop>comboCodec</tabstop>
+  <tabstop>comboQuality</tabstop>
   <tabstop>checkPreset</tabstop>
   <tabstop>checkBank</tabstop>
   <tabstop>checkGM</tabstop>

@@ -90,6 +90,12 @@ void ToolSoundfontExport_gui::updateInterface(AbstractToolParameters * parameter
     ui->comboFormat->setCurrentIndex(exportType);
     on_comboFormat_currentIndexChanged(exportType);
 
+    int exportCodec = params->getCodec();
+    if (exportCodec < 0 || exportCodec >= ui->comboCodec->count())
+        exportCodec = 0;
+    ui->comboCodec->setCurrentIndex(exportCodec);
+    on_comboCodec_currentIndexChanged(exportCodec);
+
     ui->lineFolder->setText(params->getDirectory());
     ui->checkBank->setChecked(params->getBankDirectory());
     ui->checkPreset->setChecked(params->getPresetPrefix());
@@ -111,6 +117,7 @@ void ToolSoundfontExport_gui::saveParameters(AbstractToolParameters * parameters
     params->setDirectory(ui->lineFolder->text());
     params->setFormat(ui->comboFormat->currentIndex());
     params->setQuality(2 - ui->comboQuality->currentIndex());
+    params->setCodec(ui->comboCodec->currentIndex());
     params->setPresetPrefix(ui->checkPreset->isChecked());
     params->setBankDirectory(ui->checkBank->isChecked());
     params->setGmSort(ui->checkGM->isChecked());
@@ -219,8 +226,9 @@ void ToolSoundfontExport_gui::on_pushExport_clicked()
 void ToolSoundfontExport_gui::on_comboFormat_currentIndexChanged(int index)
 {
     // Options for sf3
-    ui->labelQuality->setVisible(index == 1);
-    ui->comboQuality->setVisible(index == 1);
+    ui->labelCodec->setVisible(index == 1);
+    ui->comboCodec->setVisible(index == 1);
+    on_comboCodec_currentIndexChanged(ui->comboCodec->currentIndex());
 
     // Options for sf2 and sf3
     ui->checkFilePreset->setVisible(index == 0 || index == 1);
@@ -232,4 +240,14 @@ void ToolSoundfontExport_gui::on_comboFormat_currentIndexChanged(int index)
 
     // Options for csv
     ui->checkRawValues->setVisible(index == 3);
+}
+
+void ToolSoundfontExport_gui::on_comboCodec_currentIndexChanged(int index)
+{
+    // Vorbis quality has no meaning for the lossless FLAC encoder.
+    bool isVorbis = index == 0;
+    bool isSf3 = ui->comboFormat->currentIndex() == 1;
+    ui->labelQuality->setVisible(isSf3 && isVorbis);
+    ui->comboQuality->setVisible(isSf3 && isVorbis);
+    ui->comboQuality->setEnabled(isVorbis);
 }

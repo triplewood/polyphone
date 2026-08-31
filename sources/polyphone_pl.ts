@@ -6741,6 +6741,11 @@ Inne edytory SoundFontów mogą wyświetlać inne jednostki.</translation>
         <translation>Format</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Kodowanie</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Klasyfikacja General MIDI</translation>

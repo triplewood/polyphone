@@ -92,7 +92,7 @@ win32 {
 unix:!macx {
     DEFINES += __LINUX_ALSASEQ__ __UNIX_JACK__ __LINUX_ALSA__ #__LINUX_PULSE__
     CONFIG += link_pkgconfig
-    PKGCONFIG += alsa jack zlib ogg vorbis vorbisfile vorbisenc sndfile
+    PKGCONFIG += alsa jack zlib ogg vorbis vorbisfile vorbisenc flac sndfile
     contains(DEFINES, USE_WOLFSSL) {
         PKGCONFIG += wolfssl
     } else {

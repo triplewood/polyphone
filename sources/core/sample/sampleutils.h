@@ -30,6 +30,12 @@
 class SampleUtils
 {
 public:
+    enum class CompressionType
+    {
+        Vorbis,
+        Flac
+    };
+
     static QVector<float> int24ToFloat(const qint16 * data16, const quint8 * data24, quint32 length);
     static void floatToInt24(const QVector<float> data, qint16 *& data16, quint8 *& data24);
     static QVector<float> resampleMono(QVector<float> vData, double echInit, double echFinal);
@@ -61,7 +67,10 @@ public:
     // if checknumber is high, the accuracy is best but it needs more samples to compute
     static float computeLoopQuality(QVector<float> vData, quint32 loopStart, quint32 loopEnd, quint32 checkNumber, bool bipolar, float maxValue = -1);
 
+    // Keep the historical overload for callers that explicitly encode Vorbis.
     static QByteArray compressSample(qint16* data16, quint32 sampleLength, quint32 sampleRate, double oggQuality);
+    static QByteArray compressSample(qint16* data16, quint32 sampleLength, quint32 sampleRate,
+                                     CompressionType compressionType, double oggQuality = 0.6);
 
 private:
     static void FFT_calculate(Complex * x, quint32 N /* must be a power of 2 */,

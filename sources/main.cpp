@@ -149,7 +149,9 @@ int convert(Options &options)
         sm->set(sf2Id, champ_IFIL, value);
         value.wValue = 16;
         sm->set(sf2Id, champ_wBpsSave, value);
-        output->setOption("quality", options.sf3Quality());
+        output->setOption("codec", options.sf3Codec());
+        if (options.sf3Codec() != "flac")
+            output->setOption("quality", options.sf3Quality());
         break;
     case Options::MODE_CONVERSION_TO_SFZ: {
         output->setOption("prefix", options.sfzPresetPrefix());
@@ -202,7 +204,7 @@ int displayHelp(Options &options)
     writeLine("  " + exe + " -0 [-i INPUT_FILE]");
 #endif
     writeLine("  " + exe + " -1 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME]");
-    writeLine("  " + exe + " -2 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME] [-c QUALITY]");
+    writeLine("  " + exe + " -2 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME] [-C CODEC] [-q QUALITY]");
     writeLine("  " + exe + " -3 -i INPUT_FILE [-d OUTPUT_DIR] [-o OUTPUT_NAME] [-c SFZ_OPTIONS]");
 #ifndef POLYPHONE_NO_GUI
     writeLine("  " + exe + " -s -i INPUT_FILE [-c SYNTH_OPTIONS]");
@@ -215,7 +217,11 @@ int displayHelp(Options &options)
     writeLine("  -d OUTPUT_DIR      Output directory (default: input file directory)");
     writeLine("  -o OUTPUT_NAME     Output base name (default: input file base name)");
     writeLine("  -c CONFIG          Extra mode-specific config:");
-    writeLine("                     sf3 quality: 0 (low), 1 (medium), 2 (high)");
+    writeLine("                     sf3 compatibility: QUALITY (0 low, 1 medium, 2 high)");
+    writeLine("  -C CODEC           SF3 sample codec: vorbis (default) or flac");
+    writeLine("  -q QUALITY         SF3 Vorbis quality: 0 (low), 1 (medium), 2 (high)");
+    writeLine("  --codec CODEC      Long form of -C (also --sf3-codec)");
+    writeLine("  --quality QUALITY  Long form of -q (also --sf3-quality)");
     writeLine("                     sfz options: presetPrefix|oneDirPerBank|gmSort (e.g. 0|1|1)");
 #ifndef POLYPHONE_NO_GUI
     writeLine("                     synth options: midiChannel|multiPreset|toggleByLowKeys");
@@ -233,6 +239,7 @@ int displayHelp(Options &options)
     writeLine("Examples:");
     writeLine("  " + exe + " -1 -i file.sfArk");
     writeLine("  " + exe + " -2 -i file.sf2 -c 2");
+    writeLine("  " + exe + " -2 -i file.sf2 -C flac");
     writeLine("  " + exe + " -3 -i file.sf3 -c 0|1|1");
 #ifndef POLYPHONE_NO_GUI
     writeLine("  " + exe + " -s -i file.sf2 -c all|off|toggle");
@@ -345,6 +352,7 @@ int main(int argc, char *argv[])
     //return testVoice();
     //return testSynth();
 
+#ifndef POLYPHONE_NO_GUI
     if (qEnvironmentVariableIsSet("POLYPHONE_SYNTH_SELFTEST"))
     {
         if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM"))
@@ -354,6 +362,7 @@ int main(int argc, char *argv[])
         QCoreApplication::setOrganizationName("polyphone");
         return testSynth();
     }
+#endif
 
 #ifdef Q_OS_LINUX
 #ifndef POLYPHONE_NO_GUI

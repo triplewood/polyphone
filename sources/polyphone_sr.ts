@@ -6803,6 +6803,11 @@ Other soundfont editors might display other units.</source>
         <translation>Формат</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Кодирање</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Општа MIDI класификација</translation>

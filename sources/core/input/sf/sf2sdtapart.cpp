@@ -120,7 +120,8 @@ QDataStream & operator >> (QDataStream &in, Sf2SdtaPart &sdta)
     return in;
 }
 
-quint32 Sf2SdtaPart::prepareBeforeWritingData(bool isSf3, double qualityValue)
+quint32 Sf2SdtaPart::prepareBeforeWritingData(bool isSf3, double qualityValue,
+                                              SampleUtils::CompressionType compressionType)
 {
     _isSf3 = isSf3;
 
@@ -133,12 +134,24 @@ quint32 Sf2SdtaPart::prepareBeforeWritingData(bool isSf3, double qualityValue)
     _sm24Size.value = 0;
     foreach (Sound * sound, _sounds)
     {
-        if (_isSf3 && (qualityValue > 0 || sound->isRawDataUnchanged()))
+        if (_isSf3)
         {
-            if (!sound->isRawDataUnchanged())
+            // Keep source compressed data only when it already uses the requested codec.
+            // This avoids silently writing Ogg data into a FLAC export (or vice versa).
+            bool rawDataMatchesCodec = false;
+            if (sound->isRawDataUnchanged())
+            {
+                char * rawData;
+                quint32 rawDataLength;
+                sound->getRawData(rawData, rawDataLength);
+                const char * magic = compressionType == SampleUtils::CompressionType::Flac ? "fLaC" : "OggS";
+                rawDataMatchesCodec = rawData != nullptr && rawDataLength >= 4 && memcmp(rawData, magic, 4) == 0;
+            }
+
+            if (!rawDataMatchesCodec)
             {
                 // Compress data for knowing the size
-                if (!compressSample(sound, qualityValue))
+                if (!compressSample(sound, qualityValue, compressionType))
                     return 0;
             }
 
@@ -264,7 +277,7 @@ QDataStream & operator << (QDataStream &out, Sf2SdtaPart &sdta)
     return out;
 }
 
-bool Sf2SdtaPart::compressSample(Sound* sound, double quality)
+bool Sf2SdtaPart::compressSample(Sound *sound, double quality, SampleUtils::CompressionType compressionType)
 {
     // 16-bit data
     quint32 sampleLength;
@@ -272,7 +285,9 @@ bool Sf2SdtaPart::compressSample(Sound* sound, double quality)
     quint8* data24;
     sound->getData(sampleLength, data16, data24, false, false);
 
-    QByteArray compressedData = SampleUtils::compressSample(data16, sampleLength, sound->getUInt32(champ_dwSampleRate), quality);
+    QByteArray compressedData = SampleUtils::compressSample(data16, sampleLength,
+                                                            sound->getUInt32(champ_dwSampleRate),
+                                                            compressionType, quality);
     if (compressedData.isEmpty())
         return false;
 

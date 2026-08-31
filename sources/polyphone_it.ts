@@ -6796,6 +6796,11 @@ Altri editor di soundfont potrebbero visualizzare altre unità.</translation>
         <translation>Formato</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Codifica</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Classificazione MIDI generale</translation>

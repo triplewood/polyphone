@@ -35,6 +35,9 @@ Options::Options(int argc, char *argv[]) :
     _error(false),
     _help(false),
     _sf3Quality(1),
+    _sf3Codec("vorbis"),
+    _sf3CodecOptionSeen(false),
+    _sf3QualityOptionSeen(false),
     _sfzPresetPrefix(false),
     _sfzOneDirPerBank(false),
     _sfzGeneralMidi(false),
@@ -58,7 +61,11 @@ Options::Options(int argc, char *argv[]) :
         if (arg.isEmpty())
             continue;
 
-        if (arg[0] == '-')
+        if (arg.startsWith("--") && _currentState != STATE_SF3_CODEC &&
+            _currentState != STATE_SF3_QUALITY)
+            processLongOption(arg);
+        else if (arg[0] == '-' && _currentState != STATE_SF3_CODEC &&
+                 _currentState != STATE_SF3_QUALITY)
             processType1(arg);
         else
             processType2(arg);
@@ -122,6 +129,14 @@ void Options::processType1(QString arg)
     case 'c':
         _currentState = STATE_CONFIG;
         break;
+    case 'C':
+        _sf3CodecOptionSeen = true;
+        _currentState = STATE_SF3_CODEC;
+        break;
+    case 'q':
+        _sf3QualityOptionSeen = true;
+        _currentState = STATE_SF3_QUALITY;
+        break;
     case 'h':
         _help = true;
         break;
@@ -141,6 +156,37 @@ void Options::processType1(QString arg)
     }
 }
 
+void Options::processLongOption(QString arg)
+{
+    QString option = arg.mid(2);
+    QString value;
+    int separator = option.indexOf('=');
+    if (separator >= 0)
+    {
+        value = option.mid(separator + 1);
+        option = option.left(separator);
+    }
+
+    if (option == "codec" || option == "sf3-codec" || option == "sf3-encoding")
+    {
+        _sf3CodecOptionSeen = true;
+        _currentState = STATE_SF3_CODEC;
+    }
+    else if (option == "quality" || option == "sf3-quality")
+    {
+        _sf3QualityOptionSeen = true;
+        _currentState = STATE_SF3_QUALITY;
+    }
+    else
+    {
+        _error = true;
+        return;
+    }
+
+    if (separator >= 0)
+        processType2(value);
+}
+
 void Options::processType2(QString arg)
 {
     switch (_currentState)
@@ -156,6 +202,25 @@ void Options::processType2(QString arg)
         _outputFile = arg;
         _currentState = STATE_NONE; // no more output
         break;
+    case STATE_SF3_CODEC: {
+        QString codec = arg.trimmed().toLower();
+        if (codec == "vorbis" || codec == "flac")
+            _sf3Codec = codec;
+        else
+            _error = true;
+        _currentState = STATE_NONE;
+        break;
+    }
+    case STATE_SF3_QUALITY: {
+        bool ok = false;
+        int quality = arg.toInt(&ok);
+        if (ok && quality >= 0 && quality <= 2)
+            _sf3Quality = quality;
+        else
+            _error = true;
+        _currentState = STATE_NONE;
+        break;
+    }
     case STATE_CONFIG: {
         QStringList configurations = arg.split('|');
 
@@ -193,22 +258,44 @@ void Options::processType2(QString arg)
             if (configurations.count() > 0)
                 _error = true;
             break;
-        case MODE_CONVERSION_TO_SF3:
-            if (configurations.count() >= 1)
+        case MODE_CONVERSION_TO_SF3: {
+            if (configurations.count() > 2)
             {
-                if (configurations[0] == "0")
-                    _sf3Quality = 0;
-                else if (configurations[0] == "1")
-                    _sf3Quality = 1;
-                else if (configurations[0] == "2")
-                    _sf3Quality = 2;
-                else
-                    _error = true;
+                _error = true;
+                break;
             }
 
-            if (configurations.count() > 1)
-                _error = true;
+            bool qualitySeen = false;
+            bool codecSeen = false;
+            foreach (QString configuration, configurations)
+            {
+                QString value = configuration.trimmed().toLower();
+                if (value == "vorbis" || value == "flac")
+                {
+                    if (codecSeen)
+                    {
+                        _error = true;
+                        break;
+                    }
+                    _sf3Codec = value;
+                    codecSeen = true;
+                }
+                else if (!qualitySeen && value == "0")
+                    _sf3Quality = 0;
+                else if (!qualitySeen && value == "1")
+                    _sf3Quality = 1;
+                else if (!qualitySeen && value == "2")
+                    _sf3Quality = 2;
+                else
+                {
+                    _error = true;
+                    break;
+                }
+                if (value == "0" || value == "1" || value == "2")
+                    qualitySeen = true;
+            }
             break;
+        }
         case MODE_CONVERSION_TO_CSV:
             if (configurations.count() > 1)
                 _error = true;
@@ -262,6 +349,12 @@ void Options::checkErrors()
             _error = true;
         break;
     }
+
+    // Encoding-specific options are meaningful only for SF3 conversion.
+    if ((_sf3CodecOptionSeen || _sf3QualityOptionSeen) && _mode != MODE_CONVERSION_TO_SF3)
+        _error = true;
+    if (_currentState == STATE_SF3_CODEC || _currentState == STATE_SF3_QUALITY)
+        _error = true;
 }
 
 void Options::postTreatment()

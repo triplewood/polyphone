@@ -30,6 +30,7 @@ void ToolSoundfontExport_parameters::loadConfiguration()
     _directory = ContextManager::recentFile()->getLastDirectory(RecentFileManager::FILE_TYPE_EXPORT);
     _format = getToolValue("type", 0).toInt();
     _quality = getToolValue("quality", 1).toInt();
+    _codec = getToolValue("codec", 0).toInt();
     _presetPrefix = getToolValue("preset_prefix", true).toBool();
     _bankDirectory = getToolValue("bank_directory", false).toBool();
     _gmSort = getToolValue("gm_sort", false).toBool();
@@ -42,6 +43,7 @@ void ToolSoundfontExport_parameters::saveConfiguration()
     ContextManager::recentFile()->addRecentFile(RecentFileManager::FILE_TYPE_EXPORT, _directory + "/soundfont.sfz");
     setToolValue("type", _format);
     setToolValue("quality", _quality);
+    setToolValue("codec", _codec);
     setToolValue("preset_prefix", _presetPrefix);
     setToolValue("bank_directory", _bankDirectory);
     setToolValue("gm_sort", _gmSort);

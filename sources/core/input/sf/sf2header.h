@@ -26,6 +26,7 @@
 #define SF2HEADER_H
 
 #include "basetypes.h"
+#include "sampleutils.h"
 #include <QMap>
 class Sf2PdtaPart;
 class Sf2SdtaPart;
@@ -38,7 +39,8 @@ public:
     QString getInfo(QString key);
     SfVersionTag getVersion(QString key);
 
-    void prepareBeforeWritingData(Sf2SdtaPart * sdtaPart, Sf2PdtaPart * pdtaPart, bool isSf3, double qualityValue);
+    void prepareBeforeWritingData(Sf2SdtaPart * sdtaPart, Sf2PdtaPart * pdtaPart, bool isSf3, double qualityValue,
+                                  SampleUtils::CompressionType compressionType = SampleUtils::CompressionType::Vorbis);
 
     bool _isValid;
 

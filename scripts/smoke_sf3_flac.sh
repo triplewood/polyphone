@@ -62,6 +62,27 @@ echo "source_sf2=$SF2_SMOKE_INPUT"
 "$POLYPHONE_CLI" -1 -i "$SF2_SMOKE_INPUT" -d "$TMPDIR" -o sf2_copy >/tmp/polyphone-sf2-smoke.log 2>&1
 file "$TMPDIR/sf2_copy.sf2"
 
+# SF3 export smoke: the default and explicit Vorbis paths remain Ogg, while
+# the new codec options write native FLAC sample payloads.
+"$POLYPHONE_CLI" -2 -i "$SF2_SMOKE_INPUT" -d "$TMPDIR" -o sf3_default -c 1 >/tmp/polyphone-sf3-default-export.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$SF2_SMOKE_INPUT" -d "$TMPDIR" -o sf3_vorbis -C vorbis -q 1 >/tmp/polyphone-sf3-vorbis-export.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$SF2_SMOKE_INPUT" -d "$TMPDIR" -o sf3_flac -C flac >/tmp/polyphone-sf3-flac-export.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$SF2_SMOKE_INPUT" -d "$TMPDIR" -o sf3_flac_long --sf3-codec=flac >/tmp/polyphone-sf3-flac-long-export.log 2>&1
+python3 - <<PY
+from pathlib import Path
+from tools.sbkit.verify_sf3 import verify_sf3
+from tools.sbkit.utils.riff import parse_sfbk_subchunk_map
+base = Path("$TMPDIR")
+for name, expected in (("sf3_default.sf3", b"OggS"), ("sf3_vorbis.sf3", b"OggS"),
+                       ("sf3_flac.sf3", b"fLaC"), ("sf3_flac_long.sf3", b"fLaC")):
+    path = base / name
+    summary = verify_sf3(path)["summary"]
+    head = parse_sfbk_subchunk_map(path.read_bytes())[b"smpl"][:4]
+    print(f"{name}: verify={summary} head={head!r}")
+    if not summary["ok"] or head != expected:
+        raise SystemExit(f"unexpected SF3 export codec for {name}")
+PY
+
 # Verify fixture codecs before Polyphone opens them.
 python3 - <<PY
 import json
@@ -103,7 +124,9 @@ file "$TMPDIR/tiny_flac_odd_smpl_roundtrip.sf2"
 file "$TMPDIR/tiny_flac_multi_sample_roundtrip.sf2"
 
 # FLAC SF3 save semantics: resaving as SF3 should preserve each compressed FLAC sample blob.
-"$POLYPHONE_CLI" -2 -i "$FIXTURE_DIR/tiny_flac.sf3" -d "$TMPDIR" -o tiny_flac_resaved -c 1 >/tmp/polyphone-sf3-flac-resave.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$FIXTURE_DIR/tiny_flac.sf3" -d "$TMPDIR" -o tiny_flac_resaved -C flac >/tmp/polyphone-sf3-flac-resave.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$FIXTURE_DIR/tiny_flac.sf3" -d "$TMPDIR" -o tiny_flac_to_vorbis -C vorbis -q 1 >/tmp/polyphone-sf3-flac-to-vorbis.log 2>&1
+"$POLYPHONE_CLI" -2 -i "$FIXTURE_DIR/tiny_vorbis.sf3" -d "$TMPDIR" -o tiny_vorbis_to_flac -C flac >/tmp/polyphone-sf3-vorbis-to-flac.log 2>&1
 python3 - <<PY
 from pathlib import Path
 import struct
@@ -135,6 +158,14 @@ if not summary["ok"] or head != b"fLaC":
 if len(original) != len(resaved) or any(a != b for a, b in zip(original, resaved)):
     raise SystemExit("resaved FLAC SF3 did not preserve per-sample compressed FLAC blobs")
 print(f"preserved_flac_sample_blobs={len(original)}")
+
+for name, expected in (("tiny_flac_to_vorbis.sf3", b"OggS"), ("tiny_vorbis_to_flac.sf3", b"fLaC")):
+    path = base / name
+    summary = verify_sf3(path)["summary"]
+    head = parse_sfbk_subchunk_map(path.read_bytes())[b"smpl"][:4]
+    print(f"{name}: verify={summary} head={head!r}")
+    if not summary["ok"] or head != expected:
+        raise SystemExit(f"cross-codec SF3 export failed for {name}")
 PY
 
 # Real sbkit candidate smokes.

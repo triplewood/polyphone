@@ -26,13 +26,15 @@
 #define SF2SDTAPART_H
 
 #include "basetypes.h"
+#include "sampleutils.h"
 class Sound;
 
 class Sf2SdtaPart
 {
 public:
     Sf2SdtaPart();
-    quint32 prepareBeforeWritingData(bool isSf3, double qualityValue);
+    quint32 prepareBeforeWritingData(bool isSf3, double qualityValue,
+                                     SampleUtils::CompressionType compressionType = SampleUtils::CompressionType::Vorbis);
 
     bool _isValid;
 
@@ -53,7 +55,7 @@ public:
     bool _isSf3;
 
 private:
-    static bool compressSample(Sound * sound, double quality);
+    static bool compressSample(Sound * sound, double quality, SampleUtils::CompressionType compressionType);
     static const quint32 BLOCK_SIZE;
 };
 

@@ -26,9 +26,114 @@
 #include "fastmaths.h"
 #include "utils.h"
 #include <QMessageBox>
+#include <FLAC/stream_encoder.h>
 #include <vorbis/vorbisenc.h>
 #include <vorbis/codec.h>
 #include <vorbis/vorbisfile.h>
+#include <limits>
+
+namespace
+{
+struct FlacEncoderSink
+{
+    QByteArray data;
+    FLAC__uint64 position = 0;
+    bool failed = false;
+};
+
+FLAC__StreamEncoderWriteStatus flacWrite(const FLAC__StreamEncoder *, const FLAC__byte buffer[],
+                                         size_t bytes, uint32_t, uint32_t, void *clientData)
+{
+    FlacEncoderSink *sink = static_cast<FlacEncoderSink *>(clientData);
+    const FLAC__uint64 maxByteArraySize = static_cast<FLAC__uint64>(std::numeric_limits<int>::max());
+    if (sink == nullptr || bytes > maxByteArraySize || sink->position > maxByteArraySize - bytes)
+    {
+        if (sink != nullptr)
+            sink->failed = true;
+        return FLAC__STREAM_ENCODER_WRITE_STATUS_FATAL_ERROR;
+    }
+
+    const int endPosition = static_cast<int>(sink->position + bytes);
+    if (endPosition > sink->data.size())
+        sink->data.resize(endPosition);
+    memcpy(sink->data.data() + static_cast<int>(sink->position), buffer, bytes);
+    sink->position += bytes;
+    return FLAC__STREAM_ENCODER_WRITE_STATUS_OK;
+}
+
+FLAC__StreamEncoderSeekStatus flacSeek(const FLAC__StreamEncoder *, FLAC__uint64 absoluteByteOffset,
+                                       void *clientData)
+{
+    FlacEncoderSink *sink = static_cast<FlacEncoderSink *>(clientData);
+    if (sink == nullptr || absoluteByteOffset > static_cast<FLAC__uint64>(std::numeric_limits<int>::max()))
+    {
+        if (sink != nullptr)
+            sink->failed = true;
+        return FLAC__STREAM_ENCODER_SEEK_STATUS_ERROR;
+    }
+
+    sink->position = absoluteByteOffset;
+    return FLAC__STREAM_ENCODER_SEEK_STATUS_OK;
+}
+
+FLAC__StreamEncoderTellStatus flacTell(const FLAC__StreamEncoder *, FLAC__uint64 *absoluteByteOffset,
+                                       void *clientData)
+{
+    FlacEncoderSink *sink = static_cast<FlacEncoderSink *>(clientData);
+    if (sink == nullptr || absoluteByteOffset == nullptr)
+    {
+        if (sink != nullptr)
+            sink->failed = true;
+        return FLAC__STREAM_ENCODER_TELL_STATUS_ERROR;
+    }
+
+    *absoluteByteOffset = sink->position;
+    return FLAC__STREAM_ENCODER_TELL_STATUS_OK;
+}
+
+QByteArray compressFlacSample(const qint16 *data16, quint32 sampleLength, quint32 sampleRate)
+{
+    if (data16 == nullptr || sampleLength == 0 || sampleRate == 0 ||
+            sampleLength > static_cast<quint32>(std::numeric_limits<int>::max()))
+        return QByteArray();
+
+    FLAC__StreamEncoder *encoder = FLAC__stream_encoder_new();
+    if (encoder == nullptr)
+        return QByteArray();
+
+    const bool settingsOk =
+            FLAC__stream_encoder_set_channels(encoder, 1) &&
+            FLAC__stream_encoder_set_bits_per_sample(encoder, 16) &&
+            FLAC__stream_encoder_set_sample_rate(encoder, sampleRate) &&
+            FLAC__stream_encoder_set_total_samples_estimate(encoder, sampleLength) &&
+            // FLAC compression is deliberately fixed; there is no Vorbis-style quality knob.
+            FLAC__stream_encoder_set_compression_level(encoder, 5) &&
+            FLAC__stream_encoder_set_verify(encoder, true);
+
+    FlacEncoderSink sink;
+    bool success = false;
+    if (settingsOk)
+    {
+        const FLAC__StreamEncoderInitStatus initStatus = FLAC__stream_encoder_init_stream(
+                    encoder, flacWrite, flacSeek, flacTell, nullptr, &sink);
+        if (initStatus == FLAC__STREAM_ENCODER_INIT_STATUS_OK)
+        {
+            QVector<FLAC__int32> data32(static_cast<int>(sampleLength));
+            for (quint32 i = 0; i < sampleLength; i++)
+                data32[static_cast<int>(i)] = static_cast<FLAC__int32>(data16[i]);
+            success = FLAC__stream_encoder_process_interleaved(encoder, data32.constData(), sampleLength);
+        }
+    }
+
+    // finish() is required even after a process failure so the encoder can release its state cleanly.
+    const bool finished = FLAC__stream_encoder_finish(encoder);
+    FLAC__stream_encoder_delete(encoder);
+
+    if (!success || !finished || sink.failed)
+        return QByteArray();
+    return sink.data;
+}
+}
 
 QVector<float> SampleUtils::int24ToFloat(const qint16 * data16, const quint8 * data24, quint32 length)
 {
@@ -1279,8 +1384,20 @@ float SampleUtils::getDiffForLoopQuality(const float * data, quint32 pos1, quint
     return 0.45f * qAbs(diff0) + 0.33f * qAbs(diff1) + 0.22f * qAbs(diff2);
 }
 
-QByteArray SampleUtils::compressSample(qint16* data16, quint32 sampleLength, quint32 sampleRate, double oggQuality)
+QByteArray SampleUtils::compressSample(qint16 *data16, quint32 sampleLength, quint32 sampleRate, double oggQuality)
 {
+    return compressSample(data16, sampleLength, sampleRate, CompressionType::Vorbis, oggQuality);
+}
+
+QByteArray SampleUtils::compressSample(qint16 *data16, quint32 sampleLength, quint32 sampleRate,
+                                       CompressionType compressionType, double oggQuality)
+{
+    if (compressionType == CompressionType::Flac)
+        return compressFlacSample(data16, sampleLength, sampleRate);
+
+    if (data16 == nullptr || sampleLength == 0 || sampleRate == 0)
+        return QByteArray();
+
     quint32 BLOCK_SIZE = 1024;
     ogg_stream_state os;
     ogg_page         og;

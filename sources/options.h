@@ -75,6 +75,9 @@ public:
     /// Sf3 option: compression quality (0 is low, 1 is medium, 2 is high);
     int sf3Quality() { return _sf3Quality; }
 
+    /// Sf3 option: sample codec ("vorbis" by default, or "flac")
+    QString sf3Codec() { return _sf3Codec; }
+
     /// Csv option: write raw values
     bool csvRawValues() { return _csvRawValues; }
 
@@ -94,11 +97,14 @@ private:
         STATE_OUTPUT_FILE,
         STATE_OUTPUT_DIRECTORY,
         STATE_CONFIG,
+        STATE_SF3_CODEC,
+        STATE_SF3_QUALITY,
         STATE_NONE
     };
 
     void processType1(QString arg);
     void processType2(QString arg);
+    void processLongOption(QString arg);
     void checkErrors();
     void postTreatment();
 
@@ -110,6 +116,9 @@ private:
 
     // Sf3 option
     int _sf3Quality;
+    QString _sf3Codec;
+    bool _sf3CodecOptionSeen;
+    bool _sf3QualityOptionSeen;
 
     // Sfz options
     bool _sfzPresetPrefix;

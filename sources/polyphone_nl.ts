@@ -6768,6 +6768,11 @@ Andere soundfont-editors kunnen andere eenheden weergeven.</translation>
         <translation>Formaat</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Codering</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Algemene MIDI-classificatie</translation>

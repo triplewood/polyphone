@@ -32,6 +32,28 @@
 #include "../../input/sf/sf2sdtapart.h"
 #include "../../input/sf/sf2pdtapart.h"
 
+namespace
+{
+bool compressionTypeFromOptions(const QMap<QString, QVariant> &options,
+                                SampleUtils::CompressionType &compressionType)
+{
+    QString codec = options.value("codec").toString().trimmed().toLower();
+    if (codec.isEmpty())
+        codec = options.value("compression").toString().trimmed().toLower();
+    if (codec.isEmpty() || codec == "vorbis")
+    {
+        compressionType = SampleUtils::CompressionType::Vorbis;
+        return true;
+    }
+    if (codec == "flac")
+    {
+        compressionType = SampleUtils::CompressionType::Flac;
+        return true;
+    }
+    return false;
+}
+}
+
 OutputSf::OutputSf() : AbstractOutput() {}
 
 void OutputSf::processInternal(QString fileName, SoundfontManager * sm, bool &success, QString &error, int sf2Index, QMap<QString, QVariant> & options)
@@ -41,8 +63,16 @@ void OutputSf::processInternal(QString fileName, SoundfontManager * sm, bool &su
     // Get the quality value if a compression of all uncompressed samples is required
     EltID id(elementSf2, sf2Index);
     bool isSf3 = _sm->get(id, champ_IFIL).sfVerValue.wMajor == 3;
-    double qualityValue = -1.0;
-    if (isSf3 && options.contains("quality"))
+    SampleUtils::CompressionType compressionType;
+    if (!compressionTypeFromOptions(options, compressionType))
+    {
+        success = false;
+        error = tr("unsupported SF3 codec \"%1\"").arg(options.value("codec").toString());
+        return;
+    }
+    // A missing quality option retains the historical medium Vorbis default. FLAC ignores it.
+    double qualityValue = isSf3 ? 0.6 : -1.0;
+    if (isSf3 && compressionType == SampleUtils::CompressionType::Vorbis && options.contains("quality"))
     {
         int quality = options["quality"].toInt();
         switch (quality)
@@ -81,7 +111,7 @@ void OutputSf::processInternal(QString fileName, SoundfontManager * sm, bool &su
         filenameTmp += extension;
 
         // Save the file
-        this->save(filenameTmp, success, error, sf2Index, qualityValue);
+        this->save(filenameTmp, success, error, sf2Index, qualityValue, compressionType);
         if (!success)
             return;
 
@@ -118,14 +148,15 @@ void OutputSf::processInternal(QString fileName, SoundfontManager * sm, bool &su
     else
     {
         // Just save the file
-        this->save(fileName, success, error, sf2Index, qualityValue);
+        this->save(fileName, success, error, sf2Index, qualityValue, compressionType);
     }
 
     _sm->clearNewEditing();
     _sm->markAsSaved(sf2Index);
 }
 
-void OutputSf::save(QString fileName, bool &success, QString &error, int sf2Index, double qualityValue)
+void OutputSf::save(QString fileName, bool &success, QString &error, int sf2Index, double qualityValue,
+                    SampleUtils::CompressionType compressionType)
 {
     EltID id(elementSf2, sf2Index, 0, 0, 0);
     bool isSf3 = _sm->get(id, champ_IFIL).sfVerValue.wMajor == 3;
@@ -138,7 +169,7 @@ void OutputSf::save(QString fileName, bool &success, QString &error, int sf2Inde
     Sf2SdtaPart sdtaPart;
     Sf2PdtaPart pdtaPart;
     fillSf2(sf2Index, &header, &sdtaPart, &pdtaPart);
-    header.prepareBeforeWritingData(&sdtaPart, &pdtaPart, isSf3, qualityValue);
+    header.prepareBeforeWritingData(&sdtaPart, &pdtaPart, isSf3, qualityValue, compressionType);
 
     // Write everything
     QFile fi(fileName);

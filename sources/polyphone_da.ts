@@ -6802,6 +6802,11 @@ Andre soundfont-editorer kan vise andre enheder.</translation>
         <translation>Format</translation>
     </message>
     <message>
+        <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="185"/>
+        <source>Encoding</source>
+        <translation>Kodning</translation>
+    </message>
+    <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="71"/>
         <source>General MIDI classification</source>
         <translation>Generel MIDI-klassifikation</translation>
