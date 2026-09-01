@@ -46,18 +46,39 @@ BrowserSortMenu::BrowserSortMenu(QWidget *parent) :
     _checkIcon.addPixmap(ContextManager::theme()->getColoredSvg(":/icons/check.svg", QSize(24, 24), ThemeManager::HIGHLIGHTED_TEXT), QIcon::Active);
 
     // Add a menu to the button
+    int currentSort = ContextManager::configuration()->getValue(ConfManager::SECTION_DISPLAY, "repository_sort", 0).toInt();
+    if (currentSort < 0 || currentSort > 3)
+        currentSort = 0;
     QMenu * menu = new QMenu(this);
     connect(menu, SIGNAL(aboutToHide()), this, SLOT(onMenuClosed()));
     menu->setStyleSheet(ContextManager::theme()->getMenuTheme());
     QAction * action = menu->addAction(tr("Date"));
-    action->setIcon(_checkIcon);
-    ui->pushButton->setText(action->text());
+    if (currentSort == 0)
+    {
+        action->setIcon(_checkIcon);
+        ui->pushButton->setText(action->text());
+    }
     connect(action, SIGNAL(triggered()), this, SLOT(element1Clicked()));
     action = menu->addAction(tr("Downloads"));
+    if (currentSort == 1)
+    {
+        action->setIcon(_checkIcon);
+        ui->pushButton->setText(action->text());
+    }
     connect(action, SIGNAL(triggered()), this, SLOT(element2Clicked()));
     action = menu->addAction(tr("Rating score"));
+    if (currentSort == 2)
+    {
+        action->setIcon(_checkIcon);
+        ui->pushButton->setText(action->text());
+    }
     connect(action, SIGNAL(triggered()), this, SLOT(element3Clicked()));
     action = menu->addAction(tr("Title (A→Z)"));
+    if (currentSort == 3)
+    {
+        action->setIcon(_checkIcon);
+        ui->pushButton->setText(action->text());
+    }
     connect(action, SIGNAL(triggered()), this, SLOT(element4Clicked()));
     ui->pushButton->setMenu(menu);
 }
@@ -100,6 +121,7 @@ void BrowserSortMenu::element4Clicked()
 
 void BrowserSortMenu::elementClicked(int index)
 {
+    ContextManager::configuration()->setValue(ConfManager::SECTION_DISPLAY, "repository_sort", index);
     QList<QAction *> actions = ui->pushButton->menu()->actions();
     for (int i = 0; i < actions.count(); i++)
     {

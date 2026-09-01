@@ -33,7 +33,7 @@
 bool Player::s_recorderOpen = false;
 QList<Player *> Player::s_instances;
 
-Player::Player(PlayerOptions * playerOptions, QWidget * parent) : Tab(parent),
+Player::Player(PlayerOptions * playerOptions, QWidget * parent) : SoundfontTab(parent),
     ui(new Ui::Player),
     _playerOptions(new PlayerOptions(playerOptions)),
     _synth(ContextManager::audio()->getSynth()),
@@ -265,7 +265,7 @@ bool Player::processProgramChanged(int channel, quint16 bank, quint8 preset)
         return false;
 
     if (_bankPositionByBankNumber[bank] == -1)
-        return true; // The bank doesn't exist
+        return true; // The bank does not exist
 
     // Possibly change the bank
     QModelIndexList indexes = ui->listBank->selectionModel()->selection().indexes();

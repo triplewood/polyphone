@@ -88,7 +88,7 @@ TopRightWidget::TopRightWidget(QWidget *parent) :
     connect(_menu, SIGNAL(openSettingsClicked()), this, SIGNAL(openSettingsClicked()));
     connect(_menu, SIGNAL(onlineHelpClicked()), this, SIGNAL(onlineHelpClicked()));
     connect(_menu, SIGNAL(aboutClicked()), this, SIGNAL(aboutClicked()));
-    connect(_menu, SIGNAL(closeFileClicked()), this, SIGNAL(closeFileClicked()));
+    connect(_menu, SIGNAL(closeTabClicked()), this, SIGNAL(closeTabClicked()));
     connect(_menu, SIGNAL(closeClicked()), this, SIGNAL(closeClicked()));
     connect(_menu, SIGNAL(save()), this, SIGNAL(save()));
     connect(_menu, SIGNAL(saveAs()), this, SIGNAL(saveAs()));
@@ -110,9 +110,9 @@ TopRightWidget::~TopRightWidget()
     delete ui;
 }
 
-void TopRightWidget::onTabOpen(bool isOpen)
+void TopRightWidget::onTabOpen(bool canSave, bool canExport, bool canClose)
 {
-    _menu->onTabOpen(isOpen);
+    _menu->onTabOpen(canSave, canExport, canClose);
 }
 
 void TopRightWidget::userStateChanged(UserManager::ConnectionState state)

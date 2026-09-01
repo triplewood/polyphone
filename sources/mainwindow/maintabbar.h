@@ -28,6 +28,7 @@
 #include <QWidget>
 #include <QVector>
 class MainTabBarElement;
+class Tab;
 
 class MainTabBar : public QWidget
 {
@@ -37,13 +38,16 @@ public:
     MainTabBar(QWidget *parent = nullptr);
     ~MainTabBar();
 
-    void addWidget(QWidget * widget, QString iconName, QString label, bool isColored);
-    void removeWidget(QWidget * widget);
-    void setWidgetLabel(QWidget * widget, const QString &label);
-    void setWidgetToolTip(QWidget * widget, const QString &tip);
-    void currentWidgetChanged(QWidget * widget);
-    QWidget * getNextWidget();
-    QWidget * getPreviousWidget();
+    void addTab(Tab * tab, QString iconName, QString label, bool isColored);
+    void removeTab(Tab * tab);
+    void setTabLabel(Tab * tab, const QString &label);
+    void setTabToolTip(Tab * tab, const QString &tip);
+    void currentTabChanged(Tab * tab);
+    Tab * getCurrentTab();
+    Tab * getFirstTab();
+    Tab * getPreviousTab();
+    Tab * getNextTab();
+    Tab * getLastTab();
 
     QSize minimumSizeHint() const override;
 

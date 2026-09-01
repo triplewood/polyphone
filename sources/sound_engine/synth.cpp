@@ -675,6 +675,7 @@ void Synth::setSampleRateAndBufferSize(quint32 sampleRate, quint32 bufferSize)
     // Sample rate update
     _sinus.setSampleRate(sampleRate);
     _eq.setSampleRate(sampleRate);
+    stk::Chorus::setSampleRate(sampleRate);
 
     // Update buffer size
     bufferSize *= 2;

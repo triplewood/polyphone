@@ -401,24 +401,37 @@
 <context>
     <name>BrowserSortMenu</name>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="52"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="55"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="56"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="62"/>
         <source>Downloads</source>
         <translation>下载</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="58"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="69"/>
         <source>Rating score</source>
         <translation>评分</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="60"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="76"/>
         <source>Title (A→Z)</source>
         <translation>标题(A→Z)</translation>
+    </message>
+</context>
+<context>
+    <name>CalendarPopup</name>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="30"/>
+        <source>&amp;Cancel</source>
+        <translation>取消(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="31"/>
+        <source>&amp;Ok</source>
+        <translation>确定(&amp;O)</translation>
     </message>
 </context>
 <context>
@@ -756,7 +769,6 @@
     <message>
         <location filename="context/interface/configpanel.ui" line="186"/>
         <source>Keyboard</source>
-        <oldsource>Virtual keyboard</oldsource>
         <translation>虚拟键盘</translation>
     </message>
     <message>
@@ -786,30 +798,24 @@
         <location filename="context/interface/configsectiongeneral.ui" line="145"/>
         <source>When importing a sample, any blank area located before the beginning of the attack is automatically removed.
 (same effect as the tool &quot;Remove blank at start&quot;)</source>
-        <oldsource>When importing a sample, any blank area located before the beginning of the attack is automatically removed.
-(same effect as the tool “Remove blank at start”)</oldsource>
         <translation>导入采样时，位于起音之前的空白区域将自动移除。
 （效果与“移除开头空白”工具相同）</translation>
     </message>
     <message>
         <location filename="context/interface/configsectiongeneral.ui" line="44"/>
         <source>Default</source>
-        <oldsource>(default)</oldsource>
         <translation>默认</translation>
     </message>
     <message>
         <location filename="context/interface/configsectiongeneral.ui" line="122"/>
         <source>When importing a sample, data located after the end of loop are automatically removed.
 (same effect as the tool &quot;Trim to end of loop&quot;)</source>
-        <oldsource>When importing a sample, data located after the end of loop are automatically removed.
-(same effect as the tool “Trim to end of loop”)</oldsource>
         <translation>导入采样时，位于循环结束点之后的数据将自动移除。
 （效果与“裁剪至循环终点”工具相同）</translation>
     </message>
     <message>
         <location filename="context/interface/configsectiongeneral.ui" line="186"/>
         <source>MIDI input</source>
-        <oldsource>Midi input</oldsource>
         <translation>MIDI 输入</translation>
     </message>
     <message>
@@ -820,7 +826,6 @@
     <message>
         <location filename="context/interface/configsectiongeneral.ui" line="36"/>
         <source>Sample import</source>
-        <oldsource>Wav file import</oldsource>
         <translation>采样导入</translation>
     </message>
     <message>
@@ -1191,31 +1196,25 @@ Premium!</source>
 <context>
     <name>ConfigSectionSound</name>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="375"/>
+        <location filename="context/interface/configsectionsound.ui" line="369"/>
         <source>Reverb</source>
         <translation>混响</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="226"/>
+        <location filename="context/interface/configsectionsound.ui" line="223"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="22"/>
-        <location filename="context/interface/configsectionsound.ui" line="197"/>
+        <location filename="context/interface/configsectionsound.ui" line="195"/>
         <source>Level</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="333"/>
+        <location filename="context/interface/configsectionsound.ui" line="329"/>
         <source>Default modulator &quot;velocity → filter cutoff&quot;</source>
-        <oldsource>Modulator &quot;velocity → filter cutoff&quot;</oldsource>
         <translation>默认调制器 “力度 → 滤波器截止频率”</translation>
-    </message>
-    <message>
-        <location filename="context/interface/configsectionsound.ui" line="126"/>
-        <source>soundfont 2.01</source>
-        <translation>音色库 2.01</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="112"/>
@@ -1223,32 +1222,27 @@ Premium!</source>
         <translation>总音量</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="131"/>
-        <source>soundfont 2.04</source>
-        <translation>音色库 2.04</translation>
-    </message>
-    <message>
         <location filename="context/interface/configsectionsound.ui" line="136"/>
         <source>disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="242"/>
+        <location filename="context/interface/configsectionsound.ui" line="238"/>
         <source>Damp</source>
         <translation>衰减</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="181"/>
+        <location filename="context/interface/configsectionsound.ui" line="180"/>
         <source>Room</source>
         <translation>房间</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="362"/>
+        <location filename="context/interface/configsectionsound.ui" line="357"/>
         <source>Options</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="388"/>
+        <location filename="context/interface/configsectionsound.ui" line="381"/>
         <source>Chorus</source>
         <translation>合唱</translation>
     </message>
@@ -1290,7 +1284,6 @@ Premium!</source>
     <message>
         <location filename="context/interface/configtoc.ui" line="98"/>
         <source>Keyboard</source>
-        <oldsource>Virtual keyboard</oldsource>
         <translation>虚拟键盘</translation>
     </message>
     <message>
@@ -1794,7 +1787,6 @@ repository</source>
     <message>
         <location filename="dialogs/dialog_list.cpp" line="53"/>
         <source>Sample list</source>
-        <oldsource>Liste des samples</oldsource>
         <translation>采样列表</translation>
     </message>
     <message>
@@ -1858,7 +1850,6 @@ repository</source>
     <message>
         <location filename="dialogs/dialognewelement.cpp" line="53"/>
         <source>Link selected instruments</source>
-        <oldsource>Link selected isntruments</oldsource>
         <translation>链接选定乐器</translation>
     </message>
     <message>
@@ -1924,7 +1915,6 @@ repository</source>
     <message>
         <location filename="dialogs/dialog_rename.ui" line="76"/>
         <source>Insert at a specific position</source>
-        <oldsource>Insert after a specific position</oldsource>
         <translation>在指定位置插入文本</translation>
     </message>
     <message>
@@ -2005,13 +1995,244 @@ repository</source>
     <message>
         <location filename="dialogs/dialogselection.ui" line="66"/>
         <source>&amp;Cancel</source>
-        <oldsource>Cancel</oldsource>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
         <location filename="dialogs/dialogselection.ui" line="46"/>
         <source>&amp;Duplicate</source>
         <translation>创建副本(&amp;D)</translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryBrowser</name>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="293"/>
+        <source>No results</source>
+        <translation>无结果</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="493"/>
+        <source>Instruments</source>
+        <translation>乐器</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="587"/>
+        <source>Presets</source>
+        <translation>预设</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="399"/>
+        <source>Samples</source>
+        <translation>采样</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="695"/>
+        <source>Search a file, a sample, an instrument or a preset...</source>
+        <translation>搜索文件、采样、乐器或预设...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="125"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <translation>目录&quot;%1&quot;不存在。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="132"/>
+        <source>The directory &quot;%1&quot; is not readable.</source>
+        <translation>目录“%1”不可读。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="248"/>
+        <source>Rename</source>
+        <translation>重命名</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="249"/>
+        <source>New name:</source>
+        <translation>新名称：</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="251"/>
+        <source>&amp;Cancel</source>
+        <translation>取消(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="252"/>
+        <source>&amp;Ok</source>
+        <translation>确定(&amp;O)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <source>A file with this name already exists.</source>
+        <translation>具有此名称的文件已存在。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <source>Cannot rename file &quot;%1&quot;.</source>
+        <translation>无法重命名文件 &quot;%1&quot;。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="276"/>
+        <source>Confirm deletion</source>
+        <translation>确认删除</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="277"/>
+        <source>Are you sure you want to delete file &quot;%1&quot;?</source>
+        <translation>您确定要删除文件“%1”吗？</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="279"/>
+        <source>&amp;Yes</source>
+        <translation>是(&amp;Y)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="280"/>
+        <source>&amp;No</source>
+        <translation>否(&amp;N)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Cannot delete file &quot;%1&quot;.</source>
+        <translation>无法删除文件 &quot;%1&quot;。</translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryFileData</name>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="296"/>
+        <source>Invalid link</source>
+        <translation>无效链接</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="299"/>
+        <source>Mono</source>
+        <comment>opposite to stereo</comment>
+        <translation>单声道</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="302"/>
+        <source>Stereo right</source>
+        <translation>立体声右</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="305"/>
+        <source>Stereo left</source>
+        <translation>立体声左</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="308"/>
+        <source>Stereo non defined</source>
+        <translation>立体声未定义</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="312"/>
+        <source>s</source>
+        <comment>unit for seconds</comment>
+        <translation>秒</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="315"/>
+        <source>Loop</source>
+        <translation>循环点</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="316"/>
+        <source>Hz</source>
+        <comment>unit for Herz</comment>
+        <translation>赫兹</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="326"/>
+        <source>%n division(s)</source>
+        <translation>
+            <numerusform>%n 个分区</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="327"/>
+        <source>%n parameter(s)</source>
+        <translation>
+            <numerusform>%n 个参数</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="328"/>
+        <source>%n modulator(s)</source>
+        <translation>
+            <numerusform>%n 个调制器</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="329"/>
+        <source>%n distinct key range(s)</source>
+        <translation>
+            <numerusform>%n 个不同的音符范围</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="330"/>
+        <source>%n distinct velocity range(s)</source>
+        <translation>
+            <numerusform>%n 个不同的力度范围</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryListDelegate</name>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="135"/>
+        <source>Analyze in progress...</source>
+        <translation>正在分析...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="138"/>
+        <source>NOT READABLE</source>
+        <translation>不可读</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="145"/>
+        <source>Error when reading the file.</source>
+        <translation>读取文件时出错。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="316"/>
+        <source>Rename file &quot;%1&quot;</source>
+        <translation>重命名文件“%1”</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="321"/>
+        <source>Delete file &quot;%1&quot;</source>
+        <translation>删除文件“%1”</translation>
+    </message>
+</context>
+<context>
+    <name>DirectorySortMenu</name>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="55"/>
+        <source>Name (A→Z)</source>
+        <translation>名称 (A→Z)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="62"/>
+        <source>Newest first</source>
+        <translation>最新的在前</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="69"/>
+        <source>Largest first</source>
+        <translation>最大的在前</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="76"/>
+        <source>Smallest first</source>
+        <translation>最小的在前</translation>
     </message>
 </context>
 <context>
@@ -2156,17 +2377,17 @@ repository</source>
         <translation>搜索...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="262"/>
+        <location filename="editor/editor.ui" line="268"/>
         <source>Opening file...</source>
         <translation>正在打开文件...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="377"/>
+        <location filename="editor/editor.ui" line="383"/>
         <source>Cannot open the file</source>
         <translation>无法打开文件</translation>
     </message>
     <message>
-        <location filename="editor/editor.cpp" line="476"/>
+        <location filename="editor/editor.cpp" line="494"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -2412,27 +2633,6 @@ repository</source>
     </message>
 </context>
 <context>
-    <name>FooterSf2</name>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="65"/>
-        <source>GB</source>
-        <comment>giga byte</comment>
-        <translation>吉字节</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="70"/>
-        <source>MB</source>
-        <comment>mega byte</comment>
-        <translation>兆字节</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="75"/>
-        <source>kB</source>
-        <comment>kilo byte</comment>
-        <translation>千字节</translation>
-    </message>
-</context>
-<context>
     <name>GraphFilterFrequencies</name>
     <message>
         <location filename="editor/tools/frequency_filter/graphfilterfrequencies.cpp" line="60"/>
@@ -2617,22 +2817,23 @@ repository</source>
         <translation>设置(&amp;S)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="100"/>
+        <location filename="mainwindow/mainmenu.cpp" line="101"/>
         <source>Online &amp;manual</source>
         <translation>在线手册(&amp;M)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="106"/>
-        <source>About &amp;Polyphone...</source>
-        <translation>关于 Polyphone(&amp;P)...</translation>
+        <location filename="mainwindow/mainmenu.cpp" line="107"/>
+        <source>About &amp;Polyphone</source>
+        <translation>关于 Polyphone(&amp;P)</translation>
     </message>
     <message>
         <location filename="mainwindow/mainmenu.cpp" line="82"/>
-        <source>&amp;Close file</source>
-        <translation>关闭文件(&amp;C)</translation>
+        <source>&amp;Close tab</source>
+        <oldsource>&amp;Close file</oldsource>
+        <translation>关闭标签页(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="112"/>
+        <location filename="mainwindow/mainmenu.cpp" line="113"/>
         <source>&amp;Quit</source>
         <translation>退出(&amp;Q)</translation>
     </message>
@@ -2640,22 +2841,22 @@ repository</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="231"/>
+        <location filename="mainwindow/mainwindow.cpp" line="232"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="232"/>
+        <location filename="mainwindow/mainwindow.cpp" line="233"/>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="233"/>
+        <location filename="mainwindow/mainwindow.cpp" line="234"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>不保存(&amp;N)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="217"/>
+        <location filename="mainwindow/mainwindow.cpp" line="218"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -2665,86 +2866,98 @@ repository</source>
         <translation>Polyphone 音色库编辑器</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="208"/>
+        <location filename="mainwindow/mainwindow.cpp" line="209"/>
         <source>Untitled</source>
         <translation>未命名</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="218"/>
+        <location filename="mainwindow/mainwindow.cpp" line="219"/>
         <source>Save before exiting?</source>
         <translation>退出前是否保存文件？</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="221"/>
+        <location filename="mainwindow/mainwindow.cpp" line="222"/>
         <source>The following files have been modified:</source>
         <translation>下列文件已被修改：</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="228"/>
+        <location filename="mainwindow/mainwindow.cpp" line="229"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>文件 &quot;%1&quot; 已被修改。</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="304"/>
+        <location filename="mainwindow/mainwindow.cpp" line="306"/>
         <source>Opening files</source>
         <translation>正在打开文件</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="342"/>
+        <location filename="mainwindow/mainwindow.cpp" line="316"/>
+        <source>Opening a directory</source>
+        <translation>正在打开目录</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="356"/>
         <source>  Settings</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  设置</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="298"/>
+        <location filename="mainwindow/mainwindow.ui" line="312"/>
         <source>  Documentation</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  文档</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="78"/>
+        <location filename="mainwindow/mainwindow.cpp" line="66"/>
         <source>Home screen</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="121"/>
+        <location filename="mainwindow/mainwindow.ui" line="118"/>
         <source>  New
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
         <translation>  新音色库</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="320"/>
+        <location filename="mainwindow/mainwindow.ui" line="152"/>
+        <source>  Open
+  directory</source>
+        <extracomment>prefixed with 2 spaces for each line</extracomment>
+        <translation>  打开目录</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="334"/>
         <source>  Forum</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  论坛</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="235"/>
+        <location filename="mainwindow/mainwindow.ui" line="249"/>
         <source>Daily soundfonts</source>
         <translation>每日音色库</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="245"/>
+        <location filename="mainwindow/mainwindow.ui" line="259"/>
         <source>  Online
   repository</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
         <translation>  在线仓库</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="184"/>
+        <location filename="mainwindow/mainwindow.ui" line="198"/>
         <source>Search a soundfont...</source>
         <translation>搜索音色库...</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="138"/>
+        <location filename="mainwindow/mainwindow.ui" line="135"/>
         <source>  Open
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
         <translation>  打开音色库</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="267"/>
+        <location filename="mainwindow/mainwindow.ui" line="281"/>
         <source>History</source>
         <translation>历史</translation>
     </message>
@@ -2774,7 +2987,6 @@ repository</source>
     <message>
         <location filename="editor/modulator/modulatorcell.cpp" line="156"/>
         <source>overwritten by %1</source>
-        <oldsource>overriden by %1</oldsource>
         <translation>被 %1 覆盖</translation>
     </message>
     <message>
@@ -2792,37 +3004,35 @@ default mod.</source>
 默认调制。</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="383"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="384"/>
         <source>dB</source>
         <comment>unit for decibels</comment>
         <translation>分贝</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="391"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="392"/>
         <source>semi-tones</source>
         <translation>半音</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="394"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="395"/>
         <source>cents</source>
         <comment>hundredth of semi-tones</comment>
         <translation>音分</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="405"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
         <source>Add from:</source>
-        <oldsource>Add from: </oldsource>
         <translation>添加自：</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="407"/>
         <source>Multiply from:</source>
         <translation>乘以：</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="408"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="409"/>
         <source>To:</source>
-        <oldsource>To: </oldsource>
         <translation>至：</translation>
     </message>
 </context>
@@ -3082,31 +3292,26 @@ default mod.</source>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="39"/>
         <source>Sample number</source>
-        <oldsource>Nombre d&apos;échantillons</oldsource>
         <translation>采样数</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="40"/>
         <source>Parameter number</source>
-        <oldsource>Nombre de paramètres</oldsource>
         <translation>参数数</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="41"/>
         <source>Modulator number</source>
-        <oldsource>Nombre de modulateurs</oldsource>
         <translation>调制器数</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="42"/>
         <source>Max key range</source>
-        <oldsource>Étendue totale (note)</oldsource>
         <translation>最大音符范围</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="43"/>
         <source>Max velocity range</source>
-        <oldsource>Étendue totale (vélocité)</oldsource>
         <translation>最大力度范围</translation>
     </message>
     <message>
@@ -3117,7 +3322,6 @@ default mod.</source>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="45"/>
         <source>Loop playback</source>
-        <oldsource>Lecture en boucle</oldsource>
         <translation>循环播放</translation>
     </message>
     <message>
@@ -3128,7 +3332,6 @@ default mod.</source>
     <message>
         <location filename="editor/overview/pageoverviewinst.cpp" line="47"/>
         <source>Reverb</source>
-        <oldsource>Reverbération</oldsource>
         <translation>混响</translation>
     </message>
     <message>
@@ -3152,37 +3355,31 @@ default mod.</source>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="38"/>
         <source>Bank - Preset</source>
-        <oldsource>Banque - Preset</oldsource>
         <translation>库 - 预设</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="39"/>
         <source>Instrument number</source>
-        <oldsource>Nombre d&apos;instruments</oldsource>
         <translation>乐器数量</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="40"/>
         <source>Parameter number</source>
-        <oldsource>Nombre de paramètres</oldsource>
         <translation>参数数量</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="41"/>
         <source>Modulator number</source>
-        <oldsource>Nombre de modulateurs</oldsource>
         <translation>调制器数量</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="42"/>
         <source>Max key range</source>
-        <oldsource>Étendue totale (note)</oldsource>
         <translation>最大音符范围</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="43"/>
         <source>Max velocity range</source>
-        <oldsource>Étendue totale (vélocité)</oldsource>
         <translation>最大力度范围</translation>
     </message>
     <message>
@@ -3198,7 +3395,6 @@ default mod.</source>
     <message>
         <location filename="editor/overview/pageoverviewprst.cpp" line="46"/>
         <source>Reverb</source>
-        <oldsource>Reverbération</oldsource>
         <translation>混响</translation>
     </message>
 </context>
@@ -3213,7 +3409,6 @@ default mod.</source>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="40"/>
         <source>Total
 duration</source>
-        <oldsource>Durée de la boucle</oldsource>
         <translation>总时长</translation>
     </message>
     <message>
@@ -3242,7 +3437,6 @@ key</source>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="44"/>
         <source>Sample
 type</source>
-        <oldsource>Échantillon lié</oldsource>
         <translation>采样类型</translation>
     </message>
     <message>
@@ -3296,21 +3490,18 @@ rate</source>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="233"/>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="237"/>
         <source>Stereo right</source>
-        <oldsource>Stereo droit</oldsource>
         <translation>立体声右</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="241"/>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="245"/>
         <source>Stereo left</source>
-        <oldsource>Stereo gauche</oldsource>
         <translation>立体声左</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="249"/>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="253"/>
         <source>Stereo non defined</source>
-        <oldsource>Stereo non défini</oldsource>
         <translation>立体声未定义</translation>
     </message>
     <message>
@@ -3336,7 +3527,6 @@ rate</source>
         <location filename="editor/pagerange.ui" line="78"/>
         <source>Select a single instrument or preset
 to display its division ranges</source>
-        <oldsource>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select a single instrument or preset&lt;/p&gt;&lt;p&gt;to display its division ranges&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</oldsource>
         <translation>选择单个乐器或预设
 以显示其分区范围</translation>
     </message>
@@ -3349,129 +3539,139 @@ to display its division ranges</source>
         <translation>标题...</translation>
     </message>
     <message>
+        <location filename="editor/pagesf2.ui" line="62"/>
+        <source>Author</source>
+        <translation>作者</translation>
+    </message>
+    <message>
         <location filename="editor/pagesf2.ui" line="99"/>
         <source>Author...</source>
         <translation>作者...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="152"/>
+        <location filename="editor/pagesf2.ui" line="118"/>
+        <source>Date</source>
+        <translation>日期</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.ui" line="155"/>
         <source>Date...</source>
         <translation>日期...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="171"/>
-        <source>Current date</source>
-        <translation>当前日期</translation>
-    </message>
-    <message>
-        <location filename="editor/pagesf2.ui" line="200"/>
+        <location filename="editor/pagesf2.ui" line="207"/>
         <source>Product</source>
         <translation>产品</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="214"/>
+        <location filename="editor/pagesf2.ui" line="231"/>
         <source>Copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="228"/>
+        <location filename="editor/pagesf2.ui" line="214"/>
         <source>Comments</source>
         <translation>备注</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="283"/>
-        <source>Soundfont version</source>
-        <translation>音色库版本</translation>
+        <location filename="editor/pagesf2.cpp" line="446"/>
+        <source>SoundFont format</source>
+        <translation>SoundFont 格式</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="315"/>
-        <source>ROM name and version</source>
-        <translation>ROM 名称和版本</translation>
+        <location filename="editor/pagesf2.cpp" line="451"/>
+        <source>ROM name</source>
+        <translation>ROM 名称</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="347"/>
+        <location filename="editor/pagesf2.cpp" line="458"/>
+        <source>ROM version</source>
+        <translation>ROM 版本</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.cpp" line="464"/>
         <source>Sound engine</source>
         <translation>音频引擎</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="379"/>
+        <location filename="editor/pagesf2.cpp" line="469"/>
         <source>Editing software</source>
         <translation>编辑软件</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="478"/>
+        <location filename="editor/pagesf2.ui" line="335"/>
         <source>Presets</source>
         <translation>预设</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="500"/>
-        <location filename="editor/pagesf2.ui" line="614"/>
-        <location filename="editor/pagesf2.ui" line="949"/>
+        <location filename="editor/pagesf2.ui" line="357"/>
+        <location filename="editor/pagesf2.ui" line="471"/>
+        <location filename="editor/pagesf2.ui" line="812"/>
         <source>Details</source>
         <translation>详细信息</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="592"/>
+        <location filename="editor/pagesf2.ui" line="449"/>
         <source>Samples</source>
         <translation>采样</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="667"/>
+        <location filename="editor/pagesf2.ui" line="524"/>
         <source>Compression</source>
         <translation>压缩</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="674"/>
-        <location filename="editor/pagesf2.ui" line="757"/>
-        <location filename="editor/pagesf2.ui" line="820"/>
+        <location filename="editor/pagesf2.ui" line="531"/>
+        <location filename="editor/pagesf2.ui" line="620"/>
+        <location filename="editor/pagesf2.ui" line="683"/>
         <source>Count</source>
         <translation>计数</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="688"/>
+        <location filename="editor/pagesf2.ui" line="545"/>
         <source>Bit depth</source>
         <translation>位深</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="702"/>
+        <location filename="editor/pagesf2.ui" line="559"/>
         <source>16 bits</source>
         <translation>16 位</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="707"/>
+        <location filename="editor/pagesf2.ui" line="564"/>
         <source>24 bits</source>
         <translation>24 位</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="716"/>
+        <location filename="editor/pagesf2.ui" line="579"/>
         <source>no</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="721"/>
+        <location filename="editor/pagesf2.ui" line="584"/>
         <source>possible</source>
         <translation>可能</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="750"/>
-        <location filename="editor/pagesf2.ui" line="848"/>
+        <location filename="editor/pagesf2.ui" line="613"/>
+        <location filename="editor/pagesf2.ui" line="711"/>
         <source>Modulators</source>
         <translation>调制器</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="778"/>
-        <location filename="editor/pagesf2.ui" line="813"/>
+        <location filename="editor/pagesf2.ui" line="641"/>
+        <location filename="editor/pagesf2.ui" line="676"/>
         <source>Parameters</source>
         <translation>参数</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="927"/>
+        <location filename="editor/pagesf2.ui" line="790"/>
         <source>Instruments</source>
         <translation>乐器</translation>
     </message>
     <message numerus="yes">
-        <location filename="editor/pagesf2.cpp" line="220"/>
-        <location filename="editor/pagesf2.cpp" line="230"/>
+        <location filename="editor/pagesf2.cpp" line="201"/>
+        <location filename="editor/pagesf2.cpp" line="211"/>
         <source>%1 (unused: %n)</source>
         <translation>
             <numerusform>%1 (未使用：%n)</numerusform>
@@ -3542,11 +3742,6 @@ to display its division ranges</source>
         <translation>采样率</translation>
     </message>
     <message>
-        <location filename="editor/pagesmpl.ui" line="608"/>
-        <source>Type</source>
-        <translation>类型</translation>
-    </message>
-    <message>
         <location filename="editor/pagesmpl.ui" line="615"/>
         <source>Link</source>
         <translation>链接</translation>
@@ -3555,6 +3750,11 @@ to display its division ranges</source>
         <location filename="editor/pagesmpl.ui" line="228"/>
         <source>Use the estimated pitch and correction as values</source>
         <translation>使用估算的音高和校正值</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesmpl.ui" line="608"/>
+        <source>Channel</source>
+        <translation>通道</translation>
     </message>
     <message>
         <location filename="editor/pagesmpl.ui" line="669"/>
@@ -3644,7 +3844,6 @@ Warning: quality will be reduced and the loop may be altered</source>
     <message>
         <location filename="editor/pagesmpl.cpp" line="1107"/>
         <source>Are you sure to cut the sample from &lt;b&gt;%1&lt;/b&gt; to &lt;b&gt;%2&lt;/b&gt;?</source>
-        <oldsource>Are you sure to cut the sample from &lt;b&gt;%0&lt;/b&gt; to &lt;b&gt;%1&lt;/b&gt;?</oldsource>
         <translation>确定要将采样从 &lt;b&gt;%1&lt;/b&gt; 剪切到 &lt;b&gt;%2&lt;/b&gt; 吗？</translation>
     </message>
     <message>
@@ -3660,7 +3859,6 @@ Warning: quality will be reduced and the loop may be altered</source>
     <message>
         <location filename="editor/pagesmpl.cpp" line="1111"/>
         <source>Yes and &amp;create another sample</source>
-        <oldsource>Yes and create another &amp;sample</oldsource>
         <translation>是并创建另一个采样(&amp;C)</translation>
     </message>
 </context>
@@ -3734,7 +3932,6 @@ Warning: quality will be reduced and the loop may be altered</source>
     <message>
         <location filename="player/player.ui" line="356"/>
         <source>Banks (number of instruments)</source>
-        <oldsource>Banques (nombre d&apos;instruments)</oldsource>
         <translation>音色库 (乐器数量)</translation>
     </message>
     <message>
@@ -3880,7 +4077,6 @@ Warning: quality will be reduced and the loop may be altered</source>
     <message>
         <location filename="core/sample/sound.cpp" line="80"/>
         <source>File not supported: &quot;%1&quot;</source>
-        <oldsource>File not supported &quot;%1&quot;</oldsource>
         <translation>不支持文件: &quot;%1&quot;</translation>
     </message>
     <message>
@@ -4047,30 +4243,30 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>升A</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="55"/>
+        <location filename="core/utils.cpp" line="312"/>
         <source>bytes</source>
         <translation>字节</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="57"/>
+        <location filename="core/utils.cpp" line="314"/>
         <source>kB</source>
         <comment>kilobytes</comment>
         <translation>千字节</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="59"/>
+        <location filename="core/utils.cpp" line="316"/>
         <source>MB</source>
         <comment>megabytes</comment>
         <translation>兆字节</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="61"/>
+        <location filename="core/utils.cpp" line="318"/>
         <source>GB</source>
         <comment>gigabytes</comment>
         <translation>吉字节</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="62"/>
+        <location filename="core/utils.cpp" line="319"/>
         <source>TB</source>
         <comment>terabytes</comment>
         <translation>太字节</translation>
@@ -4081,7 +4277,7 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>GrandOrgue 采样集</translation>
     </message>
     <message>
-        <location filename="core/input/inputfactory.cpp" line="109"/>
+        <location filename="core/input/inputfactory.cpp" line="108"/>
         <source>All</source>
         <translation>全部</translation>
     </message>
@@ -4096,7 +4292,7 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>SFZ 文件</translation>
     </message>
     <message>
-        <location filename="context/translationmanager.cpp" line="105"/>
+        <location filename="context/translationmanager.cpp" line="107"/>
         <source>When editing one side of a stereo sample, the other side is automatically edited the same.
 This rule applies at the sample level and also when editing a division of an instrument:
 the division corresponding to the other channel, if any, is edited the same.
@@ -4703,94 +4899,94 @@ download the list</source>
 <context>
     <name>SoundfontBrowser</name>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="365"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="377"/>
         <source>Category</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="380"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="392"/>
         <source>License</source>
         <translation>许可证</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="395"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="407"/>
         <source>Sample source</source>
         <translation>样本来源</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="410"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="422"/>
         <source>Timbre</source>
         <translation>音色</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="425"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="437"/>
         <source>Articulation</source>
         <translation>发音</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="440"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="452"/>
         <source>Genre</source>
         <translation>风格</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="455"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="467"/>
         <source>MIDI standard</source>
         <translation>MIDI 标准</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="470"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="482"/>
         <source>Tags</source>
         <translation>标签</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="205"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="214"/>
         <source>Search a soundfont...</source>
         <translation>搜索音色库...</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="257"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="269"/>
         <source>Filters</source>
         <translation>筛选</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="286"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="298"/>
         <source>Reset</source>
         <translation>重设</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="304"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="316"/>
         <source>Subscribe to a Premium account to get all the features!</source>
         <translation>订阅高级账户获取所有功能!</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="159"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="165"/>
         <source>No results</source>
         <translation>无结果</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="545"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="557"/>
         <source>Go to the previous page</source>
         <translation>前往上一页</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="580"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="592"/>
         <source>Go to the next page</source>
         <translation>前往下一页</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="670"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="682"/>
         <source>Oops! Cannot
 download the list</source>
         <translation>糟糕！无法
 下载列表</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="140"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="142"/>
         <source>commercial use</source>
         <translation>商业使用</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="141"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="143"/>
         <source>share after editing</source>
         <translation>二次编辑后共享</translation>
     </message>
@@ -4972,6 +5168,14 @@ download the list</source>
     </message>
 </context>
 <context>
+    <name>SoundfontTab</name>
+    <message>
+        <location filename="mainwindow/soundfonttab.cpp" line="90"/>
+        <source>Untitled</source>
+        <translation>未命名</translation>
+    </message>
+</context>
+<context>
     <name>SoundfontViewer</name>
     <message>
         <location filename="repository/soundfont/soundfontviewer.ui" line="112"/>
@@ -5071,68 +5275,60 @@ download content</source>
     </message>
 </context>
 <context>
-    <name>Tab</name>
-    <message>
-        <location filename="mainwindow/tab.cpp" line="90"/>
-        <source>Untitled</source>
-        <translation>未命名</translation>
-    </message>
-</context>
-<context>
     <name>TabManager</name>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="106"/>
+        <location filename="mainwindow/tabmanager.cpp" line="109"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="133"/>
-        <location filename="mainwindow/tabmanager.cpp" line="247"/>
+        <location filename="mainwindow/tabmanager.cpp" line="136"/>
+        <location filename="mainwindow/tabmanager.cpp" line="288"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="134"/>
+        <location filename="mainwindow/tabmanager.cpp" line="137"/>
         <source>Cannot open file &quot;%1&quot;</source>
         <translation>无法打开文件 &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="204"/>
+        <location filename="mainwindow/tabmanager.cpp" line="245"/>
         <source>Online repository</source>
         <translation>在线仓库</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="242"/>
+        <location filename="mainwindow/tabmanager.cpp" line="283"/>
         <source>Save before exiting?</source>
         <translation>退出前是否保存文件？</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="245"/>
+        <location filename="mainwindow/tabmanager.cpp" line="286"/>
         <source>untitled</source>
         <translation>未命名</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="246"/>
+        <location filename="mainwindow/tabmanager.cpp" line="287"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>文件 &quot;%1&quot; 已被修改。</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="249"/>
+        <location filename="mainwindow/tabmanager.cpp" line="290"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="250"/>
+        <location filename="mainwindow/tabmanager.cpp" line="291"/>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="251"/>
+        <location filename="mainwindow/tabmanager.cpp" line="292"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>不保存(&amp;N)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="361"/>
+        <location filename="mainwindow/tabmanager.cpp" line="412"/>
         <source>User area</source>
         <translation>用户区</translation>
     </message>
@@ -5263,7 +5459,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/auto_distribution/toolautodistribution.h" line="60"/>
         <source>Sample auto-positioning</source>
-        <oldsource>Automatically link the samples</oldsource>
         <translation>采样自动定位</translation>
     </message>
 </context>
@@ -5410,7 +5605,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/change_volume/toolchangevolume.h" line="46"/>
         <source>Audio processing</source>
-        <oldsource>Sample processing</oldsource>
         <translation>音频处理</translation>
     </message>
     <message>
@@ -5664,19 +5858,16 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/default_mod/tooldefaultmod_gui.ui" line="58"/>
         <source>&amp;Override</source>
-        <oldsource>Override</oldsource>
         <translation>覆盖(&amp;O)</translation>
     </message>
     <message>
         <location filename="editor/tools/default_mod/tooldefaultmod_gui.ui" line="68"/>
         <source>&amp;Disable</source>
-        <oldsource>Disable</oldsource>
         <translation>禁用(&amp;D)</translation>
     </message>
     <message>
         <location filename="editor/tools/default_mod/tooldefaultmod_gui.ui" line="88"/>
         <source>&amp;Cancel</source>
-        <oldsource>Cancel</oldsource>
         <translation>取消(&amp;C)</translation>
     </message>
 </context>
@@ -5746,7 +5937,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/external_command/toolexternalcommand.h" line="48"/>
         <source>Audio processing</source>
-        <oldsource>Sample processing</oldsource>
         <translation>音频处理</translation>
     </message>
     <message>
@@ -5860,7 +6050,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/frequency_filter/toolfrequencyfilter.h" line="46"/>
         <source>Audio processing</source>
-        <oldsource>Sample processing</oldsource>
         <translation>音频处理</translation>
     </message>
     <message>
@@ -5884,7 +6073,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/frequency_filter/toolfrequencyfilter_gui.ui" line="32"/>
         <source>Mark with red color where you want to cut the frequencies:</source>
-        <oldsource>Put in red the part of frequencies to filter:</oldsource>
         <translation>用红色标记您想剪切的频率部分：</translation>
     </message>
 </context>
@@ -5933,7 +6121,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/frequency_peaks/toolfrequencypeaks.h" line="60"/>
         <source>Show peak frequencies</source>
-        <oldsource>Show peak frequency</oldsource>
         <translation>显示峰值频率</translation>
     </message>
 </context>
@@ -5942,13 +6129,11 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/frequency_peaks/toolfrequencypeaks_gui.ui" line="26"/>
         <source>&amp;Export</source>
-        <oldsource>Export</oldsource>
         <translation>导出(&amp;E)</translation>
     </message>
     <message>
         <location filename="editor/tools/frequency_peaks/toolfrequencypeaks_gui.ui" line="33"/>
         <source>&amp;Close</source>
-        <oldsource>Close</oldsource>
         <translation>关闭(&amp;C)</translation>
     </message>
     <message>
@@ -6142,7 +6327,6 @@ Other soundfont editors might display other units.</source>
     <message numerus="yes">
         <location filename="editor/tools/load_from_inst/toolloadfrominst.cpp" line="301"/>
         <source>Couldn&apos;t configure %n sample(s).</source>
-        <oldsource>Couln&apos;t configure %n sample(s).</oldsource>
         <translation>
             <numerusform>无法配置 %n 个采样。</numerusform>
         </translation>
@@ -6191,7 +6375,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/loop_crossfade/toolloopcrossfade.h" line="61"/>
         <source>Cross-fade loop</source>
-        <oldsource>Crossfade loop</oldsource>
         <translation>交叉淡入淡出循环</translation>
     </message>
 </context>
@@ -6223,7 +6406,7 @@ Other soundfont editors might display other units.</source>
     <name>ToolMergeSamples</name>
     <message>
         <location filename="editor/tools/merge_samples/toolmergesamples.cpp" line="66"/>
-        <source>The preset doesn&apos;t trigger any samples.</source>
+        <source>The preset does not trigger any samples.</source>
         <translation>该预设未触发任何采样。</translation>
     </message>
     <message>
@@ -6829,13 +7012,11 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="209"/>
         <source>&amp;Cancel</source>
-        <oldsource>Cancel</oldsource>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
         <location filename="editor/tools/soundfont_export/toolsoundfontexport_gui.ui" line="189"/>
         <source>&amp;Export</source>
-        <oldsource>Export</oldsource>
         <translation>导出(&amp;E)</translation>
     </message>
     <message>
@@ -6905,7 +7086,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/transpose_smpl/tooltransposesmpl.h" line="46"/>
         <source>Audio processing</source>
-        <oldsource>Sample processing</oldsource>
         <translation>音频处理</translation>
     </message>
     <message>
@@ -7048,22 +7228,22 @@ Other soundfont editors might display other units.</source>
 <context>
     <name>TreeView</name>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>instrument</source>
         <translation>乐器</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>preset</source>
         <translation>预设</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Cannot create more presets.</source>
         <translation>无法创建更多预设。</translation>
     </message>
@@ -7108,7 +7288,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tree/treeviewmenu.cpp" line="95"/>
         <source>Always play</source>
-        <oldsource>Play along</oldsource>
         <translation>始终播放</translation>
     </message>
     <message>
@@ -7121,7 +7300,6 @@ Other soundfont editors might display other units.</source>
         <location filename="editor/tree/treeviewmenu.cpp" line="172"/>
         <location filename="editor/tree/treeviewmenu.cpp" line="176"/>
         <source>Re&amp;name...</source>
-        <oldsource>&amp;Rename...</oldsource>
         <translation>重命名(&amp;N)...</translation>
     </message>
     <message>
@@ -7204,7 +7382,6 @@ Other soundfont editors might display other units.</source>
     <message>
         <location filename="editor/tools/waitingtooldialog.ui" line="51"/>
         <source>Processing...</source>
-        <oldsource>Processing..</oldsource>
         <translation>正在处理...</translation>
     </message>
     <message>

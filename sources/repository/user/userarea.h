@@ -25,13 +25,13 @@
 #ifndef USERAREA_H
 #define USERAREA_H
 
-#include <QWidget>
+#include "tab.h"
 
 namespace Ui {
 class UserArea;
 }
 
-class UserArea : public QWidget
+class UserArea : public Tab
 {
     Q_OBJECT
 

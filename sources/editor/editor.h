@@ -25,7 +25,7 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
-#include "tab.h"
+#include "soundfonttab.h"
 #include "basetypes.h"
 
 class PageSelector;
@@ -36,16 +36,19 @@ namespace Ui {
 class Editor;
 }
 
-class Editor : public Tab
+class Editor : public SoundfontTab
 {
     Q_OBJECT
 
 public:
-    Editor(DialogKeyboard * dialogKeyboard);
+    Editor(DialogKeyboard * dialogKeyboard, EltID initialSelection = EltID());
     ~Editor() override;
 
     // MIDI signals
     bool processKey(int channel, int key, int vel) override;
+
+    void selectElement(EltID id);
+    void onActionRequired(TabAction action) override;
 
 signals:
     void processKeyMainThread(int channel, int key, int vel);
@@ -56,6 +59,7 @@ protected:
     void tabInError(QString errorMessage) override;
     void tabInitialized(int indexSf2) override;
     void tabUpdate(QString editingSource) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
     DialogKeyboard * _dialogKeyboard;
 
@@ -76,6 +80,8 @@ private:
     PageSelector * _pageSelector;
     ElementType _currentElementType;
     IdList _currentIds;
+    EltID _initialSelection;
+    bool _firstShow;
 };
 
 #endif // EDITOR_H

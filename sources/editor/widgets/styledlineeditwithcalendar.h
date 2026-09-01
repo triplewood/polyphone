@@ -14,6 +14,10 @@ class CalendarPopup : public QFrame
 public:
     explicit CalendarPopup(QWidget * parent = nullptr);
     void setDate(QDate date);
+    QDate getDate() const;
+
+public slots:
+    void focusDate();
 
 signals:
     void dateSelected(const QDate &date);
@@ -33,11 +37,16 @@ public:
 public slots:
     void setInitialText(const QString &text);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 private slots:
     void onDateSelected(const QDate &date);
     void onFocusChanged(QWidget * old, QWidget * now);
 
 private:
+    void closePopup();
+
     CalendarPopup * _popup;
     QString _initialText;
     QDate _currentDate;

@@ -25,8 +25,7 @@
 #include "userarea.h"
 #include "ui_userarea.h"
 
-UserArea::UserArea(QWidget *parent) :
-    QWidget(parent),
+UserArea::UserArea(QWidget *parent) : Tab(parent),
     ui(new Ui::UserArea)
 {
     ui->setupUi(this);

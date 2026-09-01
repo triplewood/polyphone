@@ -299,7 +299,7 @@ void OutputSf::fillSf2(int sf2Index, Sf2Header * header, Sf2SdtaPart * sdtaPart,
         id.indexElt = indexes[i];
         sdtaPart->_sounds.append(_sm->getSound(id));
     }
-    sdtaPart->_sample24bits = _sm->get(id, champ_wBpsSave).wValue == 24;
+    sdtaPart->_sample24bits = id.indexElt != -1 && _sm->get(id, champ_wBpsSave).wValue == 24;
 
     ////////////
     /// PDTA ///
@@ -551,7 +551,7 @@ void OutputSf::fillSf2(int sf2Index, Sf2Header * header, Sf2SdtaPart * sdtaPart,
     pdtaPart->_shdrs[indexes.count()]._name = "EOS";
 }
 
-void OutputSf::loadMods(EltID idMod, QList<Sf2PdtaPart_mod> &mods, quint32 &index)
+void OutputSf::loadMods(EltID idMod, QVector<Sf2PdtaPart_mod> &mods, quint32 &index)
 {
     SfIndexConverter converterMod2(idMod);
     foreach (int i, _sm->getSiblings(idMod))
@@ -566,7 +566,7 @@ void OutputSf::loadMods(EltID idMod, QList<Sf2PdtaPart_mod> &mods, quint32 &inde
     }
 }
 
-void OutputSf::loadGens(EltID idGen, EltID idDiv, QList<Sf2PdtaPart_gen> &gens, quint32 &index, SfIndexConverter &indexConverter)
+void OutputSf::loadGens(EltID idGen, EltID idDiv, QVector<Sf2PdtaPart_gen> &gens, quint32 &index, SfIndexConverter &indexConverter)
 {
     QList<int> attributes = _sm->getSiblings(idGen);
 

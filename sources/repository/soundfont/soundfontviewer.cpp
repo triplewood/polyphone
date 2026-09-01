@@ -35,7 +35,7 @@
 #include "uploadingdialog.h"
 #include <QMessageBox>
 
-SoundfontViewer::SoundfontViewer(QWidget *parent) : QWidget(parent),
+SoundfontViewer::SoundfontViewer(QWidget *parent) : Tab(parent),
     ui(new Ui::SoundfontViewer),
     _urlReader(new UrlReader(RepositoryManager::BASE_URL + "upload", false)),
     _waitingDialog(nullptr)

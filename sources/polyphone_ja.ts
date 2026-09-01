@@ -401,24 +401,37 @@
 <context>
     <name>BrowserSortMenu</name>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="52"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="55"/>
         <source>Date</source>
         <translation>日付</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="56"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="62"/>
         <source>Downloads</source>
         <translation>ダウンロード数</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="58"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="69"/>
         <source>Rating score</source>
         <translation>評価スコア</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="60"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="76"/>
         <source>Title (A→Z)</source>
         <translation>タイトル (A→Z)</translation>
+    </message>
+</context>
+<context>
+    <name>CalendarPopup</name>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="30"/>
+        <source>&amp;Cancel</source>
+        <translation>キャンセル(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="31"/>
+        <source>&amp;Ok</source>
+        <translation>OK(&amp;O)</translation>
     </message>
 </context>
 <context>
@@ -1189,31 +1202,26 @@ Premium!</source>
 <context>
     <name>ConfigSectionSound</name>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="375"/>
+        <location filename="context/interface/configsectionsound.ui" line="369"/>
         <source>Reverb</source>
         <translation>リバーブ</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="226"/>
+        <location filename="context/interface/configsectionsound.ui" line="223"/>
         <source>Width</source>
         <translation>幅</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="22"/>
-        <location filename="context/interface/configsectionsound.ui" line="197"/>
+        <location filename="context/interface/configsectionsound.ui" line="195"/>
         <source>Level</source>
         <translation>レベル</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="333"/>
+        <location filename="context/interface/configsectionsound.ui" line="329"/>
         <source>Default modulator &quot;velocity → filter cutoff&quot;</source>
         <oldsource>Modulator &quot;velocity → filter cutoff&quot;</oldsource>
         <translation>デフォルトモジュレーター「ベロシティ → フィルターカットオフ」</translation>
-    </message>
-    <message>
-        <location filename="context/interface/configsectionsound.ui" line="126"/>
-        <source>soundfont 2.01</source>
-        <translation>サウンドフォント 2.01</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="112"/>
@@ -1221,32 +1229,27 @@ Premium!</source>
         <translation>全体ボリューム</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="131"/>
-        <source>soundfont 2.04</source>
-        <translation>サウンドフォント 2.04</translation>
-    </message>
-    <message>
         <location filename="context/interface/configsectionsound.ui" line="136"/>
         <source>disabled</source>
         <translation>無効</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="242"/>
+        <location filename="context/interface/configsectionsound.ui" line="238"/>
         <source>Damp</source>
         <translation>ダンプ</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="181"/>
+        <location filename="context/interface/configsectionsound.ui" line="180"/>
         <source>Room</source>
         <translation>ルーム</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="362"/>
+        <location filename="context/interface/configsectionsound.ui" line="357"/>
         <source>Options</source>
         <translation>オプション</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="388"/>
+        <location filename="context/interface/configsectionsound.ui" line="381"/>
         <source>Chorus</source>
         <translation>コーラス</translation>
     </message>
@@ -2014,6 +2017,243 @@ repository</source>
     </message>
 </context>
 <context>
+    <name>DirectoryBrowser</name>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="293"/>
+        <source>No results</source>
+        <translation>何も見つかりませんでした</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="493"/>
+        <source>Instruments</source>
+        <translation>インストゥルメント</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="587"/>
+        <source>Presets</source>
+        <translation>プリセット</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="399"/>
+        <source>Samples</source>
+        <translation>サンプル</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="695"/>
+        <source>Search a file, a sample, an instrument or a preset...</source>
+        <translation>ファイル、サンプル、インストゥルメント、またはプリセットを検索...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="125"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <oldsource>The directory &quot;%1&quot; doesn&apos;t exist.</oldsource>
+        <translation>ディレクトリ「%1」は存在しません。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="132"/>
+        <source>The directory &quot;%1&quot; is not readable.</source>
+        <translation>ディレクトリ「%1」は読み取り可能ではありません。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="248"/>
+        <source>Rename</source>
+        <translation>名前の変更</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="249"/>
+        <source>New name:</source>
+        <translation>新しい名前:</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="251"/>
+        <source>&amp;Cancel</source>
+        <oldsource>Cancel</oldsource>
+        <translation>キャンセル(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="252"/>
+        <source>&amp;Ok</source>
+        <oldsource>Ok</oldsource>
+        <translation>OK(&amp;O)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <source>A file with this name already exists.</source>
+        <translation>この名前のファイルは既に存在します。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <source>Cannot rename file &quot;%1&quot;.</source>
+        <translation>ファイル「%1」の名前を変更できませんでした。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="276"/>
+        <source>Confirm deletion</source>
+        <translation>削除の確認</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="277"/>
+        <source>Are you sure you want to delete file &quot;%1&quot;?</source>
+        <translation>本当にファイル「%1」を削除しますか？</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="279"/>
+        <source>&amp;Yes</source>
+        <oldsource>Yes</oldsource>
+        <translation>はい(&amp;Y)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="280"/>
+        <source>&amp;No</source>
+        <oldsource>No</oldsource>
+        <translation>いいえ(&amp;N)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Cannot delete file &quot;%1&quot;.</source>
+        <translation>ファイル「%1」を削除できませんでした。</translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryFileData</name>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="296"/>
+        <source>Invalid link</source>
+        <translation>無効なリンク</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="299"/>
+        <source>Mono</source>
+        <comment>opposite to stereo</comment>
+        <translation>モノラル</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="302"/>
+        <source>Stereo right</source>
+        <translation>ステレオ右</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="305"/>
+        <source>Stereo left</source>
+        <translation>ステレオ左</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="308"/>
+        <source>Stereo non defined</source>
+        <translation>ステレオ未定義</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="312"/>
+        <source>s</source>
+        <comment>unit for seconds</comment>
+        <translation>秒</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="315"/>
+        <source>Loop</source>
+        <translation>ループ</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="316"/>
+        <source>Hz</source>
+        <comment>unit for Herz</comment>
+        <translation>Hz</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="326"/>
+        <source>%n division(s)</source>
+        <translation>
+            <numerusform>%n個のディビジョン</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="327"/>
+        <source>%n parameter(s)</source>
+        <translation>
+            <numerusform>%n個のパラメータ</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="328"/>
+        <source>%n modulator(s)</source>
+        <translation>
+            <numerusform>%n個のモジュレーター</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="329"/>
+        <source>%n distinct key range(s)</source>
+        <translation>
+            <numerusform>%n個の異なるキー範囲</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="330"/>
+        <source>%n distinct velocity range(s)</source>
+        <translation>
+            <numerusform>%n個の異なるベロシティ範囲</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryListDelegate</name>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="135"/>
+        <source>Analyze in progress...</source>
+        <translation>分析中...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="138"/>
+        <source>NOT READABLE</source>
+        <translation>読み取り不可</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="145"/>
+        <source>Error when reading the file.</source>
+        <translation>ファイルの読み取り中にエラーが発生しました。</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="316"/>
+        <source>Rename file &quot;%1&quot;</source>
+        <translation>ファイル「%1」の名前を変更</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="321"/>
+        <source>Delete file &quot;%1&quot;</source>
+        <translation>ファイル「%1」を削除</translation>
+    </message>
+</context>
+<context>
+    <name>DirectorySortMenu</name>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="55"/>
+        <source>Name (A→Z)</source>
+        <translation>名前 (A→Z)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="62"/>
+        <source>Newest first</source>
+        <translation>新しい順</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="69"/>
+        <source>Largest first</source>
+        <translation>大きい順</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="76"/>
+        <source>Smallest first</source>
+        <translation>小さい順</translation>
+    </message>
+</context>
+<context>
     <name>DownloadManager</name>
     <message>
         <location filename="repository/downloadmanager.cpp" line="111"/>
@@ -2155,17 +2395,17 @@ repository</source>
         <translation>検索...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="262"/>
+        <location filename="editor/editor.ui" line="268"/>
         <source>Opening file...</source>
         <translation>ファイルを開いています...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="377"/>
+        <location filename="editor/editor.ui" line="383"/>
         <source>Cannot open the file</source>
         <translation>ファイルを開けません</translation>
     </message>
     <message>
-        <location filename="editor/editor.cpp" line="476"/>
+        <location filename="editor/editor.cpp" line="494"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -2411,27 +2651,6 @@ repository</source>
     </message>
 </context>
 <context>
-    <name>FooterSf2</name>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="65"/>
-        <source>GB</source>
-        <comment>giga byte</comment>
-        <translation>GB</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="70"/>
-        <source>MB</source>
-        <comment>mega byte</comment>
-        <translation>MB</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="75"/>
-        <source>kB</source>
-        <comment>kilo byte</comment>
-        <translation>kB</translation>
-    </message>
-</context>
-<context>
     <name>GraphFilterFrequencies</name>
     <message>
         <location filename="editor/tools/frequency_filter/graphfilterfrequencies.cpp" line="60"/>
@@ -2616,22 +2835,23 @@ repository</source>
         <translation>設定(&amp;T)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="100"/>
+        <location filename="mainwindow/mainmenu.cpp" line="101"/>
         <source>Online &amp;manual</source>
         <translation>オンライン マニュアル(&amp;M)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="106"/>
-        <source>About &amp;Polyphone...</source>
-        <translation>Polyphoneについて...(&amp;P)</translation>
+        <location filename="mainwindow/mainmenu.cpp" line="107"/>
+        <source>About &amp;Polyphone</source>
+        <translation>Polyphoneについて(&amp;P)</translation>
     </message>
     <message>
         <location filename="mainwindow/mainmenu.cpp" line="82"/>
-        <source>&amp;Close file</source>
-        <translation>閉じる(&amp;C)</translation>
+        <source>&amp;Close tab</source>
+        <oldsource>&amp;Close file</oldsource>
+        <translation>タブを閉じる(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="112"/>
+        <location filename="mainwindow/mainmenu.cpp" line="113"/>
         <source>&amp;Quit</source>
         <translation>終了(&amp;Q)</translation>
     </message>
@@ -2639,12 +2859,12 @@ repository</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="231"/>
+        <location filename="mainwindow/mainwindow.cpp" line="232"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="217"/>
+        <location filename="mainwindow/mainwindow.cpp" line="218"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -2654,59 +2874,64 @@ repository</source>
         <translation>Polyphone SoundFont エディター</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="208"/>
+        <location filename="mainwindow/mainwindow.cpp" line="209"/>
         <source>Untitled</source>
         <translation>無題</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="218"/>
+        <location filename="mainwindow/mainwindow.cpp" line="219"/>
         <source>Save before exiting?</source>
         <translation>閉じる前に保存しますか？</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="221"/>
+        <location filename="mainwindow/mainwindow.cpp" line="222"/>
         <source>The following files have been modified:</source>
         <translation>以下のファイルが変更されています:</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="228"/>
+        <location filename="mainwindow/mainwindow.cpp" line="229"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>ファイル &quot;%1&quot; は変更されています。</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="232"/>
+        <location filename="mainwindow/mainwindow.cpp" line="233"/>
         <source>&amp;Cancel</source>
         <translation>キャンセル(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="233"/>
+        <location filename="mainwindow/mainwindow.cpp" line="234"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>保存しない(&amp;N)</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="304"/>
+        <location filename="mainwindow/mainwindow.cpp" line="306"/>
         <source>Opening files</source>
         <translation>ファイルを開いています</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="342"/>
+        <location filename="mainwindow/mainwindow.cpp" line="316"/>
+        <source>Opening a directory</source>
+        <translation>ディレクトリを開いています</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="356"/>
         <source>  Settings</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  設定</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="298"/>
+        <location filename="mainwindow/mainwindow.ui" line="312"/>
         <source>  Documentation</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  資料</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="78"/>
+        <location filename="mainwindow/mainwindow.cpp" line="66"/>
         <source>Home screen</source>
         <translation>ホーム画面</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="121"/>
+        <location filename="mainwindow/mainwindow.ui" line="118"/>
         <source>  New
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2714,18 +2939,26 @@ repository</source>
   SoundFont</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="320"/>
+        <location filename="mainwindow/mainwindow.ui" line="152"/>
+        <source>  Open
+  directory</source>
+        <extracomment>prefixed with 2 spaces for each line</extracomment>
+        <translation>  ディレクトリを
+  開く</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="334"/>
         <source>  Forum</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  フォーラム</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="235"/>
+        <location filename="mainwindow/mainwindow.ui" line="249"/>
         <source>Daily soundfonts</source>
         <translation>今日のSoundFont</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="245"/>
+        <location filename="mainwindow/mainwindow.ui" line="259"/>
         <source>  Online
   repository</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2733,12 +2966,12 @@ repository</source>
   リポジトリ</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="184"/>
+        <location filename="mainwindow/mainwindow.ui" line="198"/>
         <source>Search a soundfont...</source>
         <translation>SoundFontを検索...</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="138"/>
+        <location filename="mainwindow/mainwindow.ui" line="135"/>
         <source>  Open
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2746,7 +2979,7 @@ repository</source>
   開く</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="267"/>
+        <location filename="mainwindow/mainwindow.ui" line="281"/>
         <source>History</source>
         <translation>履歴</translation>
     </message>
@@ -2794,35 +3027,35 @@ default mod.</source>
 モジュレーションを上書きする</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="383"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="384"/>
         <source>dB</source>
         <comment>unit for decibels</comment>
         <translation>dB</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="391"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="392"/>
         <source>semi-tones</source>
         <translation>半音</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="394"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="395"/>
         <source>cents</source>
         <comment>hundredth of semi-tones</comment>
         <translation>セント</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="405"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
         <source>Add from:</source>
         <oldsource>Add from: </oldsource>
         <translation>から加算:</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="407"/>
         <source>Multiply from:</source>
         <translation>から乗算:</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="408"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="409"/>
         <source>To:</source>
         <oldsource>To: </oldsource>
         <translation>へ:</translation>
@@ -3337,129 +3570,139 @@ to display its division ranges</source>
         <translation>タイトル...</translation>
     </message>
     <message>
+        <location filename="editor/pagesf2.ui" line="62"/>
+        <source>Author</source>
+        <translation>作成者</translation>
+    </message>
+    <message>
         <location filename="editor/pagesf2.ui" line="99"/>
         <source>Author...</source>
         <translation>作成者...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="152"/>
+        <location filename="editor/pagesf2.ui" line="118"/>
+        <source>Date</source>
+        <translation>日付</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.ui" line="155"/>
         <source>Date...</source>
         <translation>日付...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="171"/>
-        <source>Current date</source>
-        <translation>現在の日付</translation>
-    </message>
-    <message>
-        <location filename="editor/pagesf2.ui" line="200"/>
+        <location filename="editor/pagesf2.ui" line="207"/>
         <source>Product</source>
         <translation>製品</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="214"/>
+        <location filename="editor/pagesf2.ui" line="231"/>
         <source>Copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="228"/>
+        <location filename="editor/pagesf2.ui" line="214"/>
         <source>Comments</source>
         <translation>コメント</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="283"/>
-        <source>Soundfont version</source>
-        <translation>SoundFontバージョン</translation>
+        <location filename="editor/pagesf2.cpp" line="446"/>
+        <source>SoundFont format</source>
+        <translation>SoundFont形式</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="315"/>
-        <source>ROM name and version</source>
-        <translation>ROM名とバージョン</translation>
+        <location filename="editor/pagesf2.cpp" line="451"/>
+        <source>ROM name</source>
+        <translation>ROM名</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="347"/>
+        <location filename="editor/pagesf2.cpp" line="458"/>
+        <source>ROM version</source>
+        <translation>ROMバージョン</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.cpp" line="464"/>
         <source>Sound engine</source>
         <translation>サウンドエンジン</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="379"/>
+        <location filename="editor/pagesf2.cpp" line="469"/>
         <source>Editing software</source>
         <translation>編集ソフトウェア</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="478"/>
+        <location filename="editor/pagesf2.ui" line="335"/>
         <source>Presets</source>
         <translation>プリセット</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="500"/>
-        <location filename="editor/pagesf2.ui" line="614"/>
-        <location filename="editor/pagesf2.ui" line="949"/>
+        <location filename="editor/pagesf2.ui" line="357"/>
+        <location filename="editor/pagesf2.ui" line="471"/>
+        <location filename="editor/pagesf2.ui" line="812"/>
         <source>Details</source>
         <translation>詳細</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="592"/>
+        <location filename="editor/pagesf2.ui" line="449"/>
         <source>Samples</source>
         <translation>サンプル</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="667"/>
+        <location filename="editor/pagesf2.ui" line="524"/>
         <source>Compression</source>
         <translation>圧縮</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="674"/>
-        <location filename="editor/pagesf2.ui" line="757"/>
-        <location filename="editor/pagesf2.ui" line="820"/>
+        <location filename="editor/pagesf2.ui" line="531"/>
+        <location filename="editor/pagesf2.ui" line="620"/>
+        <location filename="editor/pagesf2.ui" line="683"/>
         <source>Count</source>
         <translation>数</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="688"/>
+        <location filename="editor/pagesf2.ui" line="545"/>
         <source>Bit depth</source>
         <translation>ビット深度</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="702"/>
+        <location filename="editor/pagesf2.ui" line="559"/>
         <source>16 bits</source>
         <translation>16ビット</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="707"/>
+        <location filename="editor/pagesf2.ui" line="564"/>
         <source>24 bits</source>
         <translation>24ビット</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="716"/>
+        <location filename="editor/pagesf2.ui" line="579"/>
         <source>no</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="721"/>
+        <location filename="editor/pagesf2.ui" line="584"/>
         <source>possible</source>
         <translation>可能</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="750"/>
-        <location filename="editor/pagesf2.ui" line="848"/>
+        <location filename="editor/pagesf2.ui" line="613"/>
+        <location filename="editor/pagesf2.ui" line="711"/>
         <source>Modulators</source>
         <translation>モジュレーター</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="778"/>
-        <location filename="editor/pagesf2.ui" line="813"/>
+        <location filename="editor/pagesf2.ui" line="641"/>
+        <location filename="editor/pagesf2.ui" line="676"/>
         <source>Parameters</source>
         <translation>パラメーター</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="927"/>
+        <location filename="editor/pagesf2.ui" line="790"/>
         <source>Instruments</source>
         <translation>インストゥルメント</translation>
     </message>
     <message numerus="yes">
-        <location filename="editor/pagesf2.cpp" line="220"/>
-        <location filename="editor/pagesf2.cpp" line="230"/>
+        <location filename="editor/pagesf2.cpp" line="201"/>
+        <location filename="editor/pagesf2.cpp" line="211"/>
         <source>%1 (unused: %n)</source>
         <translation>
             <numerusform>%1 (未使用: %n)</numerusform>
@@ -3530,11 +3773,6 @@ to display its division ranges</source>
         <translation>サンプルレート</translation>
     </message>
     <message>
-        <location filename="editor/pagesmpl.ui" line="608"/>
-        <source>Type</source>
-        <translation>タイプ</translation>
-    </message>
-    <message>
         <location filename="editor/pagesmpl.ui" line="615"/>
         <source>Link</source>
         <translation>リンク</translation>
@@ -3543,6 +3781,11 @@ to display its division ranges</source>
         <location filename="editor/pagesmpl.ui" line="228"/>
         <source>Use the estimated pitch and correction as values</source>
         <translation>推定されたピッチと補正値をそのまま使用</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesmpl.ui" line="608"/>
+        <source>Channel</source>
+        <translation>チャンネル</translation>
     </message>
     <message>
         <location filename="editor/pagesmpl.ui" line="669"/>
@@ -4035,30 +4278,30 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>ラ♯</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="55"/>
+        <location filename="core/utils.cpp" line="312"/>
         <source>bytes</source>
         <translation>バイト</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="57"/>
+        <location filename="core/utils.cpp" line="314"/>
         <source>kB</source>
         <comment>kilobytes</comment>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="59"/>
+        <location filename="core/utils.cpp" line="316"/>
         <source>MB</source>
         <comment>megabytes</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="61"/>
+        <location filename="core/utils.cpp" line="318"/>
         <source>GB</source>
         <comment>gigabytes</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="62"/>
+        <location filename="core/utils.cpp" line="319"/>
         <source>TB</source>
         <comment>terabytes</comment>
         <translation>TB</translation>
@@ -4069,7 +4312,7 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>GrandOrgueサンプルセット</translation>
     </message>
     <message>
-        <location filename="core/input/inputfactory.cpp" line="109"/>
+        <location filename="core/input/inputfactory.cpp" line="108"/>
         <source>All</source>
         <translation>すべて</translation>
     </message>
@@ -4084,7 +4327,7 @@ Warning: quality will be reduced and the loop may be altered</source>
         <translation>Sfzファイル</translation>
     </message>
     <message>
-        <location filename="context/translationmanager.cpp" line="105"/>
+        <location filename="context/translationmanager.cpp" line="107"/>
         <source>When editing one side of a stereo sample, the other side is automatically edited the same.
 This rule applies at the sample level and also when editing a division of an instrument:
 the division corresponding to the other channel, if any, is edited the same.
@@ -4692,94 +4935,94 @@ download the list</source>
 <context>
     <name>SoundfontBrowser</name>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="365"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="377"/>
         <source>Category</source>
         <translation>カテゴリ</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="380"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="392"/>
         <source>License</source>
         <translation>使用許諾 / ライセンス</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="395"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="407"/>
         <source>Sample source</source>
         <translation>サンプル元</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="410"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="422"/>
         <source>Timbre</source>
         <translation>音色</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="425"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="437"/>
         <source>Articulation</source>
         <translation>アーティキュレーション</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="440"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="452"/>
         <source>Genre</source>
         <translation>ジャンル</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="455"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="467"/>
         <source>MIDI standard</source>
         <translation>MIDI規格</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="470"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="482"/>
         <source>Tags</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="205"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="214"/>
         <source>Search a soundfont...</source>
         <translation>SoundFontを検索...</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="257"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="269"/>
         <source>Filters</source>
         <translation>フィルター</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="286"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="298"/>
         <source>Reset</source>
         <translation>リセット</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="304"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="316"/>
         <source>Subscribe to a Premium account to get all the features!</source>
         <translation>プレミアムアカウントに登録すると、すべての機能を利用できます！</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="159"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="165"/>
         <source>No results</source>
         <translation>何も見つかりませんでした</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="545"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="557"/>
         <source>Go to the previous page</source>
         <translation>前のページへ</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="580"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="592"/>
         <source>Go to the next page</source>
         <translation>次のページへ</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="670"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="682"/>
         <source>Oops! Cannot
 download the list</source>
         <translation>エラー！
 リストをダウンロードできません</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="140"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="142"/>
         <source>commercial use</source>
         <translation>商用利用</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="141"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="143"/>
         <source>share after editing</source>
         <translation>編集後に共有</translation>
     </message>
@@ -4961,6 +5204,14 @@ download the list</source>
     </message>
 </context>
 <context>
+    <name>SoundfontTab</name>
+    <message>
+        <location filename="mainwindow/soundfonttab.cpp" line="90"/>
+        <source>Untitled</source>
+        <translation>無題</translation>
+    </message>
+</context>
+<context>
     <name>SoundfontViewer</name>
     <message>
         <location filename="repository/soundfont/soundfontviewer.ui" line="112"/>
@@ -5060,68 +5311,60 @@ download content</source>
     </message>
 </context>
 <context>
-    <name>Tab</name>
-    <message>
-        <location filename="mainwindow/tab.cpp" line="90"/>
-        <source>Untitled</source>
-        <translation>無題</translation>
-    </message>
-</context>
-<context>
     <name>TabManager</name>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="106"/>
+        <location filename="mainwindow/tabmanager.cpp" line="109"/>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="133"/>
-        <location filename="mainwindow/tabmanager.cpp" line="247"/>
+        <location filename="mainwindow/tabmanager.cpp" line="136"/>
+        <location filename="mainwindow/tabmanager.cpp" line="288"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="134"/>
+        <location filename="mainwindow/tabmanager.cpp" line="137"/>
         <source>Cannot open file &quot;%1&quot;</source>
         <translation>ファイル「%1」を開けません</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="204"/>
+        <location filename="mainwindow/tabmanager.cpp" line="245"/>
         <source>Online repository</source>
         <translation>オンライン リポジトリ</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="242"/>
+        <location filename="mainwindow/tabmanager.cpp" line="283"/>
         <source>Save before exiting?</source>
         <translation>閉じる前に保存しますか？</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="245"/>
+        <location filename="mainwindow/tabmanager.cpp" line="286"/>
         <source>untitled</source>
         <translation>無題</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="246"/>
+        <location filename="mainwindow/tabmanager.cpp" line="287"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>ファイル &quot;%1&quot; は変更されています。</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="249"/>
+        <location filename="mainwindow/tabmanager.cpp" line="290"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="250"/>
+        <location filename="mainwindow/tabmanager.cpp" line="291"/>
         <source>&amp;Cancel</source>
         <translation>キャンセル(&amp;C)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="251"/>
+        <location filename="mainwindow/tabmanager.cpp" line="292"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>保存しない(&amp;N)</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="361"/>
+        <location filename="mainwindow/tabmanager.cpp" line="412"/>
         <source>User area</source>
         <translation>ユーザーエリア</translation>
     </message>
@@ -6211,7 +6454,7 @@ Other soundfont editors might display other units.</source>
     <name>ToolMergeSamples</name>
     <message>
         <location filename="editor/tools/merge_samples/toolmergesamples.cpp" line="66"/>
-        <source>The preset doesn&apos;t trigger any samples.</source>
+        <source>The preset does not trigger any samples.</source>
         <translation>プリセットはどのサンプルもトリガーしません。</translation>
     </message>
     <message>
@@ -7026,22 +7269,22 @@ Other soundfont editors might display other units.</source>
 <context>
     <name>TreeView</name>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>instrument</source>
         <translation>インストゥルメント</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>preset</source>
         <translation>プリセット</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Cannot create more presets.</source>
         <translation>これ以上プリセットを作成できません。</translation>
     </message>

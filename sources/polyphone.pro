@@ -6,7 +6,7 @@
 
 # Use local copies of RtAudio, RtMidi, and Stk libraries
 # (this is forced to true for Windows or Mac OS X)
-# Uncomment a line if your distribution doesn't come with some of the following libraries
+# Uncomment a line if your distribution does not come with some of the following libraries
 DEFINES += USE_LOCAL_RTAUDIO
 #DEFINES += USE_LOCAL_RTMIDI
 #DEFINES += USE_LOCAL_STK
@@ -23,8 +23,8 @@ DEFINES += USE_LOCAL_RTAUDIO
 
 # Polyphone version
 DEFINES += SOFT_VERSION=\\\"2.6.0\\\"
-DEFINES += IDENTIFIER=\\\"BETA\\\"
-DEFINES += CURRENT_YEAR=\\\"2025\\\"
+DEFINES += IDENTIFIER=\\\"\\\"
+DEFINES += CURRENT_YEAR=\\\"2026\\\"
 
 INCLUDEPATH += $$PWD/editor/tools/merge_samples
 
@@ -69,7 +69,9 @@ win32 {
     RC_FILE = ../packaging/windows/polyphone.rc
     QMAKE_CXXFLAGS += -ffloat-store
     LIBS += -lz -lwinmm -logg -lvorbis -lvorbisfile -lvorbisenc -lcrypto -lFLAC -lsndfile \
+        -LC:/msys64/mingw64/lib \
         -lole32 -lwinmm -lksuser -lmfplat -lmfuuid -lwmcodecdspuuid # <- for RtAudio
+    INCLUDEPATH += C:/msys64/mingw64/include
 
     # Files necessary for ASIO with RtAudio
     HEADERS += lib/_option_rtaudio/rtaudio/include/asio.h \
@@ -124,6 +126,9 @@ unix:!macx {
     QMAKE_LFLAGS_RPATH=
 }
 macx {
+    QMAKE_BUNDLE = 1
+    QMAKE_TARGET_BUNDLE_PREFIX = fr.polyphone
+    TARGET = Polyphone
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 12.0
     CONFIG += sdk_no_version_check
     DEFINES += USE_LOCAL_RTAUDIO USE_LOCAL_RTMIDI USE_LOCAL_STK \
@@ -193,50 +198,65 @@ contains(DEFINES, USE_LOCAL_STK) {
     LIBS += -lstk
 }
 
-INCLUDEPATH += lib \
-    mainwindow \
-    dialogs \
+INCLUDEPATH += clavier \
     context \
     context/interface \
-    editor \
-    editor/footers \
-    editor/graphics \
-    editor/modulator \
-    editor/overview \
-    editor/tools \
-    editor/widgets \
-    editor/tree \
-    resources \
     core \
     core/input \
     core/output \
     core/model \
     core/sample \
     core/types \
-    clavier \
-    sound_engine \
-    sound_engine/elements \
+    dialogs \
+    directory \
+    editor \
+    editor/footers \
+    editor/graphics \
+    editor/modulator \
+    editor/overview \
+    editor/tools \
+    editor/tree \
+    editor/widgets \
+    extensions \
+    lib \
+    lib/qtsingleapplication \
+    mainwindow \
+    player \
     repository \
     repository/browser \
     repository/daily \
-    repository/widgets \
-    repository/user \
     repository/soundfont \
     repository/soundfont/viewer \
     repository/soundfont/editor \
-    lib/qtsingleapplication \
-    extensions \
-    player \
+    repository/user \
+    repository/widgets \
+    resources \
+    sound_engine \
+    sound_engine/elements \
     .
 
 SOURCES	+= main.cpp \
+    clavier/pianoscene.cpp \
+    clavier/pianokey.cpp \
+    clavier/pianokeybd.cpp \
+    clavier/pianokeybdcustom.cpp \
+    clavier/keyboardmap.cpp \
+    context/contextmanager.cpp \
+    context/thememanager.cpp \
+    context/confmanager.cpp \
+    context/recentfilemanager.cpp \
+    context/keynamemanager.cpp \
+    context/translationmanager.cpp \
+    context/interface/editkey.cpp \
+    context/audiodevice.cpp \
+    context/mididevice.cpp \
+    context/tuningprogrammanager.cpp \
     core/input/sf/inputparsersf.cpp \
     core/output/csv/abstractcsvfile.cpp \
     core/output/csv/csvfileinstprst.cpp \
     core/output/csv/csvfilesamples.cpp \
     core/output/csv/outputcsv.cpp \
     core/sample/samplereadersf.cpp \
-    context/tuningprogrammanager.cpp \
     core/fastmaths.cpp \
     core/input/grandorgue/grandorguedatathrough.cpp \
     core/input/grandorgue/grandorgueranklink.cpp \
@@ -271,21 +291,22 @@ SOURCES	+= main.cpp \
     core/input/sfark/sfarkglobal.cpp \
     core/input/sfark/sfarkfilemanager.cpp \
     core/output/sfz/conversion_sfz.cpp \
-    context/contextmanager.cpp \
-    context/thememanager.cpp \
-    context/confmanager.cpp \
-    context/recentfilemanager.cpp \
-    context/keynamemanager.cpp \
-    context/translationmanager.cpp \
-    context/interface/editkey.cpp \
-    context/audiodevice.cpp \
-    context/mididevice.cpp \
     dialogs/dialog_list.cpp \
     dialogs/dialog_rename.cpp \
     dialogs/dialog_about.cpp \
     dialogs/dialogcompressquality.cpp \
     dialogs/dialogselection.cpp \
     dialogs/dialogchangelog.cpp \
+    directory/directorybrowser.cpp \
+    directory/directorydisplaymenu.cpp \
+    directory/directoryelementlistdelegate.cpp \
+    directory/directoryelementlistview.cpp \
+    directory/directoryfiledata.cpp \
+    directory/directorylistdelegate.cpp \
+    directory/directorylistmodel.cpp \
+    directory/directorylistview.cpp \
+    directory/directorysortmenu.cpp \
+    directory/directorysortproxymodel.cpp \
     editor/footers/footerlinkedto.cpp \
     editor/footers/footeroverview.cpp \
     editor/footers/footerprst.cpp \
@@ -319,8 +340,9 @@ SOURCES	+= main.cpp \
     editor/tools/merge_samples/toolmergesamples_gui.cpp \
     editor/tools/merge_samples/toolmergesamples_parameters.cpp \
     editor/tools/monitor/segmentpainter.cpp \
-    editor/tree/treesplitter.cpp \
+    editor/tree/customsplitter.cpp \
     editor/widgets/equalizer.cpp \
+    editor/widgets/menulabel.cpp \
     editor/widgets/nullablespinbox.cpp \
     editor/widgets/pushstereoediting.cpp \
     editor/widgets/styledlineeditwithcalendar.cpp \
@@ -331,11 +353,6 @@ SOURCES	+= main.cpp \
     editor/widgets/spinboxrange.cpp \
     editor/widgets/comboboxloopmode.cpp \
     editor/tools/division_duplication/duplicationtool.cpp \
-    clavier/pianoscene.cpp \
-    clavier/pianokey.cpp \
-    clavier/pianokeybd.cpp \
-    clavier/pianokeybdcustom.cpp \
-    clavier/keyboardmap.cpp \
     editor/widgets/transparentframe.cpp \
     extensions/extension_midi_dialog.cpp \
     extensions/extensionmanager.cpp \
@@ -344,6 +361,7 @@ SOURCES	+= main.cpp \
     mainwindow/mainstackedwidget.cpp \
     mainwindow/maintabbar.cpp \
     mainwindow/maintabbarelement.cpp \
+    mainwindow/soundfonttab.cpp \
     mainwindow/tab.cpp \
     mainwindow/tabmanager.cpp \
     mainwindow/topbackground.cpp \
@@ -657,6 +675,16 @@ HEADERS += \
     dialogs/dialogselection.h \
     dialogs/dialogchangelog.h \
     dialogs/modalprogressdialog.h \
+    directory/directorybrowser.h \
+    directory/directorydisplaymenu.h \
+    directory/directoryelementlistdelegate.h \
+    directory/directoryelementlistview.h \
+    directory/directoryfiledata.h \
+    directory/directorylistdelegate.h \
+    directory/directorylistmodel.h \
+    directory/directorylistview.h \
+    directory/directorysortmenu.h \
+    directory/directorysortproxymodel.h \
     editor/footers/abstractfooter.h \
     editor/footers/footerlinkedto.h \
     editor/footers/footeroverview.h \
@@ -693,8 +721,9 @@ HEADERS += \
     editor/tools/merge_samples/toolmergesamples_parameters.h \
     editor/tools/monitor/segment.h \
     editor/tools/monitor/segmentpainter.h \
-    editor/tree/treesplitter.h \
+    editor/tree/customsplitter.h \
     editor/widgets/equalizer.h \
+    editor/widgets/menulabel.h \
     editor/widgets/pushstereoediting.h \
     editor/widgets/styledlineeditwithcalendar.h \
     editor/widgets/tableheaderviewv.h \
@@ -720,6 +749,7 @@ HEADERS += \
     mainwindow/mainstackedwidget.h \
     mainwindow/maintabbar.h \
     mainwindow/maintabbarelement.h \
+    mainwindow/soundfonttab.h \
     mainwindow/tab.h \
     mainwindow/tabmanager.h \
     mainwindow/topbackground.h \
@@ -991,6 +1021,9 @@ FORMS += \
     dialogs/dialogcompressquality.ui \
     dialogs/dialogselection.ui \
     dialogs/dialogchangelog.ui \
+    directory/directorybrowser.ui \
+    directory/directorydisplaymenu.ui \
+    directory/directorysortmenu.ui \
     editor/footers/footerlinkedto.ui \
     editor/footers/footeroverview.ui \
     editor/footers/footerprst.ui \

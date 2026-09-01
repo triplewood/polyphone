@@ -25,22 +25,23 @@
 #ifndef MAINTABBARELEMENT_H
 #define MAINTABBARELEMENT_H
 
-#include <QWidget>
+#include <QObject>
 #include <QPainter>
 #include <QPainterPath>
+class Tab;
 
 class MainTabBarElement: QObject
 {
     Q_OBJECT
 
 public:
-    MainTabBarElement(QWidget * widget, QString iconName, bool isColored);
+    MainTabBarElement(Tab * tab, QString iconName, bool isColored, QFontMetrics fm);
 
-    void setLabel(QString label) { _label = label; }
+    void setLabel(QString label);
     void setTooltip(QString toolTip) { _toolTip = toolTip; }
     void setIsEnabled(bool isEnabled) { _isEnabled = isEnabled; }
 
-    QWidget * getWidget() { return _widget; }
+    Tab * getWidget() { return _tab; }
     QString getToolTip() {  return _toolTip; }
     QPainterPath getPath() { return _tabPath; }
     QPainterPath getCloseButtonPath() { return _closeButtonPath; }
@@ -72,16 +73,15 @@ private:
     static const int TAB_CLOSE_ICON_PADDING;
     static const int CORNER_RADIUS;
     static const int MARGIN;
-    static const int CLOSE_BUTTON_MIN_WIDTH_CONDITION;
 
     // Configuration
-    QWidget * _widget;
+    Tab * _tab;
     QString _iconName;
     QString _label;
     QString _toolTip;
     bool _isEnabled;
 
-    // Colors and icons
+    // Colors, icons and font
     QColor _highlightColor;
     QColor _borderColor;
     QColor _textColor;
@@ -95,11 +95,13 @@ private:
     QColor _closeButtonBackgroundColorEnabled;
     QPixmap _iconEnabled;
     QPixmap _closeIconEnabled;
+    QFontMetrics _fm;
 
     // Position / width
     int _xStart;
     int _width;
     int _currentShift;
+    int _closeButtonMinWidthCondition;
 
     // Tab and close button shapes
     QPainterPath _tabPath;

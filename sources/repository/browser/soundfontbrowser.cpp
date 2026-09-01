@@ -35,8 +35,7 @@
 
 const int SoundfontBrowser::ITEMS_PER_PAGE = 25;
 
-SoundfontBrowser::SoundfontBrowser(QWidget *parent) :
-    QWidget(parent),
+SoundfontBrowser::SoundfontBrowser(QWidget *parent) : Tab(parent),
     ui(new Ui::SoundfontBrowser),
     _loadingFilter(false),
     _currentPage(0)
@@ -66,8 +65,7 @@ SoundfontBrowser::SoundfontBrowser(QWidget *parent) :
                 ContextManager::theme()->getColor(ThemeManager::LIST_TEXT), 0.5);
     ui->labelNoResult->setStyleSheet("QLabel{color:" + color.name() + ";border:1px solid " + border + ";border-top:0;border-right:0;border-bottom:0}");
     ui->listWidget->setStyleSheet("QListWidget{border:1px solid " + border + ";border-top:0;border-right:0;border-bottom:0}" +
-                                  "QListWidget::item:selected {background-color: " + highlightedBackground + "}" +
-                                  "QAbstractSckrollArea{margin: 100px; padding: 100px;}");
+                                  "QListWidget::item:selected {background-color: " + highlightedBackground + "}");
 
     // Pagination style
     ui->framePagination->setStyleSheet("QFrame#framePagination{background-color: " +
@@ -93,6 +91,7 @@ SoundfontBrowser::SoundfontBrowser(QWidget *parent) :
     connect(ui->filterGenre, SIGNAL(selectionChanged()), this, SLOT(updateFilter()));
     connect(ui->filterMidiStandard, SIGNAL(selectionChanged()), this, SLOT(updateFilter()));
     connect(ui->filterTag, SIGNAL(selectionChanged()), this, SLOT(updateFilter()));
+    ui->lineSearch->installEventFilter(this);
 
     // Connection with the user manager
     connect(UserManager::getInstance(), SIGNAL(connectionStateChanged(UserManager::ConnectionState)),
@@ -111,6 +110,7 @@ void SoundfontBrowser::initialize()
 {
     ui->spinner->startAnimation();
     ui->stackedWidget->setCurrentIndex(0);
+    ui->framePagination->hide();
 }
 
 void SoundfontBrowser::soundfontListAvailable(QString error)
@@ -120,10 +120,12 @@ void SoundfontBrowser::soundfontListAvailable(QString error)
         fillFilter();
         applyFilter(nullptr);
         ui->stackedWidget->setCurrentIndex(1);
+        ui->framePagination->show();
     }
     else
     {
         ui->stackedWidget->setCurrentIndex(2);
+        ui->framePagination->hide();
     }
 }
 
@@ -403,7 +405,7 @@ void SoundfontBrowser::onComboSortCurrentIndexChanged(int index)
 
 void SoundfontBrowser::keyPressEvent(QKeyEvent * event)
 {
-    // Key press event in the cell doesn't seem to work? So the code is here
+    // Key press event in the cell does not seem to work? So the code is here
     if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter)
     {
         for (int i = 0; i < ui->listWidget->count(); i++)
@@ -451,4 +453,37 @@ void SoundfontBrowser::on_pushGoNext_clicked()
         _currentPage++;
         updatePage();
     }
+}
+
+void SoundfontBrowser::onActionRequired(TabAction action)
+{
+    switch (action)
+    {
+    case Tab::SEARCH:
+        ui->lineSearch->selectAll();
+        ui->lineSearch->setFocus();
+        break;
+    default:
+        break;
+    }
+}
+
+bool SoundfontBrowser::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui->lineSearch && event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Down)
+        {
+            // Select the first element in the list (if any)
+            if (ui->listWidget->model() && ui->listWidget->model()->rowCount() > 0)
+            {
+                ui->listWidget->setFocus();
+                ui->listWidget->setCurrentIndex(ui->listWidget->model()->index(0, 0));
+            }
+            return true;
+        }
+    }
+
+    return Tab::eventFilter(obj, event);
 }

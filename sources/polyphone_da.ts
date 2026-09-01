@@ -429,24 +429,37 @@
 <context>
     <name>BrowserSortMenu</name>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="52"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="55"/>
         <source>Date</source>
         <translation>Dato</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="56"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="62"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="58"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="69"/>
         <source>Rating score</source>
         <translation>Vurderings score</translation>
     </message>
     <message>
-        <location filename="repository/browser/browsersortmenu.cpp" line="60"/>
+        <location filename="repository/browser/browsersortmenu.cpp" line="76"/>
         <source>Title (A→Z)</source>
         <translation>Titel (A→Z)</translation>
+    </message>
+</context>
+<context>
+    <name>CalendarPopup</name>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="30"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Afbryd</translation>
+    </message>
+    <message>
+        <location filename="editor/widgets/styledlineeditwithcalendar.cpp" line="31"/>
+        <source>&amp;Ok</source>
+        <translation>&amp;Ok</translation>
     </message>
 </context>
 <context>
@@ -1220,31 +1233,26 @@ Premiummedlem!</translation>
 <context>
     <name>ConfigSectionSound</name>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="375"/>
+        <location filename="context/interface/configsectionsound.ui" line="369"/>
         <source>Reverb</source>
         <translation>Rumklang</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="226"/>
+        <location filename="context/interface/configsectionsound.ui" line="223"/>
         <source>Width</source>
         <translation>Bredde</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="22"/>
-        <location filename="context/interface/configsectionsound.ui" line="197"/>
+        <location filename="context/interface/configsectionsound.ui" line="195"/>
         <source>Level</source>
         <translation>Styrke</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="333"/>
+        <location filename="context/interface/configsectionsound.ui" line="329"/>
         <source>Default modulator &quot;velocity → filter cutoff&quot;</source>
         <oldsource>Modulator &quot;velocity → filter cutoff&quot;</oldsource>
         <translation>Standardmodulator &quot;anslagsstyrke → filter cutoff&quot;</translation>
-    </message>
-    <message>
-        <location filename="context/interface/configsectionsound.ui" line="126"/>
-        <source>soundfont 2.01</source>
-        <translation>soundfont 2.01</translation>
     </message>
     <message>
         <location filename="context/interface/configsectionsound.ui" line="112"/>
@@ -1252,32 +1260,27 @@ Premiummedlem!</translation>
         <translation>Generel volumen</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="131"/>
-        <source>soundfont 2.04</source>
-        <translation>soundfont 2.04</translation>
-    </message>
-    <message>
         <location filename="context/interface/configsectionsound.ui" line="136"/>
         <source>disabled</source>
         <translation>deaktiveret</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="242"/>
+        <location filename="context/interface/configsectionsound.ui" line="238"/>
         <source>Damp</source>
         <translation>Dæmp</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="181"/>
+        <location filename="context/interface/configsectionsound.ui" line="180"/>
         <source>Room</source>
         <translation>Rum</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="362"/>
+        <location filename="context/interface/configsectionsound.ui" line="357"/>
         <source>Options</source>
         <translation>Muligheder</translation>
     </message>
     <message>
-        <location filename="context/interface/configsectionsound.ui" line="388"/>
+        <location filename="context/interface/configsectionsound.ui" line="381"/>
         <source>Chorus</source>
         <translation>Chorus</translation>
     </message>
@@ -2049,6 +2052,249 @@ oversigt</translation>
     </message>
 </context>
 <context>
+    <name>DirectoryBrowser</name>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="293"/>
+        <source>No results</source>
+        <translation>Ingen resultater</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="493"/>
+        <source>Instruments</source>
+        <translation>Instrumenter</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="587"/>
+        <source>Presets</source>
+        <translation>Forvalg</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="399"/>
+        <source>Samples</source>
+        <translation>Samplinger</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.ui" line="695"/>
+        <source>Search a file, a sample, an instrument or a preset...</source>
+        <translation>Søg efter en fil, en sample, et instrument eller et preset...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="125"/>
+        <source>The directory &quot;%1&quot; does not exist.</source>
+        <oldsource>The directory &quot;%1&quot; doesn&apos;t exist.</oldsource>
+        <translation>Mappen &quot;%1&quot; findes ikke.</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="132"/>
+        <source>The directory &quot;%1&quot; is not readable.</source>
+        <translation>Mappen &quot;%1&quot; kan ikke læses.</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="248"/>
+        <source>Rename</source>
+        <translation>Omdøb</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="249"/>
+        <source>New name:</source>
+        <translation>Nyt navn:</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="251"/>
+        <source>&amp;Cancel</source>
+        <oldsource>Cancel</oldsource>
+        <translation>&amp;Afbryd</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="252"/>
+        <source>&amp;Ok</source>
+        <oldsource>Ok</oldsource>
+        <translation>&amp;Ok</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <source>A file with this name already exists.</source>
+        <translation>En fil med dette navn findes allerede.</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="263"/>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Warning</source>
+        <translation>Advarsel</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="268"/>
+        <source>Cannot rename file &quot;%1&quot;.</source>
+        <translation>Kan ikke omdøbe filen &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="276"/>
+        <source>Confirm deletion</source>
+        <translation>Bekræft sletning</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="277"/>
+        <source>Are you sure you want to delete file &quot;%1&quot;?</source>
+        <translation>Er du sikker på, at du vil slette filen &quot;%1&quot;?</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="279"/>
+        <source>&amp;Yes</source>
+        <oldsource>Yes</oldsource>
+        <translation>&amp;Ja</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="280"/>
+        <source>&amp;No</source>
+        <oldsource>No</oldsource>
+        <translation>&amp;Nej</translation>
+    </message>
+    <message>
+        <location filename="directory/directorybrowser.cpp" line="286"/>
+        <source>Cannot delete file &quot;%1&quot;.</source>
+        <translation>Kan ikke slette filen &quot;%1&quot;.</translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryFileData</name>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="296"/>
+        <source>Invalid link</source>
+        <translation>Ubrugeligt link</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="299"/>
+        <source>Mono</source>
+        <comment>opposite to stereo</comment>
+        <translation>Mono</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="302"/>
+        <source>Stereo right</source>
+        <translation>Stereo højre</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="305"/>
+        <source>Stereo left</source>
+        <translation>Stereo venstre</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="308"/>
+        <source>Stereo non defined</source>
+        <translation>Ikke-defineret stereo</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="312"/>
+        <source>s</source>
+        <comment>unit for seconds</comment>
+        <translation>s</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="315"/>
+        <source>Loop</source>
+        <translation>Loop</translation>
+    </message>
+    <message>
+        <location filename="directory/directoryfiledata.cpp" line="316"/>
+        <source>Hz</source>
+        <comment>unit for Herz</comment>
+        <translation>Hz</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="326"/>
+        <source>%n division(s)</source>
+        <translation>
+            <numerusform>%n division</numerusform>
+            <numerusform>%n divisioner</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="327"/>
+        <source>%n parameter(s)</source>
+        <translation>
+            <numerusform>%n parameter</numerusform>
+            <numerusform>%n parametre</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="328"/>
+        <source>%n modulator(s)</source>
+        <translation>
+            <numerusform>%n modulator</numerusform>
+            <numerusform>%n modulatorer</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="329"/>
+        <source>%n distinct key range(s)</source>
+        <translation>
+            <numerusform>%n særskilt tangentområde</numerusform>
+            <numerusform>%n særskilte tangentområder</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="directory/directoryfiledata.cpp" line="330"/>
+        <source>%n distinct velocity range(s)</source>
+        <translation>
+            <numerusform>%n særskilt anslagsområde</numerusform>
+            <numerusform>%n særskilte anslagsområder</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
+    <name>DirectoryListDelegate</name>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="135"/>
+        <source>Analyze in progress...</source>
+        <translation>Analyse i gang...</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="138"/>
+        <source>NOT READABLE</source>
+        <translation>IKKE LÆSBAR</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="145"/>
+        <source>Error when reading the file.</source>
+        <oldsource>Error when opening the file.</oldsource>
+        <translation>Fejl ved læsning af filen.</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="316"/>
+        <source>Rename file &quot;%1&quot;</source>
+        <translation>Omdøb fil &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <location filename="directory/directorylistdelegate.cpp" line="321"/>
+        <source>Delete file &quot;%1&quot;</source>
+        <translation>Slet fil &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>DirectorySortMenu</name>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="55"/>
+        <source>Name (A→Z)</source>
+        <translation>Navn (A→Z)</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="62"/>
+        <source>Newest first</source>
+        <translation>Nyeste først</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="69"/>
+        <source>Largest first</source>
+        <translation>Største først</translation>
+    </message>
+    <message>
+        <location filename="directory/directorysortmenu.cpp" line="76"/>
+        <source>Smallest first</source>
+        <translation>Mindste først</translation>
+    </message>
+</context>
+<context>
     <name>DownloadManager</name>
     <message>
         <location filename="repository/downloadmanager.cpp" line="111"/>
@@ -2160,7 +2406,7 @@ oversigt</translation>
         <location filename="core/duplicator.cpp" line="769"/>
         <source>R&amp;eplace all</source>
         <translatorcomment>U&amp;dskift alle</translatorcomment>
-        <translation></translation>
+        <translation>E&amp;rstat alle</translation>
     </message>
     <message>
         <location filename="core/duplicator.cpp" line="770"/>
@@ -2191,17 +2437,17 @@ oversigt</translation>
         <translation>Søg...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="262"/>
+        <location filename="editor/editor.ui" line="268"/>
         <source>Opening file...</source>
         <translation>Åben fil...</translation>
     </message>
     <message>
-        <location filename="editor/editor.ui" line="377"/>
+        <location filename="editor/editor.ui" line="383"/>
         <source>Cannot open the file</source>
         <translation>Kan ikke åbne filen</translation>
     </message>
     <message>
-        <location filename="editor/editor.cpp" line="476"/>
+        <location filename="editor/editor.cpp" line="494"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
@@ -2448,27 +2694,6 @@ oversigt</translation>
     </message>
 </context>
 <context>
-    <name>FooterSf2</name>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="65"/>
-        <source>GB</source>
-        <comment>giga byte</comment>
-        <translation>GB</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="70"/>
-        <source>MB</source>
-        <comment>mega byte</comment>
-        <translation>MB</translation>
-    </message>
-    <message>
-        <location filename="editor/footers/footersf2.cpp" line="75"/>
-        <source>kB</source>
-        <comment>kilo byte</comment>
-        <translation>kB</translation>
-    </message>
-</context>
-<context>
     <name>GraphFilterFrequencies</name>
     <message>
         <location filename="editor/tools/frequency_filter/graphfilterfrequencies.cpp" line="60"/>
@@ -2653,22 +2878,23 @@ oversigt</translation>
         <translation>&amp;Indstillinger</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="100"/>
+        <location filename="mainwindow/mainmenu.cpp" line="101"/>
         <source>Online &amp;manual</source>
         <translation>Online &amp;manual</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="106"/>
-        <source>About &amp;Polyphone...</source>
-        <translation>Om &amp;Polyphone...</translation>
+        <location filename="mainwindow/mainmenu.cpp" line="107"/>
+        <source>About &amp;Polyphone</source>
+        <translation>Om &amp;Polyphone</translation>
     </message>
     <message>
         <location filename="mainwindow/mainmenu.cpp" line="82"/>
-        <source>&amp;Close file</source>
-        <translation>&amp;Luk fil</translation>
+        <source>&amp;Close tab</source>
+        <oldsource>&amp;Close file</oldsource>
+        <translation>&amp;Luk faneblad</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainmenu.cpp" line="112"/>
+        <location filename="mainwindow/mainmenu.cpp" line="113"/>
         <source>&amp;Quit</source>
         <translation>A&amp;fslut</translation>
     </message>
@@ -2676,12 +2902,12 @@ oversigt</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="231"/>
+        <location filename="mainwindow/mainwindow.cpp" line="232"/>
         <source>&amp;Save</source>
         <translation>&amp;Gem</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="217"/>
+        <location filename="mainwindow/mainwindow.cpp" line="218"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
@@ -2691,59 +2917,64 @@ oversigt</translation>
         <translation>Polyphone SoundFont Editor</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="208"/>
+        <location filename="mainwindow/mainwindow.cpp" line="209"/>
         <source>Untitled</source>
         <translation>Unavngiven</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="218"/>
+        <location filename="mainwindow/mainwindow.cpp" line="219"/>
         <source>Save before exiting?</source>
         <translation>Gem før afslut?</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="221"/>
+        <location filename="mainwindow/mainwindow.cpp" line="222"/>
         <source>The following files have been modified:</source>
         <translation>Følgende fil er blevet ændret:</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="228"/>
+        <location filename="mainwindow/mainwindow.cpp" line="229"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>Filen &quot;%1&quot; er blevet ændret.</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="232"/>
+        <location filename="mainwindow/mainwindow.cpp" line="233"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Afbryd</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="233"/>
+        <location filename="mainwindow/mainwindow.cpp" line="234"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>Ge&amp;m ikke</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.cpp" line="304"/>
+        <location filename="mainwindow/mainwindow.cpp" line="306"/>
         <source>Opening files</source>
         <translation>Åbner filer</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="342"/>
+        <location filename="mainwindow/mainwindow.cpp" line="316"/>
+        <source>Opening a directory</source>
+        <translation>Åbner en mappe</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="356"/>
         <source>  Settings</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  Indstillinger</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="298"/>
+        <location filename="mainwindow/mainwindow.ui" line="312"/>
         <source>  Documentation</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  Documentation</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="78"/>
+        <location filename="mainwindow/mainwindow.cpp" line="66"/>
         <source>Home screen</source>
         <translation>Startskærm</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="121"/>
+        <location filename="mainwindow/mainwindow.ui" line="118"/>
         <source>  New
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2751,18 +2982,26 @@ oversigt</translation>
   soundfont</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="320"/>
+        <location filename="mainwindow/mainwindow.ui" line="152"/>
+        <source>  Open
+  directory</source>
+        <extracomment>prefixed with 2 spaces for each line</extracomment>
+        <translation>  Åbn
+  mappe</translation>
+    </message>
+    <message>
+        <location filename="mainwindow/mainwindow.ui" line="334"/>
         <source>  Forum</source>
         <extracomment>prefixed with 2 spaces</extracomment>
         <translation>  Forum</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="235"/>
+        <location filename="mainwindow/mainwindow.ui" line="249"/>
         <source>Daily soundfonts</source>
         <translation>Daglige soundfonte</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="245"/>
+        <location filename="mainwindow/mainwindow.ui" line="259"/>
         <source>  Online
   repository</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2770,12 +3009,12 @@ oversigt</translation>
   filoversigt</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="184"/>
+        <location filename="mainwindow/mainwindow.ui" line="198"/>
         <source>Search a soundfont...</source>
         <translation>Søg soundfont...</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="138"/>
+        <location filename="mainwindow/mainwindow.ui" line="135"/>
         <source>  Open
   soundfont</source>
         <extracomment>prefixed with 2 spaces for each line</extracomment>
@@ -2783,7 +3022,7 @@ oversigt</translation>
   soundfont</translation>
     </message>
     <message>
-        <location filename="mainwindow/mainwindow.ui" line="267"/>
+        <location filename="mainwindow/mainwindow.ui" line="281"/>
         <source>History</source>
         <translation>Historik</translation>
     </message>
@@ -2831,35 +3070,35 @@ default mod.</source>
 standardmod.</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="383"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="384"/>
         <source>dB</source>
         <comment>unit for decibels</comment>
         <translation>dB</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="391"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="392"/>
         <source>semi-tones</source>
         <translation>halve toner</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="394"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="395"/>
         <source>cents</source>
         <comment>hundredth of semi-tones</comment>
         <translation>cents</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="405"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
         <source>Add from:</source>
         <oldsource>Add from: </oldsource>
         <translation>Tilføj fra:</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="406"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="407"/>
         <source>Multiply from:</source>
         <translation>Multiplicer fra:</translation>
     </message>
     <message>
-        <location filename="editor/modulator/modulatorcell.cpp" line="408"/>
+        <location filename="editor/modulator/modulatorcell.cpp" line="409"/>
         <source>To:</source>
         <oldsource>To: </oldsource>
         <translation>Til:</translation>
@@ -3337,7 +3576,7 @@ frekvens</translation>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="249"/>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="253"/>
         <source>Stereo non defined</source>
-        <translation>ikke-defineret stereo</translation>
+        <translation>Ikke-defineret stereo</translation>
     </message>
     <message>
         <location filename="editor/overview/pageoverviewsmpl.cpp" line="276"/>
@@ -3375,129 +3614,139 @@ for at vise dets divisionsområder</translation>
         <translation>Titel...</translation>
     </message>
     <message>
+        <location filename="editor/pagesf2.ui" line="62"/>
+        <source>Author</source>
+        <translation>Forfatter</translation>
+    </message>
+    <message>
         <location filename="editor/pagesf2.ui" line="99"/>
         <source>Author...</source>
         <translation>Forfatter...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="152"/>
+        <location filename="editor/pagesf2.ui" line="118"/>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.ui" line="155"/>
         <source>Date...</source>
         <translation>Dato...</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="171"/>
-        <source>Current date</source>
-        <translation>Dags dato</translation>
-    </message>
-    <message>
-        <location filename="editor/pagesf2.ui" line="200"/>
+        <location filename="editor/pagesf2.ui" line="207"/>
         <source>Product</source>
         <translation>Produkt</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="214"/>
+        <location filename="editor/pagesf2.ui" line="231"/>
         <source>Copyright</source>
         <translation>Ophavsrettigheder</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="228"/>
+        <location filename="editor/pagesf2.ui" line="214"/>
         <source>Comments</source>
         <translation>Kommentarer</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="283"/>
-        <source>Soundfont version</source>
-        <translation>Soundfont version</translation>
+        <location filename="editor/pagesf2.cpp" line="446"/>
+        <source>SoundFont format</source>
+        <translation>SoundFont-format</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="315"/>
-        <source>ROM name and version</source>
-        <translation>ROM navn og version</translation>
+        <location filename="editor/pagesf2.cpp" line="451"/>
+        <source>ROM name</source>
+        <translation>ROM-navn</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="347"/>
+        <location filename="editor/pagesf2.cpp" line="458"/>
+        <source>ROM version</source>
+        <translation>ROM-version</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesf2.cpp" line="464"/>
         <source>Sound engine</source>
         <translation>Lyd engine</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="379"/>
+        <location filename="editor/pagesf2.cpp" line="469"/>
         <source>Editing software</source>
         <translation>Editeringssoftware</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="478"/>
+        <location filename="editor/pagesf2.ui" line="335"/>
         <source>Presets</source>
         <translation>Forvalg</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="500"/>
-        <location filename="editor/pagesf2.ui" line="614"/>
-        <location filename="editor/pagesf2.ui" line="949"/>
+        <location filename="editor/pagesf2.ui" line="357"/>
+        <location filename="editor/pagesf2.ui" line="471"/>
+        <location filename="editor/pagesf2.ui" line="812"/>
         <source>Details</source>
         <translation>Detaljer</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="592"/>
+        <location filename="editor/pagesf2.ui" line="449"/>
         <source>Samples</source>
         <translation>Samplinger</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="667"/>
+        <location filename="editor/pagesf2.ui" line="524"/>
         <source>Compression</source>
         <translation>Komprimering</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="674"/>
-        <location filename="editor/pagesf2.ui" line="757"/>
-        <location filename="editor/pagesf2.ui" line="820"/>
+        <location filename="editor/pagesf2.ui" line="531"/>
+        <location filename="editor/pagesf2.ui" line="620"/>
+        <location filename="editor/pagesf2.ui" line="683"/>
         <source>Count</source>
         <translation>Antal</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="688"/>
+        <location filename="editor/pagesf2.ui" line="545"/>
         <source>Bit depth</source>
         <translation>Bitdybde</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="702"/>
+        <location filename="editor/pagesf2.ui" line="559"/>
         <source>16 bits</source>
         <translation>16 bits</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="707"/>
+        <location filename="editor/pagesf2.ui" line="564"/>
         <source>24 bits</source>
         <translation>24 bits</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="716"/>
+        <location filename="editor/pagesf2.ui" line="579"/>
         <source>no</source>
         <translation>nej</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="721"/>
+        <location filename="editor/pagesf2.ui" line="584"/>
         <source>possible</source>
         <translation>muligt</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="750"/>
-        <location filename="editor/pagesf2.ui" line="848"/>
+        <location filename="editor/pagesf2.ui" line="613"/>
+        <location filename="editor/pagesf2.ui" line="711"/>
         <source>Modulators</source>
         <translation>Modulatorer</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="778"/>
-        <location filename="editor/pagesf2.ui" line="813"/>
+        <location filename="editor/pagesf2.ui" line="641"/>
+        <location filename="editor/pagesf2.ui" line="676"/>
         <source>Parameters</source>
         <translation>Parametre</translation>
     </message>
     <message>
-        <location filename="editor/pagesf2.ui" line="927"/>
+        <location filename="editor/pagesf2.ui" line="790"/>
         <source>Instruments</source>
         <translation>Instrumenter</translation>
     </message>
     <message numerus="yes">
-        <location filename="editor/pagesf2.cpp" line="220"/>
-        <location filename="editor/pagesf2.cpp" line="230"/>
+        <location filename="editor/pagesf2.cpp" line="201"/>
+        <location filename="editor/pagesf2.cpp" line="211"/>
         <source>%1 (unused: %n)</source>
         <translation>
             <numerusform>%1 (ubrugt: %n)</numerusform>
@@ -3569,11 +3818,6 @@ for at vise dets divisionsområder</translation>
         <translation>Sample rate</translation>
     </message>
     <message>
-        <location filename="editor/pagesmpl.ui" line="608"/>
-        <source>Type</source>
-        <translation>Type</translation>
-    </message>
-    <message>
         <location filename="editor/pagesmpl.ui" line="615"/>
         <source>Link</source>
         <translation>Genvej</translation>
@@ -3582,6 +3826,11 @@ for at vise dets divisionsområder</translation>
         <location filename="editor/pagesmpl.ui" line="228"/>
         <source>Use the estimated pitch and correction as values</source>
         <translation>Brug de estimerede pitch- og korrektionsværdier</translation>
+    </message>
+    <message>
+        <location filename="editor/pagesmpl.ui" line="608"/>
+        <source>Channel</source>
+        <translation>Kanal</translation>
     </message>
     <message>
         <location filename="editor/pagesmpl.ui" line="669"/>
@@ -4074,30 +4323,30 @@ Advarsel: kvaliteten vil blive reduceret, og loopet kan blive ændret</translati
         <translation>A♯</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="55"/>
+        <location filename="core/utils.cpp" line="312"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="57"/>
+        <location filename="core/utils.cpp" line="314"/>
         <source>kB</source>
         <comment>kilobytes</comment>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="59"/>
+        <location filename="core/utils.cpp" line="316"/>
         <source>MB</source>
         <comment>megabytes</comment>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="61"/>
+        <location filename="core/utils.cpp" line="318"/>
         <source>GB</source>
         <comment>gigabytes</comment>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="repository/soundfont/soundfontdownloaddata.cpp" line="62"/>
+        <location filename="core/utils.cpp" line="319"/>
         <source>TB</source>
         <comment>terabytes</comment>
         <translation>TB</translation>
@@ -4108,7 +4357,7 @@ Advarsel: kvaliteten vil blive reduceret, og loopet kan blive ændret</translati
         <translation>GrandOrgue sample-sæt</translation>
     </message>
     <message>
-        <location filename="core/input/inputfactory.cpp" line="109"/>
+        <location filename="core/input/inputfactory.cpp" line="108"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
@@ -4123,7 +4372,7 @@ Advarsel: kvaliteten vil blive reduceret, og loopet kan blive ændret</translati
         <translation>Sfz filer</translation>
     </message>
     <message>
-        <location filename="context/translationmanager.cpp" line="105"/>
+        <location filename="context/translationmanager.cpp" line="107"/>
         <source>When editing one side of a stereo sample, the other side is automatically edited the same.
 This rule applies at the sample level and also when editing a division of an instrument:
 the division corresponding to the other channel, if any, is edited the same.
@@ -4730,94 +4979,94 @@ download the list</source>
 <context>
     <name>SoundfontBrowser</name>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="365"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="377"/>
         <source>Category</source>
         <translation>Kategori</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="380"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="392"/>
         <source>License</source>
         <translation>Licens</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="395"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="407"/>
         <source>Sample source</source>
         <translation>Sample-kilde</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="410"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="422"/>
         <source>Timbre</source>
         <translation>Klang</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="425"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="437"/>
         <source>Articulation</source>
         <translation>Artikulering</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="440"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="452"/>
         <source>Genre</source>
         <translation>Genre</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="455"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="467"/>
         <source>MIDI standard</source>
         <translation>MIDI standard</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="470"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="482"/>
         <source>Tags</source>
         <translation>Tags / kaldenavn</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="205"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="214"/>
         <source>Search a soundfont...</source>
         <translation>Søg soundfont...</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="257"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="269"/>
         <source>Filters</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="286"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="298"/>
         <source>Reset</source>
         <translation>Nulstil</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="304"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="316"/>
         <source>Subscribe to a Premium account to get all the features!</source>
         <translation>Opret en Premium konto for at gøre brug af alle muligheder!</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="159"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="165"/>
         <source>No results</source>
         <translation>Ingen resultater</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="545"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="557"/>
         <source>Go to the previous page</source>
         <translation>Gå til forrige side</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="580"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="592"/>
         <source>Go to the next page</source>
         <translation>Gå til næste side</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.ui" line="670"/>
+        <location filename="repository/browser/soundfontbrowser.ui" line="682"/>
         <source>Oops! Cannot
 download the list</source>
         <translation>Oops! Kan ikke
 downloade listen</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="140"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="142"/>
         <source>commercial use</source>
         <translation>kommerciel brug</translation>
     </message>
     <message>
-        <location filename="repository/browser/soundfontbrowser.cpp" line="141"/>
+        <location filename="repository/browser/soundfontbrowser.cpp" line="143"/>
         <source>share after editing</source>
         <translation>del efter editering</translation>
     </message>
@@ -4999,6 +5248,14 @@ downloade listen</translation>
     </message>
 </context>
 <context>
+    <name>SoundfontTab</name>
+    <message>
+        <location filename="mainwindow/soundfonttab.cpp" line="90"/>
+        <source>Untitled</source>
+        <translation>Unavngiven</translation>
+    </message>
+</context>
+<context>
     <name>SoundfontViewer</name>
     <message>
         <location filename="repository/soundfont/soundfontviewer.ui" line="112"/>
@@ -5098,68 +5355,60 @@ downloade indholdet</translation>
     </message>
 </context>
 <context>
-    <name>Tab</name>
-    <message>
-        <location filename="mainwindow/tab.cpp" line="90"/>
-        <source>Untitled</source>
-        <translation>Unavngiven</translation>
-    </message>
-</context>
-<context>
     <name>TabManager</name>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="106"/>
+        <location filename="mainwindow/tabmanager.cpp" line="109"/>
         <source>Settings</source>
         <translation>Indstillinger</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="133"/>
-        <location filename="mainwindow/tabmanager.cpp" line="247"/>
+        <location filename="mainwindow/tabmanager.cpp" line="136"/>
+        <location filename="mainwindow/tabmanager.cpp" line="288"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="134"/>
+        <location filename="mainwindow/tabmanager.cpp" line="137"/>
         <source>Cannot open file &quot;%1&quot;</source>
         <translation>Kan ikke åbne filen &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="204"/>
+        <location filename="mainwindow/tabmanager.cpp" line="245"/>
         <source>Online repository</source>
         <translation>Online filoversigt</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="242"/>
+        <location filename="mainwindow/tabmanager.cpp" line="283"/>
         <source>Save before exiting?</source>
         <translation>Gem før afslutning?</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="245"/>
+        <location filename="mainwindow/tabmanager.cpp" line="286"/>
         <source>untitled</source>
         <translation>unavngiven</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="246"/>
+        <location filename="mainwindow/tabmanager.cpp" line="287"/>
         <source>File &quot;%1&quot; has been modified.</source>
         <translation>Filen &quot;%1&quot; er blevet ændret.</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="249"/>
+        <location filename="mainwindow/tabmanager.cpp" line="290"/>
         <source>&amp;Save</source>
         <translation>&amp;Gem</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="250"/>
+        <location filename="mainwindow/tabmanager.cpp" line="291"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Afbryd</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="251"/>
+        <location filename="mainwindow/tabmanager.cpp" line="292"/>
         <source>Do&amp;n&apos;t save</source>
         <translation>Ge&amp;m ikke</translation>
     </message>
     <message>
-        <location filename="mainwindow/tabmanager.cpp" line="361"/>
+        <location filename="mainwindow/tabmanager.cpp" line="412"/>
         <source>User area</source>
         <translation>Brugerområde</translation>
     </message>
@@ -6252,7 +6501,8 @@ Andre soundfont-editorer kan vise andre enheder.</translation>
     <name>ToolMergeSamples</name>
     <message>
         <location filename="editor/tools/merge_samples/toolmergesamples.cpp" line="66"/>
-        <source>The preset doesn&apos;t trigger any samples.</source>
+        <source>The preset does not trigger any samples.</source>
+        <oldsource>The preset doesn&apos;t trigger any samples.</oldsource>
         <translation>Presetet udløser ingen samples.</translation>
     </message>
     <message>
@@ -7068,22 +7318,22 @@ Andre soundfont-editorer kan vise andre enheder.</translation>
 <context>
     <name>TreeView</name>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>instrument</source>
         <translation>instrument</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="966"/>
+        <location filename="editor/tree/treeview.cpp" line="961"/>
         <source>preset</source>
         <translation>preset</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="editor/tree/treeview.cpp" line="987"/>
+        <location filename="editor/tree/treeview.cpp" line="982"/>
         <source>Cannot create more presets.</source>
         <translation>Kan ikke oprette flere presets.</translation>
     </message>

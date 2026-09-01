@@ -25,7 +25,7 @@
 #ifndef CONFIGPANEL_H
 #define CONFIGPANEL_H
 
-#include <QWidget>
+#include "tab.h"
 #include "usermanager.h"
 
 namespace Ui
@@ -33,7 +33,7 @@ namespace Ui
 class ConfigPanel;
 }
 
-class ConfigPanel : public QWidget
+class ConfigPanel : public Tab
 {
     Q_OBJECT
     

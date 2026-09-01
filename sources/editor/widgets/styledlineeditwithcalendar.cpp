@@ -3,12 +3,19 @@
 #include <QVBoxLayout>
 #include <QEvent>
 #include <QApplication>
+#include <QKeyEvent>
+#include <QTimer>
+#include <QTableView>
+#include <QPushButton>
+#include <QHBoxLayout>
 
 CalendarPopup::CalendarPopup(QWidget * parent) : QFrame(parent, Qt::FramelessWindowHint)
 {
     Q_UNUSED(parent)
     setFrameShape(QFrame::Box);
+    this->setAutoFillBackground(true);
 
+    // Calendar
     _calendar = new QCalendarWidget(this);
     _calendar->setWeekdayTextFormat(Qt::Saturday, _calendar->weekdayTextFormat(Qt::Monday));
     _calendar->setWeekdayTextFormat(Qt::Sunday, _calendar->weekdayTextFormat(Qt::Monday));
@@ -17,12 +24,37 @@ CalendarPopup::CalendarPopup(QWidget * parent) : QFrame(parent, Qt::FramelessWin
     layout->setSizeConstraint(QLayout::SetFixedSize);
     layout->addWidget(_calendar);
 
-    connect(_calendar, &QCalendarWidget::clicked, this, &CalendarPopup::dateSelected);
+    // Buttons
+    QHBoxLayout * buttonLayout = new QHBoxLayout();
+    buttonLayout->setContentsMargins(6, 0, 6, 6);
+    QPushButton * cancelButton = new QPushButton(tr("&Cancel"), this);
+    QPushButton * okButton = new QPushButton(tr("&Ok"), this);
+    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addStretch();
+    buttonLayout->addWidget(okButton);
+    layout->addLayout(buttonLayout);
+
+    // Connections
+    connect(_calendar, &QCalendarWidget::activated, this, &CalendarPopup::dateSelected);
+    connect(cancelButton, &QPushButton::clicked, this, &QWidget::hide);
+    connect(okButton, &QPushButton::clicked, this, [this]{ emit dateSelected(getDate()); });
+}
+
+void CalendarPopup::focusDate()
+{
+    auto view = _calendar->findChild<QTableView *>();
+    if (view)
+        view->setFocus();
 }
 
 void CalendarPopup::setDate(QDate date)
 {
     _calendar->setSelectedDate(date);
+}
+
+QDate CalendarPopup::getDate() const
+{
+    return _calendar->selectedDate();
 }
 
 StyledLineEditWithCalendar::StyledLineEditWithCalendar(QWidget * parent) : StyledLineEdit(parent)
@@ -31,6 +63,8 @@ StyledLineEditWithCalendar::StyledLineEditWithCalendar(QWidget * parent) : Style
     connect(_popup, &CalendarPopup::dateSelected, this, &StyledLineEditWithCalendar::onDateSelected);
     connect(qApp, &QApplication::focusChanged, this, &StyledLineEditWithCalendar::onFocusChanged);
     connect(this, &QLineEdit::textEdited, this, &StyledLineEditWithCalendar::setInitialText);
+    _popup->installEventFilter(this);
+    this->installEventFilter(this);
 }
 
 void StyledLineEditWithCalendar::onFocusChanged(QWidget * old, QWidget * now)
@@ -48,13 +82,17 @@ void StyledLineEditWithCalendar::onFocusChanged(QWidget * old, QWidget * now)
         }
     }
     else
-        _popup->hide();
+        closePopup();
 }
 
 void StyledLineEditWithCalendar::onDateSelected(const QDate &date)
 {
-    setInitialText(date.toString("yyyy-MM-dd"));
-    emit(editingFinished());
+    if (_currentDate != date)
+    {
+        setInitialText(date.toString("yyyy-MM-dd"));
+        emit(editingFinished());
+    }
+    closePopup();
 }
 
 void StyledLineEditWithCalendar::setInitialText(const QString &text)
@@ -79,4 +117,33 @@ void StyledLineEditWithCalendar::setInitialText(const QString &text)
 
     if (_currentDate.isValid())
         _popup->setDate(_currentDate);
+}
+
+bool StyledLineEditWithCalendar::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress || event->type() == QEvent::ShortcutOverride)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Escape)
+        {
+            keyEvent->accept();
+            closePopup();
+            return true;
+        }
+        else if (obj == this && keyEvent->key() == Qt::Key_Down)
+        {
+            keyEvent->accept();
+            QTimer::singleShot(0, _popup, &CalendarPopup::focusDate);
+            return true;
+        }
+    }
+
+    return StyledLineEdit::eventFilter(obj, event);
+}
+
+void StyledLineEditWithCalendar::closePopup()
+{
+    this->setInitialText(_initialText);
+    QTimer::singleShot(0, _popup, &QWidget::hide);
+    this->clearFocus();
 }

@@ -28,6 +28,7 @@
 #include <QStackedWidget>
 class MainTabBar;
 class QPushButton;
+class Tab;
 
 class MainStackedWidget : public QStackedWidget
 {
@@ -39,10 +40,10 @@ public:
     MainStackedWidget(QWidget *parent = nullptr);
     void setControls(QPushButton * pushHome, MainTabBar * tabBar);
 
-    int addWidgetWithTab(QWidget * widget, QString iconName, const QString &label, bool isColored);
-    void removeWidgetWithTab(QWidget * widget);
-    void setWidgetLabel(QWidget * widget, const QString &label);
-    void setWidgetToolTip(QWidget * widget, const QString &tip);
+    int addWidgetWithTab(Tab * tab, QString iconName, const QString &label, bool isColored);
+    void removeWidgetWithTab(Tab * tab);
+    void setTabLabel(Tab * tab, const QString &label);
+    void setTabToolTip(Tab * tab, const QString &tip);
 
 signals:
     void tabCloseRequested(QWidget * widget);

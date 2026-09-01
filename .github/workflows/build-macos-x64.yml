@@ -31,11 +31,8 @@ jobs:
           PATCH=$(echo "$NUMERIC_VERSION" | cut -d. -f3)
           if [ -z "$PATCH" ]; then
             NUMERIC_VERSION="${NUMERIC_VERSION}0"
-          else
-            NUMERIC_VERSION="$NUMERIC_VERSION"
           fi
-          PLIST_FILE="packaging/mac/polyphone.plist"
-          sed -i '' "s|<key>CFBundleShortVersionString</key>[[:space:]]*<string>[^<]*|<key>CFBundleShortVersionString</key><string>$NUMERIC_VERSION|" "$PLIST_FILE"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $NUMERIC_VERSION" packaging/mac/polyphone.plist
         
       - name: Update version info in polyphone.pro
         run: |
@@ -89,9 +86,12 @@ jobs:
       - name: Deploy and create dmg
         run: |
           cd sources
-          mv ../macos/polyphone.app ../macos/Polyphone.app
-          macdeployqt ../macos/Polyphone.app -dmg
-          mv ../macos/polyphone.dmg ../macos/Polyphone_${{ inputs.tag }}-macOS_12_Intel.dmg
+          macdeployqt ../macos/Polyphone.app
+          xattr -cr ../macos/Polyphone.app
+          codesign --force --deep --sign - ../macos/Polyphone.app
+          codesign --verify --deep --strict --verbose=2 ../macos/Polyphone.app
+          hdiutil create -volname "Polyphone" -srcfolder ../macos/Polyphone.app -ov -format UDZO ../macos/Polyphone.dmg
+          mv ../macos/Polyphone.dmg ../macos/Polyphone_${{ inputs.tag }}-macOS_12_Intel.dmg
 
       - name: Upload artifact
         id: upload-artifact

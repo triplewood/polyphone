@@ -38,7 +38,7 @@ public:
     void setFullScreen(bool isOn);
 
 public slots:
-    void onTabOpen(bool isOpen);
+    void onTabOpen(bool canSave, bool canExport, bool canClose);
 
 signals:
     void openClicked();
@@ -46,7 +46,7 @@ signals:
     void openSettingsClicked();
     void onlineHelpClicked();
     void aboutClicked();
-    void closeFileClicked();
+    void closeTabClicked();
     void closeClicked();
     void fullScreenTriggered();
     void save();
@@ -65,7 +65,7 @@ private:
     QAction * _settingsAction;
     QAction * _helpAction;
     QAction * _aboutAction;
-    QAction * _closeFileAction;
+    QAction * _closeTabAction;
     QAction * _closeAction;
 
     AbstractTool * _toolExport;

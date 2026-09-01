@@ -48,7 +48,6 @@ public slots:
 signals:
     void selectionChanged(IdList selectedIds);
     void spacePressed();
-    void focusOnSearch();
 
 protected:
     void mousePressEvent(QMouseEvent * event) override;

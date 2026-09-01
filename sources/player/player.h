@@ -26,7 +26,7 @@
 #define PLAYER_H
 
 #include <QItemSelection>
-#include "tab.h"
+#include "soundfonttab.h"
 #include "basetypes.h"
 class AbstractInputParser;
 class PlayerOptions;
@@ -36,7 +36,7 @@ namespace Ui {
 class Player;
 }
 
-class Player : public Tab
+class Player : public SoundfontTab
 {
     Q_OBJECT
 

@@ -36,7 +36,7 @@ Sf2SdtaPart::Sf2SdtaPart() :
     _sm24Size(0),
     _startSmplOffset(0),
     _startSm24Offset(0),
-    _sample24bits(0)
+    _sample24bits(false)
 {
 
 }

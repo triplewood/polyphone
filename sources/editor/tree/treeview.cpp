@@ -213,11 +213,6 @@ void TreeView::keyPressEvent(QKeyEvent * event)
         _menu->duplicate();
         event->accept();
     }
-    else if (event->modifiers() == Qt::ControlModifier && event->key() == Qt::Key_F)
-    {
-        emit focusOnSearch();
-        event->accept();
-    }
     else
         QTreeView::keyPressEvent(event);
 }
@@ -592,7 +587,7 @@ void TreeView::expandAndScrollToSelection()
     // Scroll to the first selected index
     if (!this->selectedIndexes().empty())
     {
-        this->scrollContentsBy(0, -10); // Hack because scrollTo sometimes doesn't work without this function
+        this->scrollContentsBy(0, -10); // Hack because scrollTo sometimes does not work without this function
         this->scrollTo(this->selectedIndexes()[0], ScrollHint::PositionAtCenter);
     }
 }

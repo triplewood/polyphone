@@ -25,7 +25,7 @@
 #ifndef SOUNDFONTVIEWER_H
 #define SOUNDFONTVIEWER_H
 
-#include <QWidget>
+#include "tab.h"
 class SoundfontFilter;
 class UrlReader;
 class UploadingDialog;
@@ -34,7 +34,7 @@ namespace Ui {
 class SoundfontViewer;
 }
 
-class SoundfontViewer : public QWidget
+class SoundfontViewer : public Tab
 {
     Q_OBJECT
 

@@ -26,46 +26,21 @@
 #define TAB_H
 
 #include <QWidget>
-#include "imidilistener.h"
-class AbstractInputParser;
 
-class Tab : public QWidget, public IMidiListener
+class Tab: public QWidget
 {
-    Q_OBJECT
+public:
+    enum TabAction
+    {
+        SEARCH,
+        UNDO,
+        REDO
+    };
+
+    Tab(QWidget *parent = nullptr);
 
 public:
-    explicit Tab(QWidget *parent = nullptr);
-    ~Tab();
-
-    /// Initialize the tab with a parser that can extract data and build a soundfont
-    void initialize(AbstractInputParser * input, bool async);
-    void initializeWithSoundfontIndex(int indexSf2);
-
-    /// Index of the soundfont created
-    int getSf2Index() { return _sf2Index; }
-
-    /// Notify that a change has been made somewhere
-    void update(QString editingSource);
-
-signals:
-    void tabTitleChanged(QString title);
-    void filePathChanged(QString filePath);
-    void recorderDisplayChanged(bool isDisplayed);
-    void keyboardDisplayChanged(bool isDisplayed);
-
-protected:
-    virtual void tabInitializing(QString filename) = 0;
-    virtual void tabInError(QString errorMessage) = 0;
-    virtual void tabInitialized(int indexSf2) = 0;
-    virtual void tabUpdate(QString editingSource) = 0;
-    virtual QString getTabTitlePrefix() { return ""; }
-
-private slots:
-    void inputProcessed();
-
-private:
-    void updateTitleAndPath();
-    int _sf2Index;
+    virtual void onActionRequired(TabAction action) { Q_UNUSED(action) }
 };
 
 #endif // TAB_H

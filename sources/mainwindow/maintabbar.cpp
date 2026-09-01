@@ -30,6 +30,7 @@
 #include <QToolTip>
 #include "maintabbarelement.h"
 #include "contextmanager.h"
+#include "tab.h"
 
 const int MainTabBar::TAB_MIN_WIDTH = 50;
 const int MainTabBar::ARROW_WIDTH = 20;
@@ -58,30 +59,30 @@ MainTabBar::~MainTabBar()
         delete _tabs.takeFirst();
 }
 
-void MainTabBar::addWidget(QWidget * widget, QString iconName, QString label, bool isColored)
+void MainTabBar::addTab(Tab * tab, QString iconName, QString label, bool isColored)
 {
-    MainTabBarElement * tab = new MainTabBarElement(widget, iconName, isColored);
-    tab->setLabel(label);
-    _tabs.append(tab);
+    MainTabBarElement * tabElement = new MainTabBarElement(tab, iconName, isColored, this->fontMetrics());
+    tabElement->setLabel(label);
+    _tabs.append(tabElement);
     _firstTabDisplayed = -1; // Go to the last position
 
     this->repaint();
 }
 
-void MainTabBar::removeWidget(QWidget * widget)
+void MainTabBar::removeTab(Tab * tab)
 {
     for (int i = _tabs.count() - 1; i >= 0; i--)
-        if (_tabs[i]->getWidget() == widget)
+        if (_tabs[i]->getWidget() == tab)
             delete _tabs.takeAt(i);
 
     // Repaint will be done later when another widget will be enabled
 }
 
-void MainTabBar::setWidgetLabel(QWidget * widget, const QString &label)
+void MainTabBar::setTabLabel(Tab * tab, const QString &label)
 {
     for (int i = 0; i < _tabs.count(); i++)
     {
-        if (_tabs[i]->getWidget() == widget)
+        if (_tabs[i]->getWidget() == tab)
         {
             _tabs[i]->setLabel(label);
             this->repaint();
@@ -90,11 +91,11 @@ void MainTabBar::setWidgetLabel(QWidget * widget, const QString &label)
     }
 }
 
-void MainTabBar::setWidgetToolTip(QWidget * widget, const QString &tip)
+void MainTabBar::setTabToolTip(Tab * tab, const QString &tip)
 {
     for (int i = 0; i < _tabs.count(); i++)
     {
-        if (_tabs[i]->getWidget() == widget)
+        if (_tabs[i]->getWidget() == tab)
         {
             _tabs[i]->setTooltip(tip);
             break;
@@ -102,10 +103,10 @@ void MainTabBar::setWidgetToolTip(QWidget * widget, const QString &tip)
     }
 }
 
-void MainTabBar::currentWidgetChanged(QWidget * widget)
+void MainTabBar::currentTabChanged(Tab * tab)
 {
     for (int i = 0; i < _tabs.count(); i++)
-        _tabs[i]->setIsEnabled(_tabs[i]->getWidget() == widget);
+        _tabs[i]->setIsEnabled(_tabs[i]->getWidget() == tab);
     this->repaint();
 }
 
@@ -469,7 +470,29 @@ void MainTabBar::getTheTwoBiggestWidths(QVector<int> &v, int &firstBiggest, int 
     }
 }
 
-QWidget * MainTabBar::getNextWidget()
+Tab * MainTabBar::getCurrentTab()
+{
+    for (int i = 0; i < _tabs.count(); i++)
+        if (_tabs[i]->isEnabled())
+            return _tabs[i]->getWidget();
+    return nullptr;
+}
+
+Tab * MainTabBar::getFirstTab()
+{
+    return _tabs.count() > 0 ? (Tab *)_tabs[0]->getWidget() : nullptr;
+}
+
+Tab * MainTabBar::getPreviousTab()
+{
+    for (int i = 0; i < _tabs.count(); i++)
+        if (_tabs[i]->isEnabled())
+            return i > 0 ? _tabs[i - 1]->getWidget() : _tabs[_tabs.count() - 1]->getWidget();
+
+    return _tabs.count() > 0 ? _tabs[_tabs.count() - 1]->getWidget() : nullptr;
+}
+
+Tab * MainTabBar::getNextTab()
 {
     for (int i = 0; i < _tabs.count(); i++)
         if (_tabs[i]->isEnabled())
@@ -478,11 +501,7 @@ QWidget * MainTabBar::getNextWidget()
     return _tabs.count() > 0 ? _tabs[0]->getWidget() : nullptr;
 }
 
-QWidget * MainTabBar::getPreviousWidget()
+Tab * MainTabBar::getLastTab()
 {
-    for (int i = 0; i < _tabs.count(); i++)
-        if (_tabs[i]->isEnabled())
-            return i > 0 ? _tabs[i - 1]->getWidget() : _tabs[_tabs.count() - 1]->getWidget();
-
     return _tabs.count() > 0 ? _tabs[_tabs.count() - 1]->getWidget() : nullptr;
 }

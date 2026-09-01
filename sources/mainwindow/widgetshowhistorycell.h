@@ -52,11 +52,14 @@ private:
 
         QPixmap _fileIcon;
         QPixmap _fileIconActive;
+        QPixmap _fileDirIcon;
+        QPixmap _fileDirIconActive;
     };
 
     Ui::WidgetShowHistoryCell *ui;
     QString _link;
     QString _activeStyleSheet;
+    bool _isDir;
     static Icons * s_icons;
 };
 

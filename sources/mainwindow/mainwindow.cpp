@@ -46,11 +46,11 @@
 #include "extensionmanager.h"
 #include "utils.h"
 #include "playeroptions.h"
+#include "tab.h"
 
 const int MainWindow::RESIZE_BORDER_WIDTH = 5;
 
-MainWindow::MainWindow(bool playerMode, QWidget *parent) :
-    QWidget(parent),
+MainWindow::MainWindow(bool playerMode, QWidget *parent) : QWidget(parent),
     ui(new Ui::MainWindow),
     _recorder(new DialogRecorder(this)),
     _dialogAbout(this)
@@ -63,6 +63,7 @@ MainWindow::MainWindow(bool playerMode, QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle(tr("Polyphone SoundFont Editor"));
     this->setWindowIcon(QIcon(":/misc/polyphone.png"));
+    ui->pushHome->setToolTip(tr("Home screen") + " (Ctrl+H)");
 
     // Possibly remove the window borders
     if (ContextManager::configuration()->getValue(ConfManager::SECTION_DISPLAY, "window_borders", false).toBool())
@@ -96,7 +97,8 @@ MainWindow::MainWindow(bool playerMode, QWidget *parent) :
     // Icons
     QSize iconSize(36, 36);
     ui->pushButtonNew->setIcon(ContextManager::theme()->getColoredSvg(":/icons/document-new.svg", iconSize, ThemeManager::BUTTON_TEXT));
-    ui->pushButtonOpen->setIcon(ContextManager::theme()->getColoredSvg(":/icons/document-open.svg", iconSize, ThemeManager::BUTTON_TEXT));
+    ui->pushButtonOpen->setIcon(ContextManager::theme()->getColoredSvg(":/icons/file-audio.svg", iconSize, ThemeManager::BUTTON_TEXT));
+    ui->pushButtonOpenDir->setIcon(ContextManager::theme()->getColoredSvg(":/icons/folder.svg", iconSize, ThemeManager::BUTTON_TEXT));
     ui->pushButtonDocumentation->setIcon(ContextManager::theme()->getColoredSvg(":/icons/book.svg", iconSize, ThemeManager::BUTTON_TEXT));
     ui->pushButtonForum->setIcon(ContextManager::theme()->getColoredSvg(":/icons/forum.svg", iconSize, ThemeManager::BUTTON_TEXT));
     ui->pushButtonSettings->setIcon(ContextManager::theme()->getColoredSvg(":/icons/settings.svg", iconSize, ThemeManager::BUTTON_TEXT));
@@ -109,7 +111,7 @@ MainWindow::MainWindow(bool playerMode, QWidget *parent) :
     connect(ui->topRightWidget, SIGNAL(openSettingsClicked()), this, SLOT(on_pushButtonSettings_clicked()));
     connect(ui->topRightWidget, SIGNAL(onlineHelpClicked()), this, SLOT(on_pushButtonDocumentation_clicked()));
     connect(ui->topRightWidget, SIGNAL(aboutClicked()), this, SLOT(onAboutClicked()));
-    connect(ui->topRightWidget, SIGNAL(closeFileClicked()), this, SLOT(onCloseFile()));
+    connect(ui->topRightWidget, SIGNAL(closeTabClicked()), this, SLOT(onCloseTab()));
     connect(ui->topRightWidget, SIGNAL(closeClicked()), this, SLOT(close()));
     connect(ui->topRightWidget, SIGNAL(minimizeClicked()), this, SLOT(showMinimized()));
     connect(ui->topRightWidget, SIGNAL(save()), this, SLOT(onSave()));
@@ -130,7 +132,7 @@ MainWindow::MainWindow(bool playerMode, QWidget *parent) :
     connect(ui->widgetShowSoundfonts, SIGNAL(itemClicked(SoundfontFilter*)), _tabManager, SLOT(openRepository(SoundfontFilter*)));
     connect(_tabManager, SIGNAL(keyboardDisplayChanged(bool,bool)), this, SLOT(onKeyboardDisplayChange(bool,bool)));
     connect(_tabManager, SIGNAL(recorderDisplayChanged(bool,bool)), this, SLOT(onRecorderDisplayChange(bool,bool)));
-    connect(_tabManager, SIGNAL(tabOpen(bool)), ui->topRightWidget, SLOT(onTabOpen(bool)));
+    connect(_tabManager, SIGNAL(tabOpen(bool,bool,bool)), ui->topRightWidget, SLOT(onTabOpen(bool,bool,bool)));
 
 #ifdef NO_SF2_REPOSITORY
     ui->widgetRepo->hide();
@@ -167,9 +169,7 @@ MainWindow::MainWindow(bool playerMode, QWidget *parent) :
         QTimer::singleShot(500, dialog, SLOT(show()));
     }
     ContextManager::configuration()->setValue(ConfManager::SECTION_NONE, "last_version_installed", SOFT_VERSION);
-    ui->widgetShowHistory->setFocus();
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -301,10 +301,21 @@ void MainWindow::on_pushButtonSoundfonts_clicked()
 void MainWindow::on_pushButtonOpen_clicked()
 {
     // Open files
-    QStringList strList = QFileDialog::getOpenFileNames(this, tr("Opening files"),
-                                                        ContextManager::recentFile()->getLastDirectory(RecentFileManager::FILE_TYPE_SOUNDFONT),
-                                                        InputFactory::getFileFilter());
+    QStringList strList = QFileDialog::getOpenFileNames(
+        this, tr("Opening files"),
+        ContextManager::recentFile()->getLastDirectory(RecentFileManager::FILE_TYPE_SOUNDFONT),
+        InputFactory::getFileFilter());
     openFiles(strList.join('|'));
+}
+
+void MainWindow::on_pushButtonOpenDir_clicked()
+{
+    // Open a directory
+    QString directory = QFileDialog::getExistingDirectory(
+        this, tr("Opening a directory"),
+        ContextManager::recentFile()->getLastDirectory(RecentFileManager::FILE_TYPE_SOUNDFONT));
+    if (!directory.isEmpty())
+        _tabManager->openDirectory(directory);
 }
 
 void MainWindow::on_pushButtonNew_clicked()
@@ -323,17 +334,24 @@ void MainWindow::openFiles(QString fileNames)
     QStringList files = split[0].split('|', Qt::SkipEmptyParts);
     foreach (QString file, files)
     {
-        if (playerOptions.playerChannel() == -2)
+        if (QFileInfo(file).isDir())
         {
-            for (int channel = 0; channel < 16; channel++)
-            {
-                PlayerOptions duplicatedOptions(&playerOptions);
-                duplicatedOptions.setPlayerChannel(channel);
-                _tabManager->openSoundfont(file, &duplicatedOptions, false);
-            }
+            _tabManager->openDirectory(file);
         }
         else
-            _tabManager->openSoundfont(file, &playerOptions, true);
+        {
+            if (playerOptions.playerChannel() == -2)
+            {
+                for (int channel = 0; channel < 16; channel++)
+                {
+                    PlayerOptions duplicatedOptions(&playerOptions);
+                    duplicatedOptions.setPlayerChannel(channel);
+                    _tabManager->openSoundfont(file, &duplicatedOptions, false);
+                }
+            }
+            else
+                _tabManager->openSoundfont(file, &playerOptions, true);
+        }
     }
 }
 
@@ -364,10 +382,19 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         {
         case Qt::Key_F: // Search
             if (ui->lineSearch->isVisible())
+            {
+                ui->lineSearch->selectAll();
                 ui->lineSearch->setFocus();
+            }
+            else
+            {
+                Tab * currentTab = ui->tabBar->getCurrentTab();
+                if (currentTab != nullptr)
+                    currentTab->onActionRequired(Tab::SEARCH);
+            }
             event->accept();
             break;
-        case Qt::Key_H: // Go to home
+        case Qt::Key_H: // Go to the home screen
             _tabManager->showHome();
             event->accept();
             break;
@@ -389,23 +416,31 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
             event->accept();
             break;
         case Qt::Key_Y: { // Redo
-            int currentSf2 = _tabManager->getCurrentSf2();
-            if (currentSf2 != -1)
-                SoundfontManager::getInstance()->redo(currentSf2);
+            Tab * currentTab = ui->tabBar->getCurrentTab();
+            if (currentTab != nullptr)
+                currentTab->onActionRequired(Tab::REDO);
             event->accept();
         } break;
         case Qt::Key_Z: { // Undo
-            int currentSf2 = _tabManager->getCurrentSf2();
-            if (currentSf2 != -1)
-                SoundfontManager::getInstance()->undo(currentSf2);
+            Tab * currentTab = ui->tabBar->getCurrentTab();
+            if (currentTab != nullptr)
+                currentTab->onActionRequired(Tab::UNDO);
             event->accept();
         } break;
-        case Qt::Key_Tab: case Qt::Key_PageDown: // Go to next tab
-            _tabManager->setCurrentWidget(ui->tabBar->getNextWidget());
+        case Qt::Key_Home: // Go to the first tab
+            _tabManager->setCurrentWidget(ui->tabBar->getFirstTab());
             event->accept();
             break;
         case Qt::Key_PageUp: // Go to previous tab
-            _tabManager->setCurrentWidget(ui->tabBar->getPreviousWidget());
+            _tabManager->setCurrentWidget(ui->tabBar->getPreviousTab());
+            event->accept();
+            break;
+        case Qt::Key_Tab: case Qt::Key_PageDown: // Go to next tab
+            _tabManager->setCurrentWidget(ui->tabBar->getNextTab());
+            event->accept();
+            break;
+        case Qt::Key_End: // Go to the last tab
+            _tabManager->setCurrentWidget(ui->tabBar->getLastTab());
             event->accept();
             break;
         default:
@@ -417,13 +452,13 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         switch (event->key())
         {
         case Qt::Key_Z: { // Redo
-            int currentSf2 = _tabManager->getCurrentSf2();
-            if (currentSf2 != -1)
-                SoundfontManager::getInstance()->redo(currentSf2);
+            Tab * currentTab = ui->tabBar->getCurrentTab();
+            if (currentTab != nullptr)
+                currentTab->onActionRequired(Tab::REDO);
             event->accept();
         } break;
         case Qt::Key_Backtab: // Go to previous tab
-            _tabManager->setCurrentWidget(ui->tabBar->getPreviousWidget());
+            _tabManager->setCurrentWidget(ui->tabBar->getPreviousTab());
             event->accept();
             break;
         default:
@@ -444,10 +479,9 @@ void MainWindow::onAboutClicked()
     _dialogAbout.show();
 }
 
-void MainWindow::onCloseFile()
+void MainWindow::onCloseTab()
 {
-    if (_tabManager->getCurrentSf2() != -1)
-        _tabManager->closeCurrentTab();
+    _tabManager->closeCurrentTab();
 }
 
 void MainWindow::onSave()

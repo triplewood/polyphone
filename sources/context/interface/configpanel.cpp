@@ -27,7 +27,7 @@
 #include "contextmanager.h"
 #include <QScrollBar>
 
-ConfigPanel::ConfigPanel(QWidget *parent) : QWidget(parent),
+ConfigPanel::ConfigPanel(QWidget *parent) : Tab(parent),
     ui(new Ui::ConfigPanel)
 {
     ui->setupUi(this);

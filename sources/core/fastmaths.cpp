@@ -88,25 +88,35 @@ void FastMaths::addVectors(float * __restrict a, const float * __restrict b, uns
 {
     a = (float*)__builtin_assume_aligned(a, 32);
     b = (const float*)__builtin_assume_aligned(b, 32);
-    unsigned int i = 0;
 
 #ifdef __aarch64__
-    // Vectorization
-    float32x4_t va, vb;
-    for (; i + 4 <= size; i += 4)
+    unsigned int i = 0;
+    const unsigned int simdSize = size & ~15u; // 16 floats per loop
+
+    for (; i < simdSize; i += 16)
     {
-        // Load values
-        va = vld1q_f32(a + i);
-        vb = vld1q_f32(b + i);
+        float32x4_t a0 = vld1q_f32(a + i + 0);
+        float32x4_t a1 = vld1q_f32(a + i + 4);
+        float32x4_t a2 = vld1q_f32(a + i + 8);
+        float32x4_t a3 = vld1q_f32(a + i + 12);
 
-        // Add
-        va = vaddq_f32(va, vb);
+        float32x4_t b0 = vld1q_f32(b + i + 0);
+        float32x4_t b1 = vld1q_f32(b + i + 4);
+        float32x4_t b2 = vld1q_f32(b + i + 8);
+        float32x4_t b3 = vld1q_f32(b + i + 12);
 
-        // Store the result
-        vst1q_f32(a + i, va);
+        a0 = vaddq_f32(a0, b0);
+        a1 = vaddq_f32(a1, b1);
+        a2 = vaddq_f32(a2, b2);
+        a3 = vaddq_f32(a3, b3);
+
+        vst1q_f32(a + i + 0,  a0);
+        vst1q_f32(a + i + 4,  a1);
+        vst1q_f32(a + i + 8,  a2);
+        vst1q_f32(a + i + 12, a3);
     }
 #else
-    for (; i < size; ++i)
+    for (unsigned int i = 0; i < size; ++i)
         a[i] += b[i];
 #endif
 }
@@ -114,22 +124,34 @@ void FastMaths::addVectors(float * __restrict a, const float * __restrict b, uns
 void FastMaths::clamp(float * values, unsigned int size)
 {
     values = (float*)__builtin_assume_aligned(values, 32);
-    unsigned int i = 0;
 
 #ifdef __aarch64__
-    // Vectorization
-    float32x4_t max_val = vdupq_n_f32(1.0f);
-    float32x4_t min_val = vdupq_n_f32(-1.0f);
-    float32x4_t v;
-    for (; i + 4 <= size; i += 4)
+
+    const float32x4_t vmaxv = vdupq_n_f32(1.0f);
+    const float32x4_t vminv = vdupq_n_f32(-1.0f);
+
+    unsigned int i = 0;
+    const unsigned int simdSize = size & ~15u; // 16 floats
+
+    for (; i < simdSize; i += 16)
     {
-        v = vld1q_f32(values + i);  // Load
-        v = vminq_f32(v, max_val); // Max value is 1.0
-        v = vmaxq_f32(v, min_val); // Min value is -1.0
-        vst1q_f32(values + i, v);   // Store
+        float32x4_t v0 = vld1q_f32(values + i + 0);
+        float32x4_t v1 = vld1q_f32(values + i + 4);
+        float32x4_t v2 = vld1q_f32(values + i + 8);
+        float32x4_t v3 = vld1q_f32(values + i + 12);
+
+        v0 = vmaxq_f32(vminq_f32(v0, vmaxv), vminv);
+        v1 = vmaxq_f32(vminq_f32(v1, vmaxv), vminv);
+        v2 = vmaxq_f32(vminq_f32(v2, vmaxv), vminv);
+        v3 = vmaxq_f32(vminq_f32(v3, vmaxv), vminv);
+
+        vst1q_f32(values + i + 0,  v0);
+        vst1q_f32(values + i + 4,  v1);
+        vst1q_f32(values + i + 8,  v2);
+        vst1q_f32(values + i + 12, v3);
     }
 #else
-    for (; i < size; ++i)
+    for (unsigned int i = 0; i < size; ++i)
     {
         if (values[i] > 1.0f)
             values[i] = 1.0f;
@@ -139,30 +161,46 @@ void FastMaths::clamp(float * values, unsigned int size)
 #endif
 }
 
-void FastMaths::multiplyAdd(float * __restrict data, const float * __restrict dataToMultiplyAndAdd, unsigned int size, float coeff)
+void FastMaths::multiplyAdd(float * __restrict data, const float * __restrict dataToMultiplyAndAdd,
+                            unsigned int size, float coeff)
 {
     data = (float*)__builtin_assume_aligned(data, 32);
-    dataToMultiplyAndAdd = (float*)__builtin_assume_aligned(dataToMultiplyAndAdd, 32);
-    unsigned int i = 0;
+    dataToMultiplyAndAdd = (const float*)__builtin_assume_aligned(dataToMultiplyAndAdd, 32);
 
 #ifdef __aarch64__
-    // Vectorization
-    float32x4_t vCoeff = vdupq_n_f32(coeff);
-    float32x4_t v1, v2;
-    for (; i + 4 <= size; i += 4)
+
+    const float32x4_t vCoeff = vdupq_n_f32(coeff);
+
+    unsigned int i = 0;
+    const unsigned int simdSize = size & ~15u; // 16 floats
+
+    for (; i < simdSize; i += 16)
     {
-        // Load data
-        v1 = vld1q_f32(data + i);
-        v2 = vld1q_f32(dataToMultiplyAndAdd + i);
+        // Load 4x4 floats from both arrays (128B total working set)
 
-        // Multiply and add
-        v1 = vfmaq_f32(v1, v2, vCoeff);
+        float32x4_t d0 = vld1q_f32(data + i + 0);
+        float32x4_t d1 = vld1q_f32(data + i + 4);
+        float32x4_t d2 = vld1q_f32(data + i + 8);
+        float32x4_t d3 = vld1q_f32(data + i + 12);
 
-        // Store the result
-        vst1q_f32(data + i, v1);
+        float32x4_t s0 = vld1q_f32(dataToMultiplyAndAdd + i + 0);
+        float32x4_t s1 = vld1q_f32(dataToMultiplyAndAdd + i + 4);
+        float32x4_t s2 = vld1q_f32(dataToMultiplyAndAdd + i + 8);
+        float32x4_t s3 = vld1q_f32(dataToMultiplyAndAdd + i + 12);
+
+        // FMA: d += s * coeff
+        d0 = vfmaq_f32(d0, s0, vCoeff);
+        d1 = vfmaq_f32(d1, s1, vCoeff);
+        d2 = vfmaq_f32(d2, s2, vCoeff);
+        d3 = vfmaq_f32(d3, s3, vCoeff);
+
+        vst1q_f32(data + i + 0,  d0);
+        vst1q_f32(data + i + 4,  d1);
+        vst1q_f32(data + i + 8,  d2);
+        vst1q_f32(data + i + 12, d3);
     }
 #else
-    for (; i < size; ++i)
+    for (unsigned int i = 0; i < size; ++i)
         data[i] += coeff * dataToMultiplyAndAdd[i];
 #endif
 }
@@ -171,32 +209,41 @@ void FastMaths::multiply(float * __restrict data, const float * __restrict dataT
 {
     data = (float*)__builtin_assume_aligned(data, 32);
     dataToMultiply = (const float*)__builtin_assume_aligned(dataToMultiply, 32);
-    unsigned int i = 0;
 
 #ifdef __aarch64__
-    // Vectorization
-    float32x4_t vCoeff = vdupq_n_f32(coeff);
-    float32x4_t v2;
-    for (; i + 4 <= size; i += 4)
+    const float32x4_t vCoeff = vdupq_n_f32(coeff);
+
+    unsigned int i = 0;
+    const unsigned int simdSize = size & ~15u; // 16 floats = 64B chunk
+
+    for (; i < simdSize; i += 16)
     {
-        // Load data
-        v2 = vld1q_f32(dataToMultiply + i);
+        // Unrolled 4x NEON (128 bytes total)
 
-        // Multiply
+        float32x4_t v0 = vld1q_f32(dataToMultiply + i + 0);
+        float32x4_t v1 = vld1q_f32(dataToMultiply + i + 4);
+        float32x4_t v2 = vld1q_f32(dataToMultiply + i + 8);
+        float32x4_t v3 = vld1q_f32(dataToMultiply + i + 12);
+
+        v0 = vmulq_f32(v0, vCoeff);
+        v1 = vmulq_f32(v1, vCoeff);
         v2 = vmulq_f32(v2, vCoeff);
+        v3 = vmulq_f32(v3, vCoeff);
 
-        // Store the result
-        vst1q_f32(data + i, v2);
+        vst1q_f32(data + i + 0,  v0);
+        vst1q_f32(data + i + 4,  v1);
+        vst1q_f32(data + i + 8,  v2);
+        vst1q_f32(data + i + 12, v3);
     }
 #else
-    for (; i < size; ++i)
+    for (unsigned int i = 0; i < size; ++i)
         data[i] = coeff * dataToMultiply[i];
 #endif
 }
 
 float FastMaths::multiply8(const float * __restrict coeffs, const qint16 * __restrict srcData16, const quint8 * __restrict srcData24)
 {
-    coeffs = (const float*)__builtin_assume_aligned(coeffs, 32);
+    coeffs  = (const float*)__builtin_assume_aligned(coeffs, 32);
 
 #ifdef __aarch64__
     // Load 8 int16 and convert to int32

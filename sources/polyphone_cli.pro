@@ -6,7 +6,7 @@
 
 # Use local copies of RtAudio, RtMidi, and Stk libraries
 # (this is forced to true for Windows or Mac OS X)
-# Uncomment a line if your distribution doesn't come with some of the following libraries
+# Uncomment a line if your distribution does not come with some of the following libraries
 #DEFINES += USE_LOCAL_RTAUDIO
 #DEFINES += USE_LOCAL_RTMIDI
 #DEFINES += USE_LOCAL_STK
@@ -23,8 +23,8 @@
 
 # Polyphone version
 DEFINES += SOFT_VERSION=\\\"2.6.0\\\"
-DEFINES += IDENTIFIER=\\\"BETA\\\"
-DEFINES += CURRENT_YEAR=\\\"2025\\\"
+DEFINES += IDENTIFIER=\\\"\\\"
+DEFINES += CURRENT_YEAR=\\\"2026\\\"
 
 # List to be completed if other translations are desired
 # Format: polyphone_XX.ts, XX being the language code
@@ -69,8 +69,10 @@ win32 {
         __WINDOWS_MM__ __WINDOWS_WASAPI__ __WINDOWS_ASIO__ #__WINDOWS_DS__
     RC_FILE = ../packaging/windows/polyphone.rc
     QMAKE_CXXFLAGS += -ffloat-store
-    LIBS += -lz -lwinmm -logg -lvorbis -lvorbisfile -lvorbisenc -lcrypto -lFLAC -lsndfile \
+    LIBS += -LC:/msys64/mingw64/lib \
+        -lz -lwinmm -logg -lvorbis -lvorbisfile -lvorbisenc -lcrypto -lFLAC -lsndfile \
         -lole32 -lwinmm -lksuser -lmfplat -lmfuuid -lwmcodecdspuuid # <- for RtAudio
+    INCLUDEPATH += C:/msys64/mingw64/include
 
     # Files necessary for ASIO with RtAudio
     HEADERS += lib/_option_rtaudio/rtaudio/include/asio.h \
@@ -197,6 +199,7 @@ contains(DEFINES, USE_LOCAL_STK) {
 INCLUDEPATH += lib \
     mainwindow \
     dialogs \
+    directory \
     context \
     context/interface \
     editor \
@@ -283,6 +286,16 @@ SOURCES	+= main.cpp \
     dialogs/dialogcompressquality.cpp \
     dialogs/dialogselection.cpp \
     dialogs/dialogchangelog.cpp \
+    directory/directorybrowser.cpp \
+    directory/directorydisplaymenu.cpp \
+    directory/directoryelementlistdelegate.cpp \
+    directory/directoryelementlistview.cpp \
+    directory/directoryfiledata.cpp \
+    directory/directorylistdelegate.cpp \
+    directory/directorylistmodel.cpp \
+    directory/directorylistview.cpp \
+    directory/directorysortmenu.cpp \
+    directory/directorysortproxymodel.cpp \
     editor/footers/footerlinkedto.cpp \
     editor/footers/footeroverview.cpp \
     editor/footers/footerprst.cpp \
@@ -316,8 +329,9 @@ SOURCES	+= main.cpp \
     editor/tools/merge_samples/toolmergesamples_gui.cpp \
     editor/tools/merge_samples/toolmergesamples_parameters.cpp \
     editor/tools/monitor/segmentpainter.cpp \
-    editor/tree/treesplitter.cpp \
+    editor/tree/customsplitter.cpp \
     editor/widgets/equalizer.cpp \
+    editor/widgets/menulabel.cpp \
     editor/widgets/nullablespinbox.cpp \
     editor/widgets/pushstereoediting.cpp \
     editor/widgets/tableheaderviewv.cpp \
@@ -340,6 +354,7 @@ SOURCES	+= main.cpp \
     mainwindow/mainstackedwidget.cpp \
     mainwindow/maintabbar.cpp \
     mainwindow/maintabbarelement.cpp \
+    mainwindow/soundfonttab.cpp \
     mainwindow/tab.cpp \
     mainwindow/tabmanager.cpp \
     mainwindow/topbackground.cpp \
@@ -654,6 +669,16 @@ HEADERS += \
     dialogs/dialogselection.h \
     dialogs/dialogchangelog.h \
     dialogs/modalprogressdialog.h \
+    directory/directorybrowser.h \
+    directory/directorydisplaymenu.h \
+    directory/directoryelementlistdelegate.h \
+    directory/directoryelementlistview.h \
+    directory/directoryfiledata.h \
+    directory/directorylistdelegate.h \
+    directory/directorylistmodel.h \
+    directory/directorylistview.h \
+    directory/directorysortmenu.h \
+    directory/directorysortproxymodel.h \
     editor/footers/abstractfooter.h \
     editor/footers/footerlinkedto.h \
     editor/footers/footeroverview.h \
@@ -690,8 +715,9 @@ HEADERS += \
     editor/tools/merge_samples/toolmergesamples_parameters.h \
     editor/tools/monitor/segment.h \
     editor/tools/monitor/segmentpainter.h \
-    editor/tree/treesplitter.h \
+    editor/tree/customsplitter.h \
     editor/widgets/equalizer.h \
+    editor/widgets/menulabel.h \
     editor/widgets/pushstereoediting.h \
     editor/widgets/tableheaderviewv.h \
     editor/widgets/tablewidget.h \
@@ -716,6 +742,7 @@ HEADERS += \
     mainwindow/mainstackedwidget.h \
     mainwindow/maintabbar.h \
     mainwindow/maintabbarelement.h \
+    mainwindow/soundfonttab.h \
     mainwindow/tab.h \
     mainwindow/tabmanager.h \
     mainwindow/topbackground.h \
@@ -992,6 +1019,9 @@ FORMS += \
     dialogs/dialogcompressquality.ui \
     dialogs/dialogselection.ui \
     dialogs/dialogchangelog.ui \
+    directory/directorybrowser.ui \
+    directory/directorydisplaymenu.ui \
+    directory/directorysortmenu.ui \
     editor/footers/footerlinkedto.ui \
     editor/footers/footeroverview.ui \
     editor/footers/footerprst.ui \

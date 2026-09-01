@@ -36,7 +36,7 @@ MainMenu::MainMenu(QWidget * parent) : QMenu(parent),
     _settingsAction(nullptr),
     _helpAction(nullptr),
     _aboutAction(nullptr),
-    _closeFileAction(nullptr),
+    _closeTabAction(nullptr),
     _closeAction(nullptr),
     _toolExport(new ToolSoundfontExport())
 {
@@ -79,10 +79,10 @@ MainMenu::MainMenu(QWidget * parent) : QMenu(parent),
         this->addAction(_exportAction);
     }
 
-    _closeFileAction = new QAction(tr("&Close file"), this);
-    _closeFileAction->setShortcut(QString("Ctrl+W"));
-    connect(_closeFileAction, SIGNAL(triggered()), this, SIGNAL(closeFileClicked()));
-    this->addAction(_closeFileAction);
+    _closeTabAction = new QAction(tr("&Close tab"), this);
+    _closeTabAction->setShortcut(QString("Ctrl+W"));
+    connect(_closeTabAction, SIGNAL(triggered()), this, SIGNAL(closeTabClicked()));
+    this->addAction(_closeTabAction);
 
     this->addSeparator();
 
@@ -94,6 +94,7 @@ MainMenu::MainMenu(QWidget * parent) : QMenu(parent),
     this->addSeparator();
 
     _settingsAction = new QAction(tr("Se&ttings"), this);
+    _settingsAction->setShortcut(QString("Ctrl+,"));
     connect(_settingsAction, SIGNAL(triggered()), this, SIGNAL(openSettingsClicked()));
     this->addAction(_settingsAction);
 
@@ -103,7 +104,7 @@ MainMenu::MainMenu(QWidget * parent) : QMenu(parent),
     connect(_helpAction, SIGNAL(triggered()), this, SIGNAL(onlineHelpClicked()));
     this->addAction(_helpAction);
 
-    _helpAction = new QAction(tr("About &Polyphone..."), this);
+    _helpAction = new QAction(tr("About &Polyphone"), this);
     connect(_helpAction, SIGNAL(triggered()), this, SIGNAL(aboutClicked()));
     this->addAction(_helpAction);
 
@@ -115,7 +116,7 @@ MainMenu::MainMenu(QWidget * parent) : QMenu(parent),
     this->addAction(_closeAction);
 
     // Initialize the current sf2
-    onTabOpen(false);
+    onTabOpen(false, false, false);
 }
 
 MainMenu::~MainMenu()
@@ -130,16 +131,16 @@ void MainMenu::setFullScreen(bool isOn)
     _fullScreenAction->blockSignals(false);
 }
 
-void MainMenu::onTabOpen(bool isOpen)
+void MainMenu::onTabOpen(bool canSave, bool canExport, bool canClose)
 {
     if (_saveAction)
-        _saveAction->setEnabled(isOpen);
+        _saveAction->setEnabled(canSave);
     if (_saveAsAction)
-        _saveAsAction->setEnabled(isOpen);
-    if (_closeFileAction)
-        _closeFileAction->setEnabled(isOpen);
+        _saveAsAction->setEnabled(canSave);
     if (_exportAction)
-        _exportAction->setEnabled(isOpen);
+        _exportAction->setEnabled(canExport);
+    if (_closeTabAction)
+        _closeTabAction->setEnabled(canClose);
 }
 
 void MainMenu::onExport()

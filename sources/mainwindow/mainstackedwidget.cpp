@@ -26,6 +26,7 @@
 #include "maintabbar.h"
 #include "qpushbutton.h"
 #include "contextmanager.h"
+#include "tab.h"
 
 MainStackedWidget::MainStackedWidget(QWidget *parent) : QStackedWidget(parent),
     _tabBar(nullptr)
@@ -51,17 +52,17 @@ void MainStackedWidget::setControls(QPushButton * pushHome, MainTabBar * tabBar)
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(onCurrentChanged(int)));
 }
 
-int MainStackedWidget::addWidgetWithTab(QWidget *widget, QString iconName, const QString &label, bool isColored)
+int MainStackedWidget::addWidgetWithTab(Tab * tab, QString iconName, const QString &label, bool isColored)
 {
-    int index = this->addWidget(widget);
-    _tabBar->addWidget(widget, iconName, label, isColored);
+    int index = this->addWidget(tab);
+    _tabBar->addTab(tab, iconName, label, isColored);
     return index;
 }
 
-void MainStackedWidget::removeWidgetWithTab(QWidget * widget)
+void MainStackedWidget::removeWidgetWithTab(Tab * tab)
 {
-    _tabBar->removeWidget(widget);
-    this->removeWidget(widget);
+    _tabBar->removeTab(tab);
+    this->removeWidget(tab);
 }
 
 void MainStackedWidget::onHomeCliked(bool clicked)
@@ -78,7 +79,7 @@ void MainStackedWidget::onWidgetClicked(QWidget * widget)
 
 void MainStackedWidget::onCurrentChanged(int index)
 {
-    _tabBar->currentWidgetChanged(this->widget(index));
+    _tabBar->currentTabChanged((Tab *)this->widget(index));
 
     // Home button enabled?
     if (index == 0)
@@ -93,14 +94,14 @@ void MainStackedWidget::onCurrentChanged(int index)
     }
 }
 
-void MainStackedWidget::setWidgetLabel(QWidget * widget, const QString &label)
+void MainStackedWidget::setTabLabel(Tab * tab, const QString &label)
 {
-    _tabBar->setWidgetLabel(widget, label);
+    _tabBar->setTabLabel(tab, label);
 }
 
-void MainStackedWidget::setWidgetToolTip(QWidget * widget, const QString &tip)
+void MainStackedWidget::setTabToolTip(Tab * tab, const QString &tip)
 {
-    _tabBar->setWidgetToolTip(widget, tip);
+    _tabBar->setTabToolTip(tab, tip);
 }
 
 void MainStackedWidget::styleHomeButton(bool isEnabled)

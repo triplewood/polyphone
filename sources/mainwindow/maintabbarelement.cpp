@@ -29,21 +29,22 @@ const int MainTabBarElement::TAB_ICON_SIZE = 24;
 const int MainTabBarElement::TAB_CLOSE_ICON_PADDING = 5;
 const int MainTabBarElement::CORNER_RADIUS = 3;
 const int MainTabBarElement::MARGIN = 5;
-const int MainTabBarElement::CLOSE_BUTTON_MIN_WIDTH_CONDITION = 125;
 
 int MainTabBarElement::tabHeight()
 {
     return 3 * MARGIN + TAB_ICON_SIZE;
 }
 
-MainTabBarElement::MainTabBarElement(QWidget * widget, QString iconName, bool isColored) :
-    _widget(widget),
+MainTabBarElement::MainTabBarElement(Tab * tab, QString iconName, bool isColored, QFontMetrics fm) :
+    _tab(tab),
     _iconName(iconName),
     _isEnabled(false),
     _gradient(QPointF(0, 0), QPointF(0, 1)),
+    _fm(fm),
     _xStart(0),
     _width(0),
     _currentShift(0),
+    _closeButtonMinWidthCondition(125),
     _closeButtonHovered(false)
 {
     // Colors
@@ -103,6 +104,14 @@ MainTabBarElement::MainTabBarElement(QWidget * widget, QString iconName, bool is
     _gradient.setColorAt(0.85, _backgroundColor);
     _gradient.setColorAt(0.93, _backgroundColor.darker(110));
     _gradient.setColorAt(1, _backgroundColor.darker(150));
+}
+
+void MainTabBarElement::setLabel(QString label)
+{
+    _label = label;
+
+    // Adapt the close button min width condition
+    _closeButtonMinWidthCondition = qMin(125, _fm.horizontalAdvance(_label) + (int)(3.5 * MARGIN) + _icon.width() + _closeIcon.width() + 2 * TAB_CLOSE_ICON_PADDING);
 }
 
 int MainTabBarElement::computeFullWidth(QPainter &painter)
@@ -170,8 +179,7 @@ void MainTabBarElement::draw(QPainter &painter, int translateX, int height)
         if (closeIconDisplayed)
             labelWidth -= _closeIcon.width() + 2 * TAB_CLOSE_ICON_PADDING + MARGIN * 0.5;
 
-        QFontMetrics fontMetrics = painter.fontMetrics();
-        QString elidedLabel = fontMetrics.elidedText(_label, Qt::ElideMiddle, labelWidth);
+        QString elidedLabel = _fm.elidedText(_label, Qt::ElideMiddle, labelWidth);
         painter.setPen(_isEnabled ? _textColorEnabled : _textColor);
         painter.drawText(x + 2 * MARGIN + _icon.width(), 0, labelWidth, height,
                          Qt::AlignLeft | Qt::AlignVCenter, elidedLabel);
@@ -218,5 +226,5 @@ bool MainTabBarElement::mouseMoved(QPoint pos)
 
 bool MainTabBarElement::isCloseButtonDisplayed()
 {
-    return _width > CLOSE_BUTTON_MIN_WIDTH_CONDITION || _isEnabled;
+    return _width > _closeButtonMinWidthCondition || _isEnabled;
 }

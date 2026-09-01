@@ -43,7 +43,7 @@ public:
     ~TopRightWidget();
 
 public slots:
-    void onTabOpen(bool isOpen);
+    void onTabOpen(bool canSave, bool canExport, bool canClose);
 
 signals:
     void openClicked();
@@ -51,7 +51,7 @@ signals:
     void openSettingsClicked();
     void onlineHelpClicked();
     void aboutClicked();
-    void closeFileClicked();
+    void closeTabClicked();
     void closeClicked();
     void minimizeClicked();
     void fullScreenTriggered();

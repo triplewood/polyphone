@@ -25,7 +25,7 @@
 #ifndef SOUNDFONTBROWSER_H
 #define SOUNDFONTBROWSER_H
 
-#include <QWidget>
+#include "tab.h"
 #include "usermanager.h"
 class SoundfontFilter;
 class SoundfontInformation;
@@ -34,13 +34,15 @@ namespace Ui {
 class SoundfontBrowser;
 }
 
-class SoundfontBrowser : public QWidget
+class SoundfontBrowser : public Tab
 {
     Q_OBJECT
 
 public:
     explicit SoundfontBrowser(QWidget *parent = nullptr);
     ~SoundfontBrowser();
+
+    void onActionRequired(TabAction action) override;
 
 public slots:
     void applyFilter(SoundfontFilter * filter);
@@ -51,6 +53,7 @@ protected:
     void showEvent(QShowEvent * event) override;
     void resizeEvent(QResizeEvent * event) override;
     void keyPressEvent(QKeyEvent * event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private slots:
     void on_pushRetry_clicked();

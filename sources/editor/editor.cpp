@@ -31,22 +31,24 @@
 #include "soundfontmanager.h"
 #include "treemodel.h"
 #include "abstractinputparser.h"
-#include "treesplitter.h"
+#include "customsplitter.h"
 #include "solomanager.h"
 #include "pageselector.h"
 #include "dialogkeyboard.h"
 #include "pianokeybdcustom.h"
 
-Editor::Editor(DialogKeyboard * dialogKeyboard) : Tab(nullptr),
+Editor::Editor(DialogKeyboard * dialogKeyboard, EltID initialSelection) : SoundfontTab(nullptr),
     _dialogKeyboard(dialogKeyboard),
     ui(new Ui::Editor),
     _pageSelector(new PageSelector()),
-    _currentElementType(elementUnknown)
+    _currentElementType(elementUnknown),
+    _initialSelection(initialSelection),
+    _firstShow(true)
 {
     ui->setupUi(this);
 
     // QSplitter so that the tree is resizable
-    TreeSplitter * splitter = new TreeSplitter(this, ui->leftPart, ui->rightPart);
+    CustomSplitter * splitter = new CustomSplitter(this, ui->leftPart, ui->rightPart, "tree_splitter_sizes");
     QVBoxLayout * layout = dynamic_cast<QVBoxLayout *>(this->layout());
     layout->addWidget(splitter);
 
@@ -57,7 +59,11 @@ Editor::Editor(DialogKeyboard * dialogKeyboard) : Tab(nullptr),
     ui->editFilter->setStyleSheet("QLineEdit{border: 0}");
     ui->frameSearch->setStyleSheet("QFrame{background-color:" +
                                    highlightColorBackground + "}");
-    ui->editFilter->setStyleSheet("QLineEdit{background-color:" + highlightColorBackground + ";color:" + highlightColorText + ";}");
+    ui->editFilter->setStyleSheet("QLineEdit{background-color:" + highlightColorBackground +
+                                  ";color:" + highlightColorText +
+                                  ";selection-background-color:" + highlightColorText +
+                                  ";selection-color:" + highlightColorBackground +
+                                  ";}");
     ui->treeView->setStyleSheet("TreeView{border:1px solid " +
                                 ContextManager::theme()->getColor(ThemeManager::BORDER).name() +
                                 ";border-top:0;border-left:0;border-bottom:0}");
@@ -113,11 +119,11 @@ Editor::Editor(DialogKeyboard * dialogKeyboard) : Tab(nullptr),
     connect(ui->toolBar, SIGNAL(selectionChanged(IdList)), ui->treeView, SLOT(onSelectionChanged(IdList)));
 
     // Other
-    connect(ui->treeView, SIGNAL(focusOnSearch()), ui->editFilter, SLOT(setFocus()));
     connect(SoundfontManager::getInstance(), SIGNAL(parameterForCustomizingKeyboardChanged()), this, SLOT(customizeKeyboard()));
     connect(SoundfontManager::getInstance(), SIGNAL(editingDone(QString, QList<int>)), this, SLOT(onEditingDone(QString, QList<int>)));
     connect(SoundfontManager::getInstance(), SIGNAL(errorEncountered(QString)), this, SLOT(onErrorEncountered(QString)));
     connect(this, SIGNAL(processKeyMainThread(int,int,int)), this, SLOT(onProcessKeyMainThread(int,int,int)));
+    ui->editFilter->installEventFilter(this);
 }
 
 Editor::~Editor()
@@ -143,8 +149,9 @@ void Editor::tabInError(QString errorMessage)
 void Editor::tabInitialized(int indexSf2)
 {
     // Prepare the tree
+    _initialSelection.indexSf2 = indexSf2;
     TreeModel * model = dynamic_cast<TreeModel*>(SoundfontManager::getInstance()->getModel(indexSf2));
-    TreeSortFilterProxy * proxy = new TreeSortFilterProxy(indexSf2, ui->treeView, model);
+    TreeSortFilterProxy * proxy = new TreeSortFilterProxy(indexSf2, ui->treeView, model, _initialSelection);
     connect(ui->editFilter, SIGNAL(textChanged(QString)), proxy, SLOT(filterChanged(QString)));
     connect(model, SIGNAL(saveExpandedState()), ui->treeView, SLOT(saveExpandedState()));
     connect(model, SIGNAL(restoreExpandedState()), ui->treeView, SLOT(restoreExpandedState()));
@@ -171,6 +178,11 @@ void Editor::tabUpdate(QString editingSource)
         AbstractFooter * absFooter = dynamic_cast<AbstractFooter *>(ui->stackedFooter->currentWidget());
         absFooter->updateInterface();
     }
+}
+
+void Editor::selectElement(EltID id)
+{
+    ui->treeView->onSelectionChanged(id);
 }
 
 void Editor::onSelectionChanged(IdList ids)
@@ -269,6 +281,12 @@ void Editor::showEvent(QShowEvent* event)
 {
     QWidget::showEvent(event);
     customizeKeyboard();
+
+    if (_firstShow)
+    {
+        _firstShow = false;
+        ui->treeView->setFocus();
+    }
 }
 
 void Editor::onEditingDone(QString editingSource, QList<int> sf2Indexes)
@@ -673,4 +691,45 @@ void Editor::onProcessKeyMainThread(int channel, int key, int vel)
                 ui->treeView->onSelectionChanged(currentIds);
         }
     }
+}
+
+void Editor::onActionRequired(TabAction action)
+{
+    switch (action)
+    {
+    case Tab::SEARCH:
+        ui->editFilter->selectAll();
+        ui->editFilter->setFocus();
+        break;
+    case Tab::UNDO:
+        SoundfontManager::getInstance()->undo(this->getSf2Index());
+        break;
+    case Tab::REDO:
+        SoundfontManager::getInstance()->redo(this->getSf2Index());
+        break;
+    }
+}
+
+bool Editor::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui->editFilter && event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Up)
+        {
+            // Select the first element in the list (if any)
+            if (ui->treeView->model() && ui->treeView->model()->rowCount() >= 4)
+            {
+                QModelIndex indexRootPrst = ui->treeView->model()->index(3, 0);
+                if (ui->treeView->model()->rowCount(indexRootPrst) > 0)
+                {
+                    ui->treeView->setFocus();
+                    ui->treeView->setCurrentIndex(ui->treeView->model()->index(ui->treeView->model()->rowCount(indexRootPrst) - 1, 0, indexRootPrst));
+                }
+            }
+            return true;
+        }
+    }
+
+    return Tab::eventFilter(obj, event);
 }
