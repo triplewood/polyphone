@@ -69,16 +69,17 @@ int launchApplication(QtSingleApplication * app, Options &options)
 
     // Display the main window
     MainWindow w(options.mode() == Options::MODE_SYNTHESIZER);
+    app->setActivationWindow(&w, true);
+    QObject::connect(app,
+                     &QtSingleApplication::messageReceived,
+                     &w,
+                     &MainWindow::openFiles);
     w.show();
 
     // Open files passed as argument
     QStringList inputFiles = options.getInputFiles();
     foreach (QString file, inputFiles)
         w.openFiles(file);
-
-#ifdef Q_OS_MAC
-    QObject::connect(qApp, SIGNAL(openFile(QString)), &w, SLOT(openFiles(QString)));
-#endif
 
     return app->exec();
 }
