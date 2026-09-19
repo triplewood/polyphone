@@ -1,7 +1,7 @@
-# Yasile SoundFont Extensions
+# SoundFont Extensions
 
-Status: normative, version 1.0  
-Canonical source: `dream_snddev/tools/sbkit/docs/formats/YASILE_SOUNDFONT_EXTENSIONS.md`
+Status: normative, version 1.0
+Canonical source: `dream_snddev/tools/sbkit/docs/formats/SOUNDFONT_EXTENSIONS.md`
 
 This document is the single definition shared by SBKit, Polyphone, and the EWI
 FluidSynth runtime. The mirrored copies in the consumer repositories must be
@@ -9,13 +9,25 @@ byte-for-byte identical to this file.
 
 ## 1. Scope and compatibility
 
-Two extensions are defined:
+Two file-format extensions and one optional EWI playback convention are defined:
 
 1. SF3/FLAC: a SoundFont 3 RIFF file whose compressed sample records contain
    native FLAC streams instead of Ogg Vorbis streams.
-2. SFX2 version 2: the only supported Yasile encrypted SoundFont container.
+2. SFX2 version 2: the only supported encrypted SoundFont container.
+3. EWI Legato Start: a local-instrument SF2 `imod` record that supplies a PCM
+   start point for a qualifying cross-zone legato transition.
 
-There is no Yasile SF4 definition. Historical SFX1 and SFX2 version 1 files,
+Optional `INFO/EPCM` and `INFO/EATK` chunks are loading-acceleration hints,
+not a third file format. They bind to a particular encoded PCM/sample-header
+layout and decoder profile. An opaque SFX2 wrapper preserves the inner
+SoundFont byte-for-byte. Any transform that changes PCM, `smpl`, `shdr`,
+sample offsets, attack layout, trimming, deduplication, or resampling MUST
+drop both chunks and report that acceleration metadata was invalidated.
+Readers without either chunk must use their normal safe fallback. SFX2
+authentication covers the resulting inner bytes; it does not make stale hints
+valid after a later SoundFont transform.
+
+There is no SF4 definition. Historical SFX1 and SFX2 version 1 files,
 AES-CTR containers, plaintext SFX containers, device-bound variants, and mixed
 codec SF3 banks are not supported by this contract. Producers must not create
 them and consumers must reject them.
@@ -82,7 +94,7 @@ Derive the 32-byte content key with RFC 5869 HKDF-SHA256:
 
 - input key material: the external product-line secret bytes;
 - salt: header bytes 20 through 35;
-- info: exact ASCII bytes `Yasile-SFX2-v2`;
+- info: the fixed `HKDF_INFO` bytes in `tools/sbkit/ewi_sfx2.py`;
 - output length: 32 bytes.
 
 Command-line tools should accept a protected environment variable or a
@@ -162,13 +174,50 @@ Every implementation must reproduce this vector and must also test wrong key,
 header mutation, ciphertext mutation, tag mutation, truncation, reordered
 chunks, and dynamic reads crossing chunk boundaries.
 
-## 5. Ownership and change control
+## 5. EWI Legato Start
+
+`EWI Legato Start` is optional authoring data for a sustained local instrument
+zone. It supplies the PCM frame at which an eligible connected legato
+transition may begin. It never changes the normal note-on start, the first note
+of a phrase, or a tongued note.
+
+This is an SF2 data convention, not a new generator, macro, descriptor field,
+outer container, or text marker. An applicable local instrument zone contains
+one `imod` record with these fields:
+
+| SF2 field | Required value |
+| --- | --- |
+| `sfModSrcOper` | `0x00c4` (MIDI CC68) |
+| `sfModDestOper` | `0` (`startAddrsOffset`) |
+| `modAmount` | positive PCM-frame offset from that zone's raw sample start |
+| `sfModAmtSrcOper` | `0` |
+| `sfModTransOper` | `0` (linear) |
+
+The frame offset MUST be in the zone's usable sustained region. It is authored
+per local instrument zone: a multisample instrument needs one record for each
+zone that has its own legato start. A producer MUST NOT write two different
+canonical records for the same local zone or for two local zones that share the
+same sample. An omitted, malformed, stereo, or conflicting record has no
+special meaning; consumers use their normal transition fallback.
+
+Writers must preserve unrelated modulators and audio chunks, and must keep the
+record attached to the same effective local instrument zone. They must write a
+new output file unless replacement was explicitly requested. If a transform
+cannot preserve the local-zone association, it MUST reject the source or remove
+the convention explicitly; it must not silently retarget the record.
+
+Current playback evidence covers raw 16-bit mono SF2 only. SF3 and SFX outputs
+may preserve this record, but must not claim EWI Legato Start playback support
+until their own preservation, consumer, and device fixtures pass.
+
+## 6. Ownership and change control
 
 SBKit owns the normative document and reference producer/verifier. Polyphone
-owns SF3/Vorbis and SF3/FLAC authoring. The EWI synthesizer owns runtime loading
-and dynamic-read qualification. A format change is complete only when the three
-implementations, this document, the deterministic vector, and cross-project
-tests change together.
+owns SF3/Vorbis and SF3/FLAC authoring, and must preserve supported SF2 `imod`
+records through open/save. The EWI synthesizer owns EWI Legato Start runtime
+qualification, loading, and dynamic-read qualification. A format change is
+complete only when the relevant implementations, this document, and the needed
+cross-project tests change together.
 
 Run `python tools/sbkit/sync_soundfont_format_spec.py --check` from
 `dream_snddev` to reject documentation drift.

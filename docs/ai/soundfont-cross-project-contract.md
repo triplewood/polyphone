@@ -6,8 +6,8 @@ Scope: this Polyphone fork only.
 
 ## Canonical documents
 
-This repository is a fork of the open-source Polyphone project. Yasile/EWI
-custom format rules should not be defined here as the source of truth.
+This repository is a fork of the open-source Polyphone project. EWI custom
+format rules should not be defined here as the source of truth.
 
 Authoritative format and fixture specification:
 
@@ -48,7 +48,7 @@ Polyphone fork = editor / open-save-roundtrip consumer
 EWI MIDI Synthesizer = runtime / product consumer
 ```
 
-Polyphone should not define Yasile product containers and should not depend on
+Polyphone should not define product containers and should not depend on
 EWI runtime containers. It should consume stable SF2/SF3 files and preserve
 editor semantics.
 
@@ -159,10 +159,10 @@ Result:
 
 ## Non-goals in this fork
 
-- Do not define the canonical Yasile SoundFont/SF3/SFX spec here.
+- Do not define the canonical SoundFont/SF3/SFX spec here.
 - Do not define SFX1/SFX2 convergence here.
 - Do not make this fork depend on EWI runtime containers.
-- Do not add private Yasile product policy to upstream-facing Polyphone code or
+- Do not add private product policy to upstream-facing Polyphone code or
   docs unless clearly marked as fork-local.
 
 ## Current suggested commit boundary
