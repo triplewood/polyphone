@@ -5,7 +5,9 @@ Canonical source: `dream_snddev/tools/sbkit/docs/formats/SOUNDFONT_EXTENSIONS.md
 
 This document is the single definition shared by SBKit, Polyphone, and the EWI
 FluidSynth runtime. The mirrored copies in the consumer repositories must be
-byte-for-byte identical to this file.
+byte-for-byte identical to this file. At the product layer, the container family
+is named SFX. Its current wire representation uses magic `SFX2` and header
+version `2`; use `SFX` in product-facing text and reserve `SFX2` for wire details.
 
 ## 1. Scope and compatibility
 
@@ -13,7 +15,8 @@ Two file-format extensions and one optional EWI playback convention are defined:
 
 1. SF3/FLAC: a SoundFont 3 RIFF file whose compressed sample records contain
    native FLAC streams instead of Ogg Vorbis streams.
-2. SFX2 version 2: the only supported encrypted SoundFont container.
+2. SFX: the supported encrypted SoundFont product container. Its current wire
+   representation uses magic `SFX2` and header version `2`.
 3. EWI Legato Start: a local-instrument SF2 `imod` record that supplies a PCM
    start point for a qualifying cross-zone legato transition.
 
@@ -27,10 +30,13 @@ Readers without either chunk must use their normal safe fallback. SFX2
 authentication covers the resulting inner bytes; it does not make stale hints
 valid after a later SoundFont transform.
 
-There is no SF4 definition. Historical SFX1 and SFX2 version 1 files,
-AES-CTR containers, plaintext SFX containers, device-bound variants, and mixed
-codec SF3 banks are not supported by this contract. Producers must not create
-them and consumers must reject them.
+Polyphone edits SF2 and SF3 files only; it does not open, edit, or save SFX
+containers. Editing or re-saving an SF2/SF3 source invalidates `INFO/EPCM` and
+`INFO/EATK`; regenerate those hints before packaging the source as SFX.
+
+The active contract defines no alternate SoundFont container variants. Producers
+must emit this SFX wire format and consumers must reject unknown variants. Mixed
+codec SF3 banks are not supported by this contract.
 
 All multi-byte integers are unsigned little-endian unless a field explicitly
 says otherwise. Byte offsets are zero-based. `MUST`, `SHOULD`, and `MAY` have
@@ -59,9 +65,10 @@ version 3. It does not introduce a new extension or outer container.
 Polyphone export UI exposes a single SF3 codec selector: `Vorbis` (default) or
 `FLAC (lossless)`. Standard SF2 export is unchanged.
 
-## 3. SFX2 version 2 container
+## 3. SFX container (wire magic `SFX2`, header version `2`)
 
-SFX2 v2 wraps one complete SF2 or SF3 file. It is optimized for authenticated,
+SFX wraps one complete SF2 or SF3 file. Its current wire representation uses
+magic `SFX2` and header version `2`. It is optimized for authenticated,
 chunk-addressable reads so FluidSynth dynamic sample loading can decrypt only
 the requested region. The 64-byte header is authenticated with every chunk.
 
@@ -141,7 +148,8 @@ producer must reject a payload requiring more than `2^32` chunks.
 Consumers must fail closed on unknown version, flags, suite, header size,
 reserved bytes, invalid chunk size, impossible length, nonce-index overflow,
 authentication failure, key failure, invalid RIFF/`sfbk` payload, or codec-hint
-mismatch. They must not fall back to plaintext or legacy CTR interpretation.
+mismatch. They must not accept an unencrypted container or reinterpret an
+unknown cipher suite.
 
 Writers use a temporary file and atomic replacement. They must not overwrite an
 existing destination unless the caller explicitly requests it, and must delete
@@ -213,11 +221,13 @@ until their own preservation, consumer, and device fixtures pass.
 ## 6. Ownership and change control
 
 SBKit owns the normative document and reference producer/verifier. Polyphone
-owns SF3/Vorbis and SF3/FLAC authoring, and must preserve supported SF2 `imod`
-records through open/save. The EWI synthesizer owns EWI Legato Start runtime
-qualification, loading, and dynamic-read qualification. A format change is
-complete only when the relevant implementations, this document, and the needed
-cross-project tests change together.
+owns SF3/Vorbis and SF3/FLAC authoring and SF2/SF3 open/save; it does not edit
+SFX containers. Editing an SF2/SF3 source invalidates `INFO/EPCM` and `INFO/EATK`
+until those hints are regenerated before SFX packaging. Polyphone must preserve
+supported SF2 `imod` records through open/save. The EWI synthesizer owns EWI
+Legato Start runtime qualification, loading, and dynamic-read qualification. A
+format change is complete only when the relevant implementations, this
+document, and the needed cross-project tests change together.
 
 Run `python tools/sbkit/sync_soundfont_format_spec.py --check` from
 `dream_snddev` to reject documentation drift.
