@@ -1,7 +1,7 @@
 # Cross-Project SoundFont Compatibility Navigation
 
 Status: Fork-local navigation note
-Last updated: 2026-07-07
+Last updated: 2026-09-27
 Scope: Polyphone fork context for finding the current SoundFont compatibility
 contract, gates, and evidence across the three Yasile projects.
 
@@ -9,7 +9,8 @@ contract, gates, and evidence across the three Yasile projects.
 
 | Area | Owner repo | Canonical file |
 | --- | --- | --- |
-| SF2/SF3/SFX compatibility contract | sbkit / SDK | `/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/soundfont-compatibility-spec.md` |
+| SF2/SF3/SFX format contract | sbkit / SDK | `/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/formats/SOUNDFONT_EXTENSIONS.md` |
+| Producer workflow and fixture contract | sbkit / SDK | `/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/soundfont-compatibility-spec.md` |
 | Developer checklist for SoundFont-impacting changes | sbkit / SDK | `/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/SOUNDFONT_COMPATIBILITY_CHECKLIST.md` |
 | Real-bank matrix smoke script | sbkit / SDK | `/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/smoke_real_bank_soundfont_matrix.sh` |
 | Polyphone editor compatibility note | Polyphone fork | `docs/ai/soundfont-cross-project-contract.md` |
@@ -101,7 +102,8 @@ Related commits from the current compatibility loop:
 - SF2 and SF3 are the interchange formats.
 - SF3/FLAC support is accepted through sbkit verifier, Polyphone editor
   roundtrip, and EWI runtime render evidence.
-- SFX is not yet a shared interchange contract. Treat SFX variants as versioned
-  product containers until a dedicated SFX convergence loop is implemented.
+- SFX is a downstream product container, not a Polyphone interchange format.
+  The current contract accepts one `.sfx` form; legacy SFX1 and SFX2 variants
+  are rejected. Use the sbkit canonical spec for the wire layout and vectors.
 - Generated reports under `build/reports/` are local evidence and are not
   committed by default.

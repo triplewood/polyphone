@@ -6,8 +6,8 @@ Canonical source: `dream_snddev/tools/sbkit/docs/formats/SOUNDFONT_EXTENSIONS.md
 This document is the single definition shared by SBKit, Polyphone, and the EWI
 FluidSynth runtime. The mirrored copies in the consumer repositories must be
 byte-for-byte identical to this file. At the product layer, the container family
-is named SFX. Its current wire representation uses magic `SFX2` and header
-version `2`; use `SFX` in product-facing text and reserve `SFX2` for wire details.
+is named SFX. Its wire representation uses magic `SFX\0`; byte 4 is reserved
+and must be zero.
 
 ## 1. Scope and compatibility
 
@@ -16,17 +16,17 @@ Two file-format extensions and one optional EWI playback convention are defined:
 1. SF3/FLAC: a SoundFont 3 RIFF file whose compressed sample records contain
    native FLAC streams instead of Ogg Vorbis streams.
 2. SFX: the supported encrypted SoundFont product container. Its current wire
-   representation uses magic `SFX2` and header version `2`.
+   representation uses magic `SFX\0` with a reserved zero byte at offset 4.
 3. EWI Legato Start: a local-instrument SF2 `imod` record that supplies a PCM
    start point for a qualifying cross-zone legato transition.
 
 Optional `INFO/EPCM` and `INFO/EATK` chunks are loading-acceleration hints,
 not a third file format. They bind to a particular encoded PCM/sample-header
-layout and decoder profile. An opaque SFX2 wrapper preserves the inner
+layout and decoder profile. An opaque SFX wrapper preserves the inner
 SoundFont byte-for-byte. Any transform that changes PCM, `smpl`, `shdr`,
 sample offsets, attack layout, trimming, deduplication, or resampling MUST
 drop both chunks and report that acceleration metadata was invalidated.
-Readers without either chunk must use their normal safe fallback. SFX2
+Readers without either chunk must use their normal safe fallback. SFX
 authentication covers the resulting inner bytes; it does not make stale hints
 valid after a later SoundFont transform.
 
@@ -65,10 +65,10 @@ version 3. It does not introduce a new extension or outer container.
 Polyphone export UI exposes a single SF3 codec selector: `Vorbis` (default) or
 `FLAC (lossless)`. Standard SF2 export is unchanged.
 
-## 3. SFX container (wire magic `SFX2`, header version `2`)
+## 3. SFX container (wire magic `SFX\0`)
 
 SFX wraps one complete SF2 or SF3 file. Its current wire representation uses
-magic `SFX2` and header version `2`. It is optimized for authenticated,
+magic `SFX\0`; byte 4 is reserved and must be zero. It is optimized for authenticated,
 chunk-addressable reads so FluidSynth dynamic sample loading can decrypt only
 the requested region. The 64-byte header is authenticated with every chunk.
 
@@ -76,8 +76,8 @@ the requested region. The 64-byte header is authenticated with every chunk.
 
 | Offset | Size | Field | Required value |
 | ---: | ---: | --- | --- |
-| 0 | 4 | magic | ASCII `SFX2` |
-| 4 | 1 | version | `2` |
+| 0 | 4 | magic | ASCII `SFX\0` |
+| 4 | 1 | reserved | `0` |
 | 5 | 1 | flags | `0x03` (encrypted + product-line key) |
 | 6 | 1 | cipher suite | `3` (AES-256-GCM chunked) |
 | 7 | 1 | header size | `64` |
@@ -101,7 +101,7 @@ Derive the 32-byte content key with RFC 5869 HKDF-SHA256:
 
 - input key material: the external product-line secret bytes;
 - salt: header bytes 20 through 35;
-- info: the fixed `HKDF_INFO` bytes in `tools/sbkit/ewi_sfx2.py`;
+- info: the fixed `HKDF_INFO` bytes in `tools/sbkit/ewi_sfx.py` (`Yasile-SFX`);
 - output length: 32 bytes.
 
 Command-line tools should accept a protected environment variable or a
@@ -145,7 +145,7 @@ producer must reject a payload requiring more than `2^32` chunks.
 
 ### 3.4 Validation and failure behavior
 
-Consumers must fail closed on unknown version, flags, suite, header size,
+Consumers must fail closed on a nonzero reserved byte, flags, suite, header size,
 reserved bytes, invalid chunk size, impossible length, nonce-index overflow,
 authentication failure, key failure, invalid RIFF/`sfbk` payload, or codec-hint
 mismatch. They must not accept an unencrypted container or reinterpret an
@@ -161,21 +161,21 @@ The test payload is the SBKit `make_tiny_sf2` fixture.
 
 | Item | Value |
 | --- | --- |
-| product-line key material (ASCII) | `canonical-sfx2-test-product-key` |
+| product-line key material (ASCII) | `canonical-sfx-test-product-key` |
 | salt | `000102030405060708090a0b0c0d0e0f` |
 | nonce prefix | `1032547698badcfe` |
 | payload size | `8900` |
 | payload SHA-256 | `14f2fafb133b589f7816982ddfdbfd1a234103fc09d06eb6f8148402689115c9` |
 | SFX size | `8980` |
-| SFX SHA-256 | `579fff96141b1d564388b2e76729edde3f540d764d7a0535e39f5e7aa4cf8b7b` |
-| ciphertext + tag SHA-256 | `40f3aed2550c89c0daff47a5e968605fadecbcd87899483e9616e6a89283cfde` |
-| first 32 ciphertext bytes | `e0c9ddaff27444458d5e0b380474f22e01feeb9bd86ca244ca8b57ea8b7f8940` |
-| final GCM tag | `5809c7937dfb6b30650b6a25bcb45752` |
+| SFX SHA-256 | `16e00a6df2e29cbb02bb3aa73c81e3ddf10dc5d85c964ce4d024ecc9f64f21a6` |
+| ciphertext + tag SHA-256 | `6069966ac572d87455fd858629d5916dc826d0c476729fda5235efc7a45eca9a` |
+| first 32 ciphertext bytes | `6cfde07985561b786bd53bfc994993c244a6bd04e49878072e8adec8c189fac1` |
+| final GCM tag | `9d9a2d3bb7aa63ec54cbfeca3ff43665` |
 
 Header hex:
 
 ```text
-534658320203034000000100c422000000000000000102030405060708090a0b0c0d0e0f1032547698badcfe0000000000000000000000000000000000000000
+534658000003034000000100c422000000000000000102030405060708090a0b0c0d0e0f1032547698badcfe0000000000000000000000000000000000000000
 ```
 
 Every implementation must reproduce this vector and must also test wrong key,

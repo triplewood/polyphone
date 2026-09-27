@@ -1,7 +1,7 @@
 # Polyphone Fork SoundFont Compatibility Note
 
 Status: Draft v0.5 - Polyphone editor note, not canonical format spec
-Last updated: 2026-07-06
+Last updated: 2026-09-27
 Scope: this Polyphone fork only.
 
 ## Canonical documents
@@ -9,7 +9,13 @@ Scope: this Polyphone fork only.
 This repository is a fork of the open-source Polyphone project. EWI custom
 format rules should not be defined here as the source of truth.
 
-Authoritative format and fixture specification:
+Authoritative format specification:
+
+```text
+/Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/formats/SOUNDFONT_EXTENSIONS.md
+```
+
+Producer workflow and fixture specification:
 
 ```text
 /Users/gary/Work/Yasile/src/dream_snddev/tools/sbkit/docs/soundfont-compatibility-spec.md
@@ -51,6 +57,19 @@ EWI MIDI Synthesizer = runtime / product consumer
 Polyphone should not define product containers and should not depend on
 EWI runtime containers. It should consume stable SF2/SF3 files and preserve
 editor semantics.
+
+## Current SFX product boundary
+
+SFX is a downstream product container, not a Polyphone interchange format.
+Polyphone authors and roundtrips SF2/SF3 sources; it does not open, edit, or
+save `.sfx` files. The current producer/consumer contract accepts one `.sfx`
+form: magic `SFX\0`, a zero reserved byte at offset 4 with no version field,
+flags `0x03`, AES-256-GCM suite `3`, a 64-byte header, and 65536-byte plaintext
+chunks. Key derivation uses HKDF-SHA256 with info `Yasile-SFX`.
+
+Legacy SFX1 and SFX2 variants are not part of the current contract. The full
+wire layout and interoperability vectors remain owned by sbkit; this note only
+records the Polyphone authoring boundary.
 
 ## Current Polyphone implementation observations
 
@@ -160,7 +179,7 @@ Result:
 ## Non-goals in this fork
 
 - Do not define the canonical SoundFont/SF3/SFX spec here.
-- Do not define SFX1/SFX2 convergence here.
+- Do not define SFX wire details or legacy-variant compatibility here.
 - Do not make this fork depend on EWI runtime containers.
 - Do not add private product policy to upstream-facing Polyphone code or
   docs unless clearly marked as fork-local.
