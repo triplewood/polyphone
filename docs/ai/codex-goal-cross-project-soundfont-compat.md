@@ -35,7 +35,7 @@ Constraints:
 - Prefer SF2/SF3 as the cross-project interchange formats.
 - Treat SFX as one downstream `.sfx` product container. The current contract
   uses magic `SFX\0`, a zero reserved byte at offset 4 with no version field,
-  flags `0x03`, AES-256-GCM suite `3`, a 64-byte header, 65536-byte plaintext
+  flags `0x03`, AES-256-GCM suite `3`, a 64-byte header, 4096-byte plaintext
   chunks, and HKDF-SHA256 info `Yasile-SFX`; reject legacy SFX1 and SFX2
   variants.
 - Keep the canonical custom-format documentation in sbkit/SDK, not in the Polyphone fork.

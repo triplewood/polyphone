@@ -81,7 +81,7 @@ the requested region. The 64-byte header is authenticated with every chunk.
 | 5 | 1 | flags | `0x03` (encrypted + product-line key) |
 | 6 | 1 | cipher suite | `3` (AES-256-GCM chunked) |
 | 7 | 1 | header size | `64` |
-| 8 | 4 | plaintext chunk size | `65536` |
+| 8 | 4 | plaintext chunk size | `4096` |
 | 12 | 8 | plaintext payload size | complete SoundFont byte count |
 | 20 | 16 | HKDF salt | random per file |
 | 36 | 8 | nonce prefix | random per file |
@@ -120,7 +120,7 @@ Producers and consumers must resolve the same secret bytes before HKDF.
 
 ### 3.3 Chunk records
 
-Split the plaintext payload into 65536-byte chunks; the final chunk may be
+Split the plaintext payload into 4096-byte chunks; the final chunk may be
 shorter. Chunk index starts at zero. For each chunk:
 
 - nonce: the 8-byte nonce prefix followed by the chunk index encoded as a
@@ -133,7 +133,7 @@ shorter. Chunk index starts at zero. For each chunk:
 No per-record length is stored because it is derived from the header, payload
 size, and chunk index. The exact file size is:
 
-`64 + payload_size + 16 * ceil(payload_size / 65536)`
+`64 + payload_size + 16 * ceil(payload_size / 4096)`
 
 Consumers must authenticate a complete chunk before exposing any byte from that
 chunk. Random reads decrypt the intersecting chunks independently, so dynamic
@@ -166,16 +166,16 @@ The test payload is the SBKit `make_tiny_sf2` fixture.
 | nonce prefix | `1032547698badcfe` |
 | payload size | `8900` |
 | payload SHA-256 | `14f2fafb133b589f7816982ddfdbfd1a234103fc09d06eb6f8148402689115c9` |
-| SFX size | `8980` |
-| SFX SHA-256 | `16e00a6df2e29cbb02bb3aa73c81e3ddf10dc5d85c964ce4d024ecc9f64f21a6` |
-| ciphertext + tag SHA-256 | `6069966ac572d87455fd858629d5916dc826d0c476729fda5235efc7a45eca9a` |
+| SFX size | `9012` |
+| SFX SHA-256 | `e510d27ef51c18904dba28a93c334194d3e95b38d3e5848bc5303d650307a19c` |
+| ciphertext + tag SHA-256 | `fd5d7c1bee29fddb1cbd3d0ac6c012c29993f405a04e4182cd7140ae44ba4271` |
 | first 32 ciphertext bytes | `6cfde07985561b786bd53bfc994993c244a6bd04e49878072e8adec8c189fac1` |
-| final GCM tag | `9d9a2d3bb7aa63ec54cbfeca3ff43665` |
+| final GCM tag | `e7a76b70d371d5cdc5db5274e2fe4c73` |
 
 Header hex:
 
 ```text
-534658000003034000000100c422000000000000000102030405060708090a0b0c0d0e0f1032547698badcfe0000000000000000000000000000000000000000
+534658000003034000100000c422000000000000000102030405060708090a0b0c0d0e0f1032547698badcfe0000000000000000000000000000000000000000
 ```
 
 Every implementation must reproduce this vector and must also test wrong key,

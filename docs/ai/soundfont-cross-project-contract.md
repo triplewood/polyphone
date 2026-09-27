@@ -64,7 +64,7 @@ SFX is a downstream product container, not a Polyphone interchange format.
 Polyphone authors and roundtrips SF2/SF3 sources; it does not open, edit, or
 save `.sfx` files. The current producer/consumer contract accepts one `.sfx`
 form: magic `SFX\0`, a zero reserved byte at offset 4 with no version field,
-flags `0x03`, AES-256-GCM suite `3`, a 64-byte header, and 65536-byte plaintext
+flags `0x03`, AES-256-GCM suite `3`, a 64-byte header, and 4096-byte plaintext
 chunks. Key derivation uses HKDF-SHA256 with info `Yasile-SFX`.
 
 Legacy SFX1 and SFX2 variants are not part of the current contract. The full
